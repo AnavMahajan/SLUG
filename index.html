@@ -1,165 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SLUG Meme Coin on Hedera Blockchain. Slime your way into the future with Hedera’s speed.">
-    <title>SLUG Meme Coin | Powered by Hedera</title>
-    <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SLUG Meme Coin | Hedera Blockchain</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        /* Header Section */
-        header {
-            background-color: #141414;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
+    header {
+      background: #0d1f2b;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-        header h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.85;
-            font-weight: 300;
-        }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-        /* Main Content */
-        .content {
-            max-width: 1000px;
-            margin: 50px auto;
-            text-align: center;
-            padding: 20px;
-        }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
 
-        .content h2 {
-            font-size: 2.8rem;
-            color: #444;
-            margin: 20px 0;
-        }
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .content p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
+    .intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        .cta {
-            font-size: 1.2rem;
-            margin-top: 20px;
-        }
+    .intro h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #2a2a2a;
+      margin-bottom: 20px;
+    }
 
-        .cta a {
-            color: #00bcd4;
-            font-weight: bold;
-            text-decoration: none;
-            border-bottom: 2px solid #00bcd4;
-            transition: all 0.3s ease;
-        }
+    .intro p {
+      font-size: 1.2rem;
+      color: #555;
+    }
 
-        .cta a:hover {
-            color: #ff4081;
-            border-color: #ff4081;
-        }
+    .features {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
 
-        /* Embed Post Section */
-        .embed-posts {
-            margin-top: 50px;
-        }
+    .feature-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      text-align: center;
+      background-color: #f4f6f9;
+      transition: all 0.3s ease;
+    }
 
-        .embed-post {
-            margin-bottom: 40px;
-        }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Footer */
-        footer {
-            background: #141414;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.8rem;
-            }
+    .feature-card p {
+      font-size: 1rem;
+      color: #777;
+    }
 
-            .content h2 {
-                font-size: 2.2rem;
-            }
+    .embed-post {
+      margin: 40px 0;
+      text-align: center;
+    }
 
-            .content p {
-                font-size: 1rem;
-            }
+    .embed-post .tweet-container {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;  /* Center the tweet container */
+      width: 100%;  /* Make sure it takes the full width */
+      max-width: 800px;  /* Set a maximum width for the embedded tweet */
+      margin-left: auto;  /* Center the tweet container horizontally */
+      margin-right: auto;  /* Center the tweet container horizontally */
+    }
 
-            .cta a {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    .embed-post .tweet-container img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .embed-post .tweet-content {
+      max-width: 800px;
+    }
+
+    .footer {
+      background: #0d1f2b;
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      margin-top: 10px;
+    }
+
+    .social-links i {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .social-links i:hover {
+      color: #ffcc00;
+    }
+
+    /* Add background for card-like sections */
+    .card-background {
+      background-image: url('https://path_to_your_background_image.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px;
+      border-radius: 10px;
+    }
+
+  </style>
 </head>
 <body>
 
-<header>
+  <!-- Header Section -->
+  <header>
+    <img src="slug.jpeg" alt="SLUG Meme Coin Logo">
     <h1>SLUG Meme Coin</h1>
-    <p>Not aiming for the moon, just slime your way into the future with Hedera’s speed.</p>
-</header>
+    <p>Not aiming for the moon, just slime your way into the future with Hedera’s speed</p>
+  </header>
 
-<div class="content">
-    <h2>Welcome to SLUG Meme Coin on Hedera Blockchain</h2>
-    <p>SLUG is the new meme coin on the Hedera blockchain. We're here to add some fun to the crypto ecosystem while benefiting from Hedera’s fast, secure, and scalable network. Join us as we slime our way to the future of decentralized finance!</p>
-    
-    <div class="cta">
-        <p>Follow us on X for updates: <a href="https://x.com/HBARSLUG" target="_blank">@HBARSLUG</a></p>
-    </div>
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Features Section with Cards -->
+    <section class="features card-background">
+      <div class="feature-card">
+        <h3>Fast Transactions</h3>
+        <p>Thanks to Hedera, SLUG transactions are lightning fast and secure.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Low Fees</h3>
+        <p>Enjoy extremely low transaction fees on every transfer.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Decentralized Fun</h3>
+        <p>Join a community of like-minded individuals in the world of meme coins.</p>
+      </div>
+    </section>
 
-    <!-- Embedded X Posts -->
-    <div class="embed-posts">
-        <div class="embed-post">
-            <h3>Latest from @HBARSLUG</h3>
-            <blockquote class="twitter-tweet" data-lang="en">
-                <p lang="en" dir="ltr">Join the Slime Train! 🚂💨 SLUG Coin, built on Hedera, is ready to take you into the future of meme coins. #SlugCoin #Hedera</p>&mdash; SLUG (@HBARSLUG) <a href="https://x.com/HBARSLUG/status/1872965695543361732">December 28, 2024</a>
-            </blockquote>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- Embed X Post Section -->
+    <section class="embed-post">
+      <h2>Latest from Twitter</h2>
+
+      <!-- First Tweet from X -->
+      <div class="tweet-container">
+        <div class="tweet-content">
+          <blockquote class="twitter-tweet">
+            <a href="https://twitter.com/HBARSLUG/status/1872953556564910234" target="_blank">Check out our latest tweet!</a>
+          </blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
+      </div>
 
-        <div class="embed-post">
-            <h3>More from @HBARSLUG</h3>
-            <blockquote class="twitter-tweet" data-lang="en">
-                <p lang="en" dir="ltr">Slime your way into the future with Hedera's lightning speed. 🚀 #SlugCoin #Hedera #Crypto</p>&mdash; SLUG (@HBARSLUG) <a href="https://x.com/HBARSLUG/status/1872965695543361733">December 27, 2024</a>
-            </blockquote>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- Second Tweet from X -->
+      <div class="tweet-container">
+        <div class="tweet-content">
+          <blockquote class="twitter-tweet">
+            <a href="https://twitter.com/HBARSLUG/status/1872964997812502594" target="_blank">Check out our second tweet!</a>
+          </blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
-    </div>
-</div>
+      </div>
 
-<footer>
-    <p>&copy; 2024 SLUG Meme Coin. All rights reserved. Powered by Hedera.</p>
-</footer>
+    </section>
+
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 SLUG Meme Coin. All rights reserved.</p>
+    <p>Follow us on Twitter: <a href="https://x.com/HBARSLUG" target="_blank">@HBARSLUG</a></p>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+      <a href="https://twitter.com/HBARSLUG" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/your-profile/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/your-profile/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
-
