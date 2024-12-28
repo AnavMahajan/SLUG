@@ -121,11 +121,11 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: flex-start;
-      justify-content: center;  /* Center the tweet container */
-      width: 100%;  /* Make sure it takes the full width */
-      max-width: 800px;  /* Set a maximum width for the embedded tweet */
-      margin-left: auto;  /* Center the tweet container horizontally */
-      margin-right: auto;  /* Center the tweet container horizontally */
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .embed-post .tweet-container img {
@@ -171,7 +171,6 @@
       color: #ffcc00;
     }
 
-    /* Add background for card-like sections */
     .card-background {
       background-image: url('https://path_to_your_background_image.jpg');
       background-size: cover;
@@ -180,36 +179,29 @@
       border-radius: 10px;
     }
 
-    /* Responsive Styles */
-    @media screen and (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      .main-container {
-        padding: 10px;
-      }
-
+    /* Responsive Design */
+    @media (max-width: 768px) {
       .features {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .feature-card {
-        width: 100%;
-      }
-
-      .embed-post .tweet-container {
         flex-direction: column;
         align-items: center;
       }
 
+      .feature-card {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+
+      .embed-post .tweet-container {
+        width: 90%;  /* Ensure it takes more width on smaller screens */
+        max-width: 100%;
+      }
+
       .footer {
         font-size: 0.9rem;
+      }
+
+      .footer a {
+        font-size: 1rem;
       }
 
       .social-links i {
@@ -217,27 +209,20 @@
       }
     }
 
-    @media screen and (max-width: 480px) {
+    @media (max-width: 480px) {
       header h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
       }
 
       header p {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
 
-      .feature-card h3 {
-        font-size: 1.2rem;
-      }
-
-      .feature-card p {
-        font-size: 0.9rem;
-      }
-
-      .embed-post h2 {
-        font-size: 1.5rem;
+      .feature-card {
+        width: 100%;
       }
     }
+
   </style>
 </head>
 <body>
