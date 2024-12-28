@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLUG Meme Coin on Hedera Blockchain. Slime your way into the future with Hedera’s speed.">
+    <title>SLUG Meme Coin | Powered by Hedera</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #141414;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 2.8rem;
+            color: #444;
+            margin: 20px 0;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .cta {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .cta a {
+            color: #00bcd4;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid #00bcd4;
+            transition: all 0.3s ease;
+        }
+
+        .cta a:hover {
+            color: #ff4081;
+            border-color: #ff4081;
+        }
+
+        /* Embed Post Section */
+        .embed-posts {
+            margin-top: 50px;
+        }
+
+        .embed-post {
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: #141414;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            .content h2 {
+                font-size: 2.2rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .cta a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SLUG Meme Coin</h1>
+    <p>Not aiming for the moon, just slime your way into the future with Hedera’s speed.</p>
+</header>
+
+<div class="content">
+    <h2>Welcome to SLUG Meme Coin on Hedera Blockchain</h2>
+    <p>SLUG is the new meme coin on the Hedera blockchain. We're here to add some fun to the crypto ecosystem while benefiting from Hedera’s fast, secure, and scalable network. Join us as we slime our way to the future of decentralized finance!</p>
+    
+    <div class="cta">
+        <p>Follow us on X for updates: <a href="https://x.com/HBARSLUG" target="_blank">@HBARSLUG</a></p>
+    </div>
+
+    <!-- Embedded X Posts -->
+    <div class="embed-posts">
+        <div class="embed-post">
+            <h3>Latest from @HBARSLUG</h3>
+            <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">Join the Slime Train! 🚂💨 SLUG Coin, built on Hedera, is ready to take you into the future of meme coins. #SlugCoin #Hedera</p>&mdash; SLUG (@HBARSLUG) <a href="https://x.com/HBARSLUG/status/1872965695543361732">December 28, 2024</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div class="embed-post">
+            <h3>More from @HBARSLUG</h3>
+            <blockquote class="twitter-tweet" data-lang="en">
+                <p lang="en" dir="ltr">Slime your way into the future with Hedera's lightning speed. 🚀 #SlugCoin #Hedera #Crypto</p>&mdash; SLUG (@HBARSLUG) <a href="https://x.com/HBARSLUG/status/1872965695543361733">December 27, 2024</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 SLUG Meme Coin. All rights reserved. Powered by Hedera.</p>
+</footer>
+
+</body>
+</html>
+
