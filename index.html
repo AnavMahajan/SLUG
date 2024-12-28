@@ -49,33 +49,28 @@
       color: #fff;
     }
 
-    header p {
+    header p, sub{
       font-size: 1rem;
       color: #bbb;
     }
 
-    .buy-button {
-      background-color: #fff;
-      color: #1E1E1E;
-      font-size: 1.2rem;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .buy-button i {
-      font-size: 1.5rem;
-    }
-
-    .buy-button:hover {
-      background-color: #f4f4f4;
-    }
+    .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between the buttons */
+  }
+  .buy-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f6f7f6;
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .buy-button img {
+    margin-right: 8px; /* Space between image and text */
+  }
 
     .main-container {
       max-width: 1200px;
@@ -225,13 +220,21 @@
   <header>
     <img src="slug.jpeg" alt="SLUG Coin Logo">
     <div>
-      <h1>SLUG Coin</h1>
-      <p>Not aiming for the moon, just slime your way into the future with Hedera’s speed.</p>
-    </div>
-    <!-- Buy on memejob.fun Button -->
-    <a href="https://memejob.fun/token/0.0.7988483" class="buy-button" target="_blank">
-        <img src="memejobfun.jpeg" alt="Memejob.fun Logo" style="width: 24px; height: 24px;"/> Buy on Memejob.fun
-      </a>
+        <h1>SLUG <sub>Not aiming for the moon, just slime your way into the future with Hedera’s speed.</sub> </h1>
+       
+       
+      </div>
+      
+
+    <div class="button-container">
+        <a href="https://memejob.fun/token/0.0.7988483" class="buy-button" target="_blank">
+          <img src="memejobfun.jpeg" alt="Memejob.fun Logo" style="width: 24px; height: 24px;"/> Buy on Memejob.fun
+        </a>
+        <a href="https://x.com/HBARSLUG" class="buy-button" target="_blank">
+          <img src="X.jpeg" alt="Follow us on X" style="width: 24px; height: 24px;"/> Follow us on X
+        </a>
+      </div>
+     
       
   </header>
 
@@ -344,13 +347,24 @@
   </div>
 
   <!-- Footer Section -->
-  <footer>
+<!-- Footer Section -->
+<footer>
     <p>&copy; 2024 SLUG Coin. All rights reserved.</p>
     <div class="social-links">
-      <i class="fab fa-twitter" aria-label="Twitter"></i>
-      <i class="fab fa-telegram" aria-label="Telegram"></i>
+      <a href="https://memejob.fun/" target="_blank" class="social-icon">
+        <img src="memejobfun.jpeg" alt="Memejob.fun Logo" style="width: 24px; height: 24px;" />
+        Memejob.fun
+      </a>
+      <a href="https://hedera.com" target="_blank" class="social-icon">
+        <img src="hedera-hbar-logo.png" alt="Hedera" style="width: 24px; height: 24px;" />
+        Hedera
+      </a>
+      <a href="https://x.com/HBARSLUG" target="_blank" class="social-icon">
+        <i class="fab fa-twitter"></i> HBARSLUG
+      </a>
     </div>
   </footer>
+  
 
 </body>
 </html>
