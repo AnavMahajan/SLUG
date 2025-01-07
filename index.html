@@ -1,373 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SLUG Coin | Hedera Blockchain</title>
+<title>SLUG Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+  .w3-row-padding img {margin-bottom: 12px}
+  /* Set the width of the sidebar to 120px */
+  .w3-sidebar {width: 120px;background: #222;}
+  /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+  #main {margin-left: 120px}
+  /* Remove margins from "page content" on small screens */
+  @media only screen and (max-width: 600px) {#main {margin-left: 0}}
   
-  <!-- Google Fonts (Roboto to mimic Proxima Nova) -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  button {
+    border: 2px solid #555; /* Slightly lighter border */
+    color: white;
+    background-color: #333; /* Dark background matching theme */
+  }
   
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  button i {
+    color: #e0e0e0; /* Light gray icon color for contrast */
+  }
   
-  <!-- Custom CSS -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  button:hover {
+    background-color: #444; /* Slightly lighter dark color on hover */
+    border-color: #666; /* Subtle border highlight */
+  }
+  
+  button.w3-dark {
+    background-color: #020202; /* Darker gray background */
+    border-color: #444; /* Matching border */
+  }
+  
+  button.w3-dark:hover {
+    background-color: #3a3a3a; /* Darker gray hover */
+    border-color: #555; /* Darker border on hover */
+  }
+  </style>
+  
+  <!-- Additional Styles for Hover Effect -->
+<style>
+  .card-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  .w3-row-padding {
+    gap: 24px; /* Adds space between cards */
+  }
+</style>
 
-    body {
-      font-family: 'Roboto', sans-serif; 
-      background-color: #121212;
-      color: #fff;
-      line-height: 1.6;
-    }
 
-    header {
-      display: flex;
+<style>
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .w3-row-padding {
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1E1E1E;
-      padding: 40px 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    header img {
+    .w3-card-4 {
+      height: auto;
+      margin-bottom: 16px;
+    }
+
+    .w3-card-4 img {
+      width: 140px;
+      height: 140px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 20px;
+    }
+
+    .w3-card-4 {
+      height: auto;
+      margin-bottom: 12px;
+    }
+
+    .w3-card-4 img {
       width: 120px;
       height: 120px;
-      border-radius: 50%;
     }
-
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-left: 20px;
-      color: #fff;
-    }
-
-    header p, sub{
-      font-size: 1rem;
-      color: #bbb;
-    }
-
-    .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Add space between the buttons */
   }
-  .buy-button {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #f6f7f6;
-    color: rgb(10, 10, 10);
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  .buy-button img {
-    margin-right: 8px; /* Space between image and text */
-  }
-
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* Tokenomics, Features, and X Post Sections Styling */
-    section {
-      margin: 40px 0;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .card-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .info-card, .feature-card, .tweet-container {
-      background-color: #1F1F1F;
-      padding: 20px;
-      border-radius: 10px;
-      width: 30%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .info-card:hover, .feature-card:hover, .tweet-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .info-card h3, .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-
-    .info-card p, .feature-card p, .tweet-content p {
-      font-size: 1rem;
-      color: #bbb;
-    }
-
-    .tweet-container {
-      margin-bottom: 20px;
-    }
-
-    .tweet-container blockquote {
-      font-size: 1.1rem;
-      color: #fff;
-    }
-
-    .x-post {
-      margin-top: 20px;
-    }
-
-    footer {
-      background-color: #1E1E1E;
-      color: #bbb;
-      padding: 30px 0;
-      text-align: center;
-      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .social-links {
-      margin-top: 10px;
-    }
-
-    .social-links i {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    .social-links i:hover {
-      color: #f4f4f4;
-    }
-
-    /* Divider Line Styling */
-    .section-divider {
-      height: 1px;
-      background-color: #444;
-      margin: 40px 0;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .buy-button {
-        margin-top: 20px;
-        align-self: flex-end;
-      }
-
-      .header-info {
-        text-align: left;
-      }
-
-      .card-container, .features, .x-post {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .info-card, .feature-card, .tweet-container {
-        width: 80%;
-        margin-bottom: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .info-card, .feature-card, .tweet-container {
-        width: 100%;
-      }
-    }
-  </style>
+</style>
+  
 </head>
-<body>
+<body class="w3-black">
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="mySidebar">
+  <img src="slug.jpeg" style="width:100%">
+  
+  <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>Home</p>
+  </a>
+  
+  <a href="#slug" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-building w3-xxlarge"></i>
+    <p>SLUG Project</p>
+  </a>
+  
+  <a href="#slug-community" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-users w3-xxlarge"></i>
+    <p>Join Community</p>
+  </a>
+  
+  <a href="#how-to-buy" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-shopping-cart w3-xxlarge"></i>
+    <p>Buy & Hold Slug</p>
+  </a>
 
-  <!-- Header Section -->
-  <header>
-    <div>
-        <img src="slug.jpeg" alt="SLUG Coin Logo">
+  <a href="#slug-nft" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i> <!-- Person icon for NFT -->
+    <p>NFT</p>
+  </a>
+  
+  <a href="#slug-facts" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-info-circle w3-xxlarge"></i>
+    <p>Facts</p>
+  </a>
 
-    </div>
-    <div>
-        <h1>SLUG </h1>
-       
-      </div>
-      
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>Contact</p>
+  </a>
+</nav>
 
-    <div class="button-container">
-        <a href="https://memejob.fun/token/0.0.7988483" class="buy-button" target="_blank">
-          <img src="memejobfun.jpeg" alt="Memejob.fun Logo" style="width: 24px; height: 24px;"/> Buy on Memejob.fun
-        </a>
-        <a href="https://x.com/HBARSLUG" class="buy-button" target="_blank">
-          <img src="X.jpeg" alt="Follow us on X" style="width: 24px; height: 24px;"/> Follow us on X
-        </a>
-      </div>
-     
-      
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="javascript:void(0);" class="w3-bar-item w3-button" onclick="toggleNavbar()">☰</a>
+  </div>
+</div>
+
+<!-- Small screen Navbar dropdown -->
+<div class="w3-top w3-hide-small" id="smallNavbar" style="display: none;">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#home" class="w3-bar-item w3-button">Home</a>
+    <a href="#slug" class="w3-bar-item w3-button">SLUG Project</a>
+    <a href="#slug-community" class="w3-bar-item w3-button">Join Community</a>
+    <a href="#how-to-buy" class="w3-bar-item w3-button">Buy & Hold Slug</a>
+    <a href="#slug-nft" class="w3-bar-item w3-button">NFT</a>
+    <a href="#slug-facts" class="w3-bar-item w3-button">Facts</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+  </div>
+</div>
+
+<!-- JavaScript for Toggle Function -->
+<script>
+  function toggleNavbar() {
+    var x = document.getElementById("smallNavbar");
+    if (x.style.display === "none" || x.style.display === "") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Slug to the</span> Future</h1>
+    <p>The Ultimate Meme Coin on Hedera Hashgraph</p>
+    <img src="4.png" alt="SLUG" class="w3-image" width="992" height="1108">
   </header>
 
-  <!-- Main Content -->
-  <div class="main-container">
+<!-- SLUG Project Section -->
+<div class="w3-content w3-justify w3-text-grey w3-padding-32" id="slug">
+  <h2 class="w3-text-light-grey">The SLUG Project</h2>
+  <hr style="width:250px" class="w3-opacity">
+  <p>The SLUG Project is an exciting open-source meme coin that leverages the power of the Hedera Hashgraph network. Hedera Hashgraph is a highly secure, decentralized, and fast blockchain alternative, built on the principle of a public ledger maintained by a network of computers known as nodes. Unlike traditional blockchain systems, Hedera Hashgraph uses a unique consensus algorithm called "Gossip about Gossip" and "Virtual Voting," enabling high throughput, low latency, and security at scale.</p>
 
-    <!-- What is SLUG Section -->
-    <section class="what-is-slug">
-      <h2>What is SLUG?</h2>
-      <p><strong>SLUG</strong> is the people's cryptocurrency, created on the Hedera network to lead us into the future. It's not just a coin; it's a revolution in the digital currency space. Powered by the lightning-fast and secure Hedera Hashgraph, SLUG is designed for the masses. While many cryptocurrencies are focused on the moon, SLUG is here to build something different – a decentralized, meme-powered ecosystem that's scalable, low-cost, and ready for the future.</p>
-      <p>As the world embraces digital transformation, SLUG is set to take its place as the people's cryptocurrency, not bound by the traditional constraints of slow and costly blockchain networks. SLUG is your gateway to join a vibrant community, participate in a decentralized ecosystem, and harness the power of Hedera for the meme economy of tomorrow.</p>
-    </section>
+  <p>But the SLUG Project isn't just about technology. It’s about community. Much like other successful meme coin projects, we thrive on the power of a vibrant and engaged community, brought together by the shared vision of turning SLUG into the most fun and inclusive meme coin on the Hedera network. The ethos of the SLUG Project is not just about transactions but about creating a space for fun, creativity, and innovation in the world of decentralized finance (DeFi).</p>
 
-    <div class="section-divider"></div>
+  <p>We believe in building a platform that rewards creativity, enables exciting airdrops, fosters community engagement through competitions, and is truly decentralized. It’s a platform where meme enthusiasts, token holders, and NFT creators alike can come together to celebrate their passion for memes, innovation, and Hedera’s next-gen capabilities. Our mission is clear—SLUG is here to add value to the Hedera ecosystem while empowering every member of the community to get involved, grow, and share in the excitement of the SLUG coin's journey.</p>
+
+  <p>Join us on this thrilling ride as we develop, expand, and grow the SLUG Project with Hedera’s groundbreaking technology, all while having fun and building lasting connections in the process.</p>
+
+  <p>Learn more about the SLUG Project and how you can be a part of it!</p>
 
 
-    <!-- Tokenomics Section -->
-    <section class="tokenomics">
-        <h2>Tokenomics</h2>
-
-        <!-- Tokenomics Cards -->
-        <div class="card-container">
-          <div class="info-card">
-            <h3><i class="fas fa-coins"></i> Token Name</h3>
-            <p>SLUG</p>
-          </div>
-          <div class="info-card">
-            <h3><i class="fas fa-tag"></i> Symbol</h3>
-            <p>SLUG</p>
-          </div>
-          <div class="info-card">
-            <h3><i class="fas fa-cogs"></i> Total Supply</h3>
-            <p>1,000,000,000 SLUG</p>
-          </div>
-        </div>
-        <div class="card-container">
-          <div class="info-card">
-            <h3><i class="fas fa-network-wired"></i> Blockchain</h3>
-            <p>Hedera Hashgraph</p>
-          </div>
-          <div class="info-card">
-            <h3><i class="fas fa-gift"></i> Utility</h3>
-            <p>SLUG Coin is used for meme ecosystem interactions, payments, and rewards.</p>
-          </div>
-        </div>
-    </section>
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="slug-community">
+    <h2 class="w3-text-light-grey">Join the Slug Community</h2>
+    <hr style="width:400px" class="w3-opacity">
+    
+    <div class="w3-row-padding w3-center" style="display: flex; justify-content: center; gap: 48px;">
+      <!-- X Logo -->
+      <div class="card-hover">
+        <a href="https://x.com/HbarSlug" target="_blank">
+          <img src="https://freepnglogo.com/images/all_img/1691832708new-twitter-x-logo-white.png" alt="X Logo" style="width: 30px; height: 30px;">
+        </a>
+        <p>Follow us on X</p>
+      </div>
   
-
-    <!-- Divider Line Between Sections -->
-    <div class="section-divider"></div>
-
-<!-- Why SLUG Section -->
-<section class="features">
-    <h2>Why SLUG?</h2>
-    <div class="card-container">
-        <div class="feature-card">
-            <h3><i class="fas fa-bolt"></i> Fast Transactions</h3>
-            <p>Hedera Hashgraph powers SLUG, providing incredibly fast transaction speeds that ensure users experience near-instantaneous transfers. Unlike traditional blockchains that can suffer from delays during high demand, Hedera's unique consensus algorithm allows for high throughput and low latency. This means no waiting for confirmation, no congestion, and seamless transactions no matter the volume of activity. Whether you're sending SLUG to friends or participating in the meme ecosystem, you can expect transactions to be executed in seconds.</p>
-        </div>
-        <div class="feature-card">
-            <h3><i class="fas fa-dollar-sign"></i> Low Fees</h3>
-            <p>One of the standout features of Hedera is its ability to maintain low transaction fees. Unlike other blockchain networks, which often struggle with high fees during times of network congestion, Hedera's unique architecture ensures low-cost operations. With SLUG built on Hedera, users enjoy extremely low transaction fees, making it accessible for everyone—from casual users to large-scale adopters. This makes it the ideal coin for frequent, everyday transactions without worrying about escalating costs.</p>
-        </div>
-        <div class="feature-card">
-            <h3><i class="fas fa-users"></i> Decentralized Fun</h3>
-            <p>Hedera's decentralized nature allows SLUG to be a truly community-driven project. By leveraging Hedera's public ledger, SLUG ensures that users can participate in a transparent and secure network, where their transactions and participation are validated by a decentralized consensus of network nodes. This promotes fairness, trust, and transparency, creating an environment where the SLUG community can thrive. With SLUG, users are not only part of a fun and engaging meme ecosystem but also part of a decentralized movement that empowers individuals to take control of their digital assets.</p>
-        </div>
+      <!-- Telegram Logo -->
+      <div class="card-hover">
+        <a href="http://t.me/slugofficial" target="_blank">
+          <i class="fa fa-telegram fa-3x" style="color: #0088cc;"></i>
+        </a>
+        <p>Join us on Telegram</p>
+      </div>
+  
+      <!-- Memejob Fun Logo -->
+      <div class="card-hover">
+        <a href="https://memejob.fun/token/0.0.7988483" target="_blank">
+          <i class="fa fa-rocket fa-3x" style="color: #FF6A00;"></i>
+        </a>
+        <p>Check out our SLUG Token</p>
+      </div>
     </div>
-</section>
+  </div>
+    
+<!-- How to Buy Section -->
+<div class="w3-content w3-justify w3-text-grey w3-padding-32" id="how-to-buy">
+  <h2 class="w3-text-light-grey">How to Buy SLUG Coin</h2>
+  <hr style="width:350px" class="w3-opacity">
 
+  <div class="w3-row-padding w3-padding-32" style="gap: 24px; display: flex; flex-wrap: wrap;">
+    <!-- Step 1 Card -->
+    <a href="https://www.hashpack.app/" target="_blank" style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
+      <div class="w3-card-4 w3-dark-grey card-hover" style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
+        <!-- Step Banner -->
+        <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
+          <i class="fa fa-wallet" style="margin-right: 10px;"></i> Create a Wallet
+        </div>
+        <!-- Card Image -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <img src="wallet.png" alt="Step 1" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; max-width: 180px; max-height: 180px;">
+        </div>
+        <hr  class="w3-opacity">
 
-    <!-- Divider Line Between Sections -->
-    <div class="section-divider"></div>
-
-    <!-- Embed X Post Section -->
-    <section class="x-post">
-      <h2>Latest from X</h2>
-      <!-- Tweets -->
-      <div class="tweet-container">
-        <div class="tweet-content">
-          <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/HBARSLUG/status/1872953556564910234" target="_blank">Check out our latest tweet!</a>
-          </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="w3-container">
+          <p>Set up a crypto wallet that supports Hedera. Popular choices include HashPack and FireFly.</p>
         </div>
       </div>
+    </a>
 
-      <div class="tweet-container">
-        <div class="tweet-content">
-          <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/HBARSLUG/status/1872964997812502594" target="_blank">Check out our second tweet!</a>
-          </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- Step 2 Card -->
+    <a href="https://www.binance.com/" target="_blank" style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
+      <div class="w3-card-4 w3-dark-grey card-hover" style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
+        <!-- Step Banner -->
+        <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
+          <i class="fa fa-coins" style="margin-right: 10px;"></i> Buy HBAR
+        </div>
+
+        <!-- Card Image -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <img src="hedera-hbar-logo.png" alt="Step 2" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; max-width: 160px; max-height: 160px;">
+        </div>
+
+        <hr  class="w3-opacity">
+
+        <div class="w3-container">
+          <p>Purchase Hedera’s native token HBAR from an exchange like Binance, KuCoin, or Bitfinex.</p>
         </div>
       </div>
+    </a>
 
-      <div class="tweet-container">
-        <div class="tweet-content">
-          <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/HBARSLUG/status/1872985575407665280" target="_blank">🚀🚀🚀🚀🚀🚀🚀</a>
-          </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- Step 3 Card -->
+    <a href="https://www.memejob.fun/" target="_blank" style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
+      <div class="w3-card-4 w3-dark-grey card-hover" style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
+        <!-- Step Banner -->
+        <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
+          <i class="fa fa-slug" style="margin-right: 10px;"></i> Buy SLUG Coin
+        </div>
+        <!-- Card Image -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <img src="slug.jpeg" alt="Step 3" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; max-width: 160px; max-height: 160px;">
+        </div>
+        <hr  class="w3-opacity">
+
+        <div class="w3-container">
+          <p>Use the Memejob Fun platform to purchase SLUG coin and join the community!</p>
         </div>
       </div>
-    </section>
+    </a>
+  </div>
+</div>
 
-    <!-- Divider Line Between Sections -->
-    <div class="section-divider"></div>
 
+
+
+
+<div class="w3-content w3-justify w3-text-white w3-padding-32" id="slug-nft">
+  <h2 class="w3-text-light-grey">Our Sliminions NFT Characters</h2>
+  <hr style="width:430px" class="w3-opacity">
+  <div class="w3-row-padding" style="gap: 24px; display: flex; flex-wrap: wrap;">
+    <!-- Slimy -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="slimy.png" alt="Slimy" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Slimy - The Brave Leader</h4>
+        <p>Slimy is the fearless leader of the SLUG crew, always leading by example and ensuring the success of the mission. With unmatched courage and determination, Slimy takes the reins and guides the team through every challenge. The perfect embodiment of leadership and bravery.</p>
+        <a href="https://altlantis.market/explore/1@0.0.8014277" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-info-circle"></i> Learn More
+        </a>
+        <button class="w3-button w3-round w3-bar-block" disabled>
+          <i class="fa fa-shopping-cart"></i> Sold Out
+        </button>
+      </div>
+    </div>
+    <!-- Bolt -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="bolt.jpg" alt="Bolt" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Bolt - The Speedster</h4>
+        <p>With unmatched speed and agility, Bolt is always ahead of the curve. Bolt is the one who keeps the SLUG team on the move, ensuring they never miss an opportunity. A true force of nature, Bolt combines swift action with sharp instincts to outpace any adversary.</p>
+        <a href="https://altlantis.market/explore/8@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-info-circle"></i> Learn More
+        </a>
+        <a href="https://altlantis.market/explore/8@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-shopping-cart"></i> Buy NFT
+        </a>
+      </div>
+    </div>
+    <!-- Glitch -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="glitch.jpeg" alt="Glitch" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Glitch - The Hacker</h4>
+        <p>Glitch is the mastermind behind all things tech. With the ability to hack into any system, Glitch keeps the SLUG team secure while also making sure they can break into any system to gather critical data. A true virtuoso in the world of technology, Glitch never misses a beat.</p>
+        <a href="https://altlantis.market/explore/11@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-info-circle"></i> Learn More
+        </a>
+        <a href="https://altlantis.market/explore/11@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-shopping-cart"></i> Buy NFT
+        </a>
+      </div>
+    </div>
   </div>
 
-  <!-- Footer Section -->
-<!-- Footer Section -->
-<footer>
-    <p>&copy; 2024 SLUG Coin. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://memejob.fun/" target="_blank" class="social-icon">
-        <img src="memejobfun.jpeg" alt="Memejob.fun Logo" style="width: 24px; height: 24px;" />
-        Memejob.fun
-      </a>
-      <a href="https://hedera.com" target="_blank" class="social-icon">
-        <img src="hedera-hbar-logo.png" alt="Hedera" style="width: 24px; height: 24px;" />
-        Hedera
-      </a>
-      <a href="https://x.com/HBARSLUG" target="_blank" class="social-icon">
-        <i class="fab fa-twitter"></i> HBARSLUG
+  <div class="w3-row-padding" style="gap: 24px; display: flex; flex-wrap: wrap;">
+    <!-- Nova -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="nova.jpeg" alt="Nova" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Nova - The Navigator</h4>
+        <p>Nova is the guiding star of the SLUG team. With the ability to chart a course through the stars, Nova ensures the team stays on track, no matter how challenging the journey ahead may be. A beacon of wisdom and direction, Nova is the one who always knows the way.</p>
+        <a href="https://altlantis.market/explore/12@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-info-circle"></i> Learn More
+        </a>
+        <a href="https://altlantis.market/explore/12@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
+          <i class="fa fa-shopping-cart"></i> Buy NFT
+        </a>
+      </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="comingsoon.png" alt="Coming Soon" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Coming Soon - Character</h4>
+        <p>Stay tuned for more characters joining Sliminions! New adventures and new personalities are on the way.</p>
+      </div>
+    </div>
+
+    <div class="w3-card-4 card-hover" style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
+      <img src="comingsoon2.png" alt="Coming Soon" style="width:100%;height: auto; border-bottom: 2px solid #555;">
+      <div class="w3-container">
+        <h4 class="w3-text-light-grey">Coming Soon - Character</h4>
+        <p>Stay tuned for more characters joining Sliminions! More exciting adventures await!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
+  
+
+  <!-- SLUG Facts Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="slug-facts" >
+    <h2 class="w3-text-light-grey">Slug Facts</h2>
+    <hr style="width:250px" class="w3-opacity">
+
+    <p class="w3-wide">Dev Support</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:100%"></div>
+    </div>
+
+    <p class="w3-wide">Community Support</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:100%"></div>
+    </div>
+
+    <p class="w3-wide">Token Locked 5% and Growing</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:5%"></div>
+    </div>
+
+    <p class="w3-wide">~15 k Market Cap</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:3%"></div>
+    </div>
+
+    <p class="w3-wide">NFT Series</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:60%"></div>
+    </div>
+
+    <p class="w3-wide">Airdrops and Meme Competitions</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:50%"></div>
+    </div>
+
+    <p class="w3-wide">80+ Loyal Holders</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:60%"></div>
+    </div>
+  </div>
+
+
+<!-- X Posts Section -->
+<div class="w3-padding-64 w3-content w3-text-grey" id="x-posts">
+  <h2 class="w3-text-light-grey">Latest X Posts</h2>
+  <hr style="width:200px" class="w3-opacity">
+
+  <div class="w3-row-padding w3-center" style="display: flex; flex-direction: column; gap: 32px;">
+    <!-- Embedded Post 1 -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 100%;">
+      <blockquote class="twitter-tweet">
+        <p lang="en" dir="ltr">🚀 Big News! ~5% of <a href="https://twitter.com/search?q=%24SLUG&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$SLUG</a>'s total supply is officially LOCKED 🔒💪. We're just getting started and planning for more! Together, we’re growing stronger every day. 🐌💎 
+          <a href="https://twitter.com/hashtag/HbarSlug?src=hash&amp;ref_src=twsrc%5Etfw">#HbarSlug</a> 
+          <a href="https://twitter.com/hashtag/Hedera?src=hash&amp;ref_src=twsrc%5Etfw">#Hedera</a> 
+          <a href="https://twitter.com/hashtag/MemeCoin?src=hash&amp;ref_src=twsrc%5Etfw">#MemeCoin</a> 
+          <a href="https://twitter.com/hashtag/CryptoGrowth?src=hash&amp;ref_src=twsrc%5Etfw">#CryptoGrowth</a> 
+          <a href="https://twitter.com/hashtag/CommunityFirst?src=hash&amp;ref_src=twsrc%5Etfw">#CommunityFirst</a> 
+          <a href="https://twitter.com/hashtag/TokenLocked?src=hash&amp;ref_src=twsrc%5Etfw">#TokenLocked</a> 
+          <a href="https://t.co/wLQTEis98R">pic.twitter.com/wLQTEis98R</a>
+        </p>
+        &mdash; SLUG (@HBARSLUG) 
+        <a href="https://twitter.com/HBARSLUG/status/1876408984766411043?ref_src=twsrc%5Etfw">January 6, 2025</a>
+      </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Embedded Post 2 -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 100%;">
+      <blockquote class="twitter-tweet">
+        <p lang="en" dir="ltr">Huge Thanks, Slug Fam! 🐌<br><br>Congrats to everyone who received <a href="https://twitter.com/search?q=%24SLUG&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$SLUG</a> in the airdrop—it was bigger than expected! 🎉 Now, keep the momentum going and join our active meme competition here: <a href="https://t.co/EzcgmpH99T">https://t.co/EzcgmpH99T</a><br><br>More rewards are on the way!<a href="https://twitter.com/hashtag/Hbarslug?src=hash&amp;ref_src=twsrc%5Etfw">#Hbarslug</a> <a href="https://twitter.com/hashtag/SlugAirdrop?src=hash&amp;ref_src=twsrc%5Etfw">#SlugAirdrop</a> <a href="https://twitter.com/hashtag/MemeCompetition?src=hash&amp;ref_src=twsrc%5Etfw">#MemeCompetition</a> <a href="https://t.co/JXKwpwEfpp">https://t.co/JXKwpwEfpp</a>
+        </p>
+        &mdash; SLUG (@HBARSLUG) 
+        <a href="https://twitter.com/HBARSLUG/status/1876251951035498928?ref_src=twsrc%5Etfw">January 6, 2025</a>
+      </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Embedded Post 3 -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 100%;">
+      <blockquote class="twitter-tweet">
+        <p lang="en" dir="ltr">Thats what Slug here for. To the Future !!! 
+          <a href="https://twitter.com/hashtag/HabrSlug?src=hash&amp;ref_src=twsrc%5Etfw">#HabrSlug</a> 
+          <a href="https://twitter.com/hashtag/CommunityFirst?src=hash&amp;ref_src=twsrc%5Etfw">#CommunityFirst</a> 
+          <a href="https://twitter.com/hashtag/Hedera?src=hash&amp;ref_src=twsrc%5Etfw">#Hedera</a> 
+          <a href="https://twitter.com/hashtag/HBARbarians?src=hash&amp;ref_src=twsrc%5Etfw">#HBARbarians</a> 
+          <a href="https://t.co/9f21RKeZzf">https://t.co/9f21RKeZzf</a>
+        </p>
+        &mdash; SLUG (@HBARSLUG) 
+        <a href="https://twitter.com/HBARSLUG/status/1875755267226562592?ref_src=twsrc%5Etfw">January 5, 2025</a>
+      </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Embedded Post 4 -->
+    <div class="w3-card-4 card-hover" style="flex: 1 1 100%;">
+      <blockquote class="twitter-tweet">
+        <p lang="qme" dir="ltr"><a href="https://twitter.com/hashtag/SlugMemeContest?src=hash&amp;ref_src=twsrc%5Etfw">#SlugMemeContest</a>
+          <a href="https://twitter.com/HBARSLUG?ref_src=twsrc%5Etfw">@HBARSLUG</a>
+          <a href="https://twitter.com/BiggTee376?ref_src=twsrc%5Etfw">@BiggTee376</a> 
+          <a href="https://twitter.com/RoboCoinHBAR?ref_src=twsrc%5Etfw">@RoboCoinHBAR</a> 
+          <a href="https://twitter.com/yinkooss?ref_src=twsrc%5Etfw">@yinkooss</a> 
+          <a href="https://t.co/3sThi0zMcp">pic.twitter.com/3sThi0zMcp</a>
+        </p>
+        &mdash; me (@andres_mar9306) 
+        <a href="https://twitter.com/andres_mar9306/status/1876060204913332451?ref_src=twsrc%5Etfw">January 6, 2025</a>
+      </blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Contact Section -->
+<div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+  <h2 class="w3-text-light-grey">Contact Us</h2>
+  <hr style="width:200px" class="w3-opacity">
+  <div class="w3-section">
+    <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Melbourne, Australia</p>
+    <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: <a href="mailto:slug6252@gmail.com">slug6252@gmail.com</a></p>
+  </div><br>
+  <p>Have any questions? Reach out to us:</p>
+  <form action="mailto:slug6252@gmail.com" method="post" enctype="text/plain">
+    <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
+    <p><input class="w3-input w3-padding-16" type="email" placeholder="Email" required name="email"></p>
+    <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="subject"></p>
+    <p><textarea class="w3-input w3-padding-16" placeholder="Message" required name="message"></textarea></p>
+    <p>
+      <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </p>
+  </form>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+  <div class="w3-row-padding w3-center" style="display: flex; justify-content: center; gap: 48px;">
+    <!-- X Logo -->
+    <div>
+      <a href="https://x.com/HbarSlug" target="_blank">
+        <img src="https://freepnglogo.com/images/all_img/1691832708new-twitter-x-logo-white.png" alt="X Logo" class="icon-footer">
       </a>
     </div>
-  </footer>
+    
+    <!-- Telegram Logo -->
+    <div>
+      <a href="http://t.me/slugofficial" target="_blank">
+        <i class="fa fa-telegram fa-3x" style="color: #0088cc;"></i>
+      </a>
+    </div>
   
+    <!-- Memejob Fun Logo -->
+    <div>
+      <a href="https://memejob.fun/token/0.0.7988483" target="_blank">
+        <i class="fa fa-rocket fa-3x" style="color: #FF6A00;"></i>
+      </a>
+    </div>
+  </div>
+
+  <p class="w3-medium" style="text-align: center;">Powered by <a href="https://hedera.com/" target="_blank" class="w3-hover-text-green">Hedera</a></p>
+</footer>
+
+<style>
+  .icon-footer {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .icon-footer:hover {
+    transform: scale(1.2);
+    color: #ff6a00;
+  }
+</style>
+
+
+</div>
 
 </body>
 </html>
