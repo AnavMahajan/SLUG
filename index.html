@@ -53,6 +53,33 @@
   .w3-row-padding {
     gap: 24px; /* Adds space between cards */
   }
+
+    /* Calligraphic Font and Token ID Styling */
+    .slug-token-id {
+      font-size: 2rem;
+      color: white;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .copy-icon {
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .copy-icon:hover {
+      color: #ccc;
+    }
+
+    /* Style for the Token ID section */
+    .token-section {
+      text-align: center;
+      margin-top: 30px;
+    }
 </style>
 
 
@@ -94,7 +121,18 @@
     }
   }
 </style>
+  <script>  // Copy to clipboard function
+    function copyToClipboard() {
+      var tokenId = document.getElementById("slugTokenId");
+      var range = document.createRange();
+      range.selectNode(tokenId);
+      window.getSelection().removeAllRanges();  // Clear any current selections
+      window.getSelection().addRange(range);    // Select the Token ID text
+      document.execCommand('copy');              // Copy the selected text
   
+      // Alert user that the text has been copied
+    }
+  </script>
 </head>
 <body class="w3-black">
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
@@ -147,8 +185,15 @@
     <h1 class="w3-jumbo">Slug</h1>
     <p>The Ultimate Meme Coin on Hedera Hashgraph</p>
     <img src="4.png" alt="SLUG" class="w3-image" width="992" height="1108">
-  </header>
 
+<!-- Slug Token ID Section -->
+<div class="token-section">
+  <h2 style="color: white;"> <span id="slugTokenId" class="slug-token-id">0.0.7988483</span>
+    <i class="fa fa-copy copy-icon" onclick="copyToClipboard()"></i>
+  </h2>
+</div>
+
+  
 <!-- SLUG Project Section -->
 <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="slug">
   <h2 class="w3-text-light-grey">The SLUG Project</h2>
@@ -160,6 +205,8 @@
   <p>Join us on this thrilling ride as we develop, expand, and grow the SLUG Project with Hedera’s groundbreaking technology, all while having fun and building lasting connections in the process.</p>
 
   <p>Learn more about the SLUG Project and how you can be a part of it!</p>
+
+
 
 
   <div class="w3-content w3-justify w3-text-white w3-padding-32" id="slug-community">
@@ -182,6 +229,7 @@
         </a>
         <p>Join us on Telegram</p>
       </div>
+
   
       <!-- Memejob Fun Logo -->
       <div class="card-hover">
@@ -190,6 +238,14 @@
         </a>
         <p>Check out our SLUG Token</p>
       </div>
+
+            <!-- Token Lock -->
+            <div class="card-hover">
+              <a href="https://davincigraph.io/locks/tokens/0.0.7988483" target="_blank">
+                <i class="fa fa-lock fa-3x" style="color: #0088cc;"></i>
+              </a>
+              <p>Show Trust & Lock Slug Token</p>
+            </div>
     </div>
   </div>
     
