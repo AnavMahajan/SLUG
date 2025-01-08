@@ -2,6 +2,7 @@ import openai
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 from telegram.ext import Application, CallbackQueryHandler, MessageHandler, CallbackContext, CommandHandler, filters
+from telegram.ext import ChatMemberHandler
 
 # Enable logging to track events and errors
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -23,12 +24,12 @@ async def welcome(update: Update, context: CallbackContext):
 
     # Send the welcome message first
     await message.reply_text(
-        "Hi, I’m SlugBot! I was developed by Glitch the Hacker(another sliminion) to provide all $Slug and Hedera info in one place. "
+        "Hi, I’m SlugBot! I was developed by Glitch the Hacker (another sliminion) to provide all $Slug and Hedera info in one place. "
         "Use the buttons below to get started:"
     )
 
     # Send the image after the text message
-    await message.reply_photo(open('slimy.png', 'rb'), caption="Meet Slimy the brave! First Sliminion to Join Hederas Nexus")
+    await message.reply_photo(open('slimy.png', 'rb'), caption="Meet Slimy the brave! First Sliminion to Join Hedera's Nexus")
 
     # Define the buttons for the reply markup
     keyboard = [
@@ -50,11 +51,9 @@ async def welcome(update: Update, context: CallbackContext):
 
 # Define the info function about $Slug Coin
 async def info(update: Update, context: CallbackContext):
-    keyboard = [[InlineKeyboardButton("Back to MainMenu", callback_data='welcome')]]
+    keyboard = [[InlineKeyboardButton("Back to Main Menu", callback_data='welcome')]]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    
 
-    
     await update.callback_query.answer()
     # Send images as media after the text message
     await update.callback_query.edit_message_text(
@@ -91,6 +90,7 @@ async def guidelines(update: Update, context: CallbackContext):
         "For more information or to report issues, please reach out to us on our Telegram.\n",
         reply_markup=reply_markup
     )
+
 # Define the latest updates function
 async def latest(update: Update, context: CallbackContext):
     keyboard = [[InlineKeyboardButton("Back to Main Menu", callback_data='welcome')]]
@@ -109,7 +109,6 @@ async def latest(update: Update, context: CallbackContext):
 
 # Define the NFT function to display NFT characters and link
 async def nft(update: Update, context: CallbackContext):
-
     # Send images for the Info section
     media = [
         InputMediaPhoto(open('slimy.png', 'rb'), caption="Meet Slimy the brave!, Bolt the Speedster!, Glitch the Hacker - our tech genius! & Nova the Navigator"),
@@ -132,7 +131,6 @@ async def nft(update: Update, context: CallbackContext):
         reply_markup=reply_markup
     )
     await update.callback_query.message.reply_media_group(media)
-
 
 # Define the shop function to link to the merchandise store
 async def shop(update: Update, context: CallbackContext):
@@ -210,6 +208,11 @@ async def button(update: Update, context: CallbackContext):
 async def handle_text(update: Update, context: CallbackContext):
     await welcome(update, context)  # Redirect to the welcome message if the message is not a button press
 
+# Handle new member joining the channel and starting the bot
+async def new_member(update: Update, context: CallbackContext):
+    for new_member in update.message.new_chat_members:
+        await welcome(update, context)
+
 # Main function
 def main():
     # Replace with your actual Bot token from BotFather
@@ -222,7 +225,8 @@ def main():
         # Add the welcome handler and callback handler for button clicks
         application.add_handler(CommandHandler("start", welcome))  # First run action
         application.add_handler(CallbackQueryHandler(button))  # Handle button presses
-        application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))  # Handle non-button text messages
+      #  application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))  # Handle non-button text messages
+        application.add_handler(ChatMemberHandler(new_member))  # Handle new members
 
         # Start the bot
         logger.info("Bot is starting...")
