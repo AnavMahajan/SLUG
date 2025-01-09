@@ -63,7 +63,7 @@ async def info(update: Update, context: CallbackContext):
         "Learn more about the SLUG Project and how you can be a part of it!\n\n"
         "Key Stats:\n"
         "- Token Locked 5% and Growing\n"
-        "- ~20k Market Cap\n"
+        "- ~25k Market Cap\n"
         "- NFT Series\n"
         "- Airdrops and Meme Competitions\n"
         "- 80+ Loyal Holders\n"
