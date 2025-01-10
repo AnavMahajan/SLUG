@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif ; margin: 10px;}
   .w3-row-padding img {margin-bottom: 12px}
   /* Set the width of the sidebar to 120px */
   .w3-sidebar {width: 120px;background: #222;}
@@ -413,6 +413,125 @@
             </div>
     </div>
   </div>
+
+
+
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="slug-community">
+    <h2 class="w3-text-light-grey">Top Slug Memes</h2>
+    <hr style="width:400px" class="w3-opacity">
+    <div class="slug-carousel-container">
+      <!-- Meme Slide 1 -->
+      <div class="slug-carousel-slide">
+        <img src="meme/meme1.jpeg" alt="SLUG Meme 1" class="slug-carousel-img">
+      </div>
+      <!-- Meme Slide 2 -->
+      <div class="slug-carousel-slide">
+        <img src="meme/meme2.jpeg" alt="SLUG Meme 2" class="slug-carousel-img">
+      </div>
+      <!-- Meme Slide 3 -->
+      <div class="slug-carousel-slide">
+        <img src="meme/meme3.jpeg" alt="SLUG Meme 3" class="slug-carousel-img">
+      </div>
+      <!-- Meme Slide 4 -->
+      <div class="slug-carousel-slide">
+        <img src="meme/meme4.jpeg" alt="SLUG Meme 4" class="slug-carousel-img">
+      </div>
+      <!-- Meme Slide 5 -->
+      <div class="slug-carousel-slide">
+        <img src="meme/meme5.jpeg" alt="SLUG Meme 5" class="slug-carousel-img">
+      </div>
+  
+      <button class="slug-carousel-prev" onclick="moveSlidememe(-1)">&#10094;</button>
+      <button class="slug-carousel-next" onclick="moveSlidememe(1)">&#10095;</button>
+    </div>
+  </div>
+  
+  <!-- Responsive Styling for Carousel -->
+  <style>
+    .slug-carousel-container {
+      max-width: 100%; /* Make it flexible across screen sizes */
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+  
+    .slug-carousel-slide {
+      display: none;
+      text-align: center;
+    }
+  
+    .slug-carousel-prev, .slug-carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+  
+    .slug-carousel-prev {
+      left: 0;
+    }
+  
+    .slug-carousel-next {
+      right: 0;
+    }
+  
+    .slug-carousel-img {
+      width: 100%; /* Make image width responsive */
+      height: auto; /* Make image height responsive */
+      object-fit: contain; /* Ensure the entire image fits within the container */
+      max-height: 400px; /* Set a max height for consistency */
+    }
+  
+    /* Media Queries for responsive design */
+    @media (max-width: 768px) {
+      .slug-carousel-prev, .slug-carousel-next {
+        font-size: 18px; /* Adjust button size on smaller screens */
+        padding: 8px; 
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .slug-carousel-prev, .slug-carousel-next {
+        font-size: 16px; /* Further reduce button size on very small screens */
+        padding: 6px;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript for continuous looping carousel -->
+  <script>
+    var slideIndex = 0;
+  
+    function showSlidesMeme() {
+      var slides = document.querySelectorAll(".slug-carousel-slide");
+      // Reset the slideIndex if it reaches the end
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+  
+      slides.forEach(slide => slide.style.display = "none");
+      slides[slideIndex].style.display = "block";
+    }
+  
+    function moveSlidememe(step) {
+      slideIndex += step;
+      showSlidesMeme();
+    }
+  
+    // Initialize carousel with automatic slide change every 3 seconds
+    setInterval(function() {
+      slideIndex++;
+      showSlidesMeme();
+    }, 3000); // Change slide every 3 seconds
+  
+    showSlides();
+  </script>
+  
     
 <!-- How to Buy Section -->
 <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="how-to-buy">
@@ -480,6 +599,8 @@
     </a>
   </div>
 </div>
+
+
 
 
 
