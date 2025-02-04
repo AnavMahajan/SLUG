@@ -629,6 +629,7 @@
 
   function showSlidesMeme() {
     var slides = document.querySelectorAll(".slug-carousel-slide");
+    
     // Reset the slideIndex if it reaches the end
     if (slideIndex >= slides.length) slideIndex = 0;
     if (slideIndex < 0) slideIndex = slides.length - 1;
@@ -642,14 +643,18 @@
     showSlidesMeme();
   }
 
-  // Initialize carousel with automatic slide change every 3 seconds
-  setInterval(function() {
-    slideIndex++;
-    showSlidesMeme();
-  }, 6000); // Change slide every 3 seconds
+  // Show the first slide immediately
+  showSlidesMeme();
 
-  showSlides();
+  // Start automatic slide change after 6 seconds
+  setTimeout(() => {
+    setInterval(function () {
+      slideIndex++;
+      showSlidesMeme();
+    }, 8000);
+  }, 0);
 </script>
+
 
 
     <!-- NFT Section -->
