@@ -188,6 +188,38 @@
       width: 100%;
       height: auto;
     }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw; /* Adjusted for better mobile scaling */
+  height: 90vh;
+  margin: auto;
+  background-color: black; /* Fallback background */
+  overflow: hidden;
+}
+
+/* Ensure proper scaling on all screens */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .video-container {
+      width: 100vw; /* Use full width for smaller screens */
+      height: 80vh; /* Slightly smaller height to avoid overflow */
+  }
+}
 </style>
   <script>  // Copy to clipboard function
     function copyToClipboard() {
@@ -336,14 +368,15 @@
   <p>Join us on this thrilling ride as we develop, expand, and grow the SLUG Project with Hedera’s groundbreaking technology, all while having fun and building lasting connections in the process.</p>
 
   <p>Learn more about the SLUG Project and how our journey so far !</p>
+  <br/>
 
-<!-- Video Slide -->
-<video autoplay muted loop playsinline style="width: 100%; max-width: 70%; height: auto; margin: 10%;">
-  <source src="slugintro.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+        <source src="slugintro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+  
 
   <!-- SLUG Facts Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="slug-facts" >
@@ -373,7 +406,7 @@
       <div class="w3-dark-grey" style="height:28px;width:70%"></div>
     </div>
 
-    <p class="w3-wide">Personlised TG Bot SlimyTheSlugBot</p>
+    <p class="w3-wide">Personlised SlimyTheSlugBot</p>
     <div class="w3-white">
       <div class="w3-dark-grey" style="height:28px;width:80%"></div>
     </div>
