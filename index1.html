@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+        body,
+        h1 {
+            font-family: "Raleway", sans-serif
+        }
+
+        body,
+        html {
+            height: 100%;
+            background: #000 !important
+        }
+
+        .bgimg {
+            background-image: url('https://www.w3schools.com//w3images/forestbridge.jpg');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .investor-card,
+        .team-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .investor-card:hover,
+        .team-card:hover,
+        .community-card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-image-main {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+        }
+
+        .circle-image-top {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border: 2px solid #fff;
+        }
+
+        .card-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .card-text p {
+            margin: 4px 0;
+        }
+
+        /* Slug Community Card Styling */
+        .community-card {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+
+            display: inline-block;
+            text-align: center;
+        }
+
+        .circle-image-community {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #606b60 !important
+        }
+
+        /* Ensure the cards are displayed in rows of 10 */
+        #community-cards {
+            display: flex;
+            flex-wrap: wrap;
+
+            justify-content: space-around;
+        }
+
+        #community-cards .community-card {
+            flex: 0 0 10%;
+            /* Ensures 10 items per row */
+            margin: 10px;
+
+        }
+
+        /* Team Section Styling */
+        .team-section {
+            text-align: center;
+            padding: 10px 0;
+            background: #0e1c14 !important;
+            color: white;
+        }
+
+        .team-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Team Container */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Individual Team Card */
+        .team-card {
+            background: #292929;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image Styling */
+        .team-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Info Section */
+        .team-info {
+            padding: 15px;
+            background-color: #000 !important;
+            color: white;
+        }
+
+        .team-info h3 {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+
+        .team-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Footer Styling */
+        .slug-footer {
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer Branding */
+        .footer-brand h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Footer Links */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 5px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .footer-links a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: scale(1.1);
+        }
+
+        /* Footer Icons */
+        .footer-links i {
+            font-size: 12px;
+        }
+
+        /* Copyright */
+        .footer-bottom p {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+
+
+
+        #weekly-timer {
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffffff;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+    <!-- CSS -->
+    <style>
+        /* Base styles for the arrow inside the h1 element */
+        .arrow {
+            font-size: 60px;
+            display: inline;
+            transition: transform 0.3s ease;
+            margin: 20px;
+
+        }
+
+        /* Flexbox for centering content in h1 */
+        .w3-jumbo {
+            display: flexbox;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            text-align: center;
+            /* Ensure text is centered */
+        }
+
+        /* Media query for mobile screens */
+        @media (max-width: 768px) {
+            .arrow {
+                transform: rotate(90deg);
+                /* Rotate arrow to point downwards on mobile */
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+<!-- Background Image Section -->
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <!-- Logo on Top Left -->
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+        <img src="hedera-hbar-logo.png" width="45px" height="45px" /> Slug
+    </div>
+
+    <!-- Display Middle Section -->
+    <div class="w3-display-middle">
+        <h1 class="w3-jumbo w3-animate-top">
+            SLUG <span class="arrow">&#8594;</span> TRUST
+        </h1>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <p class="w3-large w3-center">Here to stay</p>
+    </div>
+
+    <!-- Powered By Section -->
+    <div class="w3-display-bottomleft w3-padding-large">
+        Powered by <a href="http://hbarslug.live/" target="_blank">Slug</a>
+    </div>
+
+    <!-- Weekly Timer Section -->
+    <div class="w3-display-bottomright w3-padding-large">
+        <i id="weekly-timer">Loading...</i>
+    </div>
+
+    <!-- "How to Join" Icon on Top Right -->
+    <div class="w3-display-topright w3-padding-large">
+        <button onclick="document.getElementById('joinModal').style.display='block'" class="w3-btn w3-round w3-large">
+            <i class="fa fa-info-circle" style="font-size: 30px;"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Modal for "How to Join SLUG Trust" -->
+<div id="joinModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 modal-box">
+        <!-- Modal Header -->
+        <header class="modal-header">
+            <h2 >Join SLUG Trust</h2>
+            <span onclick="document.getElementById('joinModal').style.display='none'" class="close-btn">&times;</span>
+        </header>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <h3>Slug Community Members</h3>
+            <ul class="criteria-list">
+                <li><span class="icon">📌</span> Follow Slug on X: &nbsp;<a href="https://x.com/HBARSLUG" target="_blank">Follow Us</a></li>
+                <li><span class="icon">📌</span> Join our Telegram Community: &nbsp; <a href="https://t.me/slugofficial" target="_blank">Join Telegram</a></li>
+                <li>
+                    <span class="icon">📌</span> Support Slug by:
+                    <ul class="sub-list">
+                        <li><span class="sub-icon">➡️</span> Sharing memes</li>
+                        <li><span class="sub-icon">➡️</span> Engaging with the community</li>
+                        <li><span class="sub-icon">➡️</span> Spreading the word</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr class="divider">
+
+            <h3>Trusted Allies</h3>
+            <ul class="criteria-list">
+                <li><span class="icon">📌</span> Follow Slug on X: &nbsp;  <a href="https://x.com/HBARSLUG" target="_blank">Follow Us</a></li>
+                <li><span class="icon">📌</span> Join our Telegram Community:  &nbsp; <a href="https://t.me/slugofficial" target="_blank">Join Telegram</a></li>
+                <li><span class="icon">📌</span> Hold 5M+ SLUG Coin in your wallet</li>
+                <li>
+                    <span class="icon">📌</span> Support the vision by:
+                    <ul class="sub-list">
+                        <li><span class="sub-icon">➡️</span> Providing valuable feedback</li>
+                        <li><span class="sub-icon">➡️</span> Helping shape the future of SLUG</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Minimalist Styling with Icons & Formatting -->
+<style>
+    /* Center align the modal heading */
+.modal-header h2 {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+    /* Modal Box */
+    .modal-box {
+        background-color: #f9f9f9;
+        color: #222;
+        width: 50%;
+        max-width: 600px;
+        border-radius: 8px;
+        padding: 5px;
+        font-family: "Arial", sans-serif;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Modal Header */
+    .modal-header {
+        padding: 15px;
+    background: black;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    }
+
+    .close-btn {
+        font-size: 20px;
+        cursor: pointer;
+        color: #555;
+    }
+
+    /* Modal Body */
+    .modal-body {
+        padding: 20px;
+        font-size: 15px;
+        line-height: 1.6;
+       border: 1px solid orange;
+    }
+
+    .criteria-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .criteria-list li {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .icon {
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    .criteria-list a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .criteria-list a:hover {
+        text-decoration: underline;
+    }
+
+    /* Sub-list for Nested Items */
+    .sub-list {
+        list-style-type: none;
+        padding-left: 25px;
+        margin-top: 5px;
+    }
+
+    .sub-list li {
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+    }
+
+    .sub-icon {
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    .divider {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>
+
+<!-- JavaScript to Close Modal -->
+<script>
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        var modal = document.getElementById('joinModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+</script>
+
+
+<!-- JavaScript to handle Modal functionality -->
+<script>
+    // Close modal if clicked outside
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('joinModal')) {
+            document.getElementById('joinModal').style.display = 'none';
+        }
+    };
+</script>
+
+
+    <!-- Trusted Allies Section -->
+    <div class="w3-content w3-text-grey w3-padding-32" id="Investors">
+        <h2 class="w3-text-light-grey">Trusted Allies & Investors</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <blockquote class="w3-large w3-italic"
+            style="border-left: 5px solid #ccc; padding-left: 10px; margin-left: 10px; margin-top: 20px;">
+            Our trusted allies have been with us since day one. Their belief in the vision of SLUG and unwavering
+            support are what make this meme a reality. With them, we build trust and slime to the future.
+            <p class="w3-large">
+                These are the early investors, the ones who saw the potential of SLUG from the very beginning and helped
+                bring this meme to life. Their dedication and vision have paved the way for what’s to come.
+            </p>
+        </blockquote>
+
+
+
+        <!-- Investor Cards Container -->
+        <div class="investor-container">
+            <div class="w3-row-padding w3-center" id="investor-cards"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Slug Meme Community Section -->
+    <div class="w3-content w3-text-grey w3-padding-32" id="SlugCommunity">
+        <h2 class="w3-text-light-grey">Slug Meme Community</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <blockquote class="w3-large w3-italic"
+            style="border-left: 5px solid #ccc; padding-left: 10px; margin-left: 10px; margin-top: 20px;">
+            The Slug Meme community is here for the laughs, the memes, and the chaos! Backing us every step of the way,
+            sharing in every joke, and spreading the Slime wherever we go.
+
+            <p></p>Thanks for supporting Slug through every hilarious twist and turn!</p>
+        </blockquote>
+
+        <!-- Community Cards Container -->
+        <div class="w3-row-padding w3-center" id="community-cards"></div>
+    </div>
+
+
+
+
+
+    <!-- JavaScript -->
+    <script>
+        function getNextWednesdayMidnight() {
+            const now = new Date();
+            const nextWednesday = new Date();
+
+            // Set to next Wednesday
+            nextWednesday.setUTCDate(now.getUTCDate() + ((3 - now.getUTCDay() + 7) % 7));  // 3 represents Wednesday (0 = Sunday, 1 = Monday, etc.)
+            nextWednesday.setUTCHours(0, 0, 0, 0);
+
+            // If today is Wednesday and past midnight, move to the next Wednesday
+            if (now.getUTCDay() === 3 && now > nextWednesday) {
+                nextWednesday.setUTCDate(nextWednesday.getUTCDate() + 7);
+            }
+
+            return nextWednesday;
+        }
+
+        function updateWeeklyTimer() {
+            const timerElement = document.getElementById("weekly-timer");
+            const nextUpdate = getNextWednesdayMidnight();
+
+            function updateCountdown() {
+                const now = new Date();
+                const timeLeft = nextUpdate - now;
+
+                if (timeLeft <= 0) {
+                    timerElement.innerHTML = "Updating now...";
+                    setTimeout(updateWeeklyTimer, 5000); // Restart timer after update
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            updateCountdown(); // Initial update
+            setInterval(updateCountdown, 1000); // Update every second
+        }
+
+        // Start timer when page loads
+        document.addEventListener("DOMContentLoaded", updateWeeklyTimer);
+
+
+        // Investor Configuration
+        const investorConfig = [
+            { name: "Emmy", link: "https://x.com/Emmy90_ox", image: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", description: "Investor in the crypto world" },
+            { name: "Gelui", link: "https://x.com/Gelui297615", image: "https://pbs.twimg.com/profile_images/1892486166764802048/rfCLKR2R_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892486166764802048/rfCLKR2R_400x400.jpg", description: "Entrepreneur and tech lover" },
+            { name: "Will", link: "https://x.com/William44973280", image: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", description: "Experienced investor in blockchain" },
+            { name: "Farskie", link: "https://x.com/Farskie_United", image: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", description: "Passionate about decentralized finance" },
+            { name: "DreamChaser", link: "https://x.com/HbarVision", image: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", description: "Visionary investor with a focus on growth" },
+            { name: "Hoker Hbar", link: "https://x.com/hokerhbar", image: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1881984730154868737/_T3E8A-F_400x400.jpg", description: "Slug Investor and strategist" },
+            { name: "Hash Hustlers", link: "https://x.com/ChrisConceicao3", image: "https://pbs.twimg.com/profile_images/1890151385007603712/e_iqkVLN_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1890151385007603712/e_iqkVLN_400x400.jpg", description: "Specializes in crypto asset management" },
+            { name: "Nano", link: "https://x.com/Ninjanano8", image: "https://pbs.twimg.com/profile_images/1884812939086991360/_-Wz6mzS_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1884812939086991360/_-Wz6mzS_400x400.jpg", description: "Crypto and blockchain enthusiast" },
+            { name: "Nintendo Hbar", link: "https://x.com/Nintendo_Hbar", image: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "Mat", link: "https://x.com/grumpy_matt00?s=21&t=nvwTphr3EAg8a0fMdzvjjg", image: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", description: "Blockchain developer and investor" },
+            { name: "Captain Canoeman", link: "https://x.com/CCanoeman56506", image: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "@BLACKBELT_LEE", link: "https://x.com/BLACKBELT_LEE", circleImage: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg", image: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg" },
+
+        ];
+
+        // Slug Community Configuration
+        // Slug Community Configuration
+        const communityConfig = [
+            { name: "@abelmi23", link: "https://x.com/abelmi23", circleImage: "https://pbs.twimg.com/profile_images/1881984730154868737/_T3E8A-F_400x400.jpg" },
+            { name: "@fizok_web3", link: "https://x.com/fizok_web3", circleImage: "https://pbs.twimg.com/profile_images/1748357592877862912/UpIjU0sq_400x400.jpg" },
+            { name: "@Deanlevy6", link: "https://x.com/Deanlevy6", circleImage: "https://pbs.twimg.com/profile_images/1894021855167623168/pslHImJc_400x400.jpg" },
+            { name: "@successnura", link: "https://x.com/successnura", circleImage: "https://pbs.twimg.com/profile_images/1790027325393838080/U1xVP57M_400x400.jpg" },
+            { name: "@pablocry_m", link: "https://x.com/pablocry_m", circleImage: "https://pbs.twimg.com/profile_images/1892479891670548480/FzyGYMHD_400x400.jpg" },
+            { name: "@carlosmrevilla", link: "https://x.com/carlosmrevilla", circleImage: "https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg" },
+            { name: "@TiaraXaraiT", link: "https://x.com/TiaraXaraiT", circleImage: "https://pbs.twimg.com/profile_images/1859034773701681152/iPg5JsaH_400x400.jpg" },
+            { name: "@jackdiamond271", link: "https://x.com/jackdiamond271", circleImage: "https://pbs.twimg.com/profile_images/1865255916163289088/FjTlYLSG_400x400.jpg" },
+            { name: "@Horlu8", link: "https://x.com/Horlu8", circleImage: "https://pbs.twimg.com/profile_images/1892482595503362048/12VnMYZj_400x400.jpg" },
+            { name: "@Taiwojo57150371", link: "https://x.com/Taiwojo57150371", circleImage: "https://pbs.twimg.com/profile_images/1815419893979684867/vvrRV9_c_400x400.jpg" },
+            { name: "@_Jager_Man", link: "https://x.com/_Jager_Man", circleImage: "https://pbs.twimg.com/profile_images/1893544248676433920/Yh0oGhgC_400x400.jpg" },
+            { name: "@KillerWhaleHbar", link: "https://x.com/KillerWhaleHbar", circleImage: "https://pbs.twimg.com/profile_images/1878557972311560192/BgHxUxBv_400x400.jpg" },
+            { name: "@Dan_mustapha001", link: "https://x.com/Dan_mustapha001", circleImage: "https://pbs.twimg.com/profile_images/1893618448292261888/4BYNQhkk_400x400.jpg" },
+            { name: "@ahmadameer001", link: "https://x.com/ahmadameer001", circleImage: "https://pbs.twimg.com/profile_images/1894323736028856320/fsGt8inO_400x400.jpg" },
+            { name: "@Robert_carvey", link: "https://x.com/Robert_carvey", circleImage: "https://pbs.twimg.com/profile_images/1857362775724433408/YqQWuQDP_400x400.jpg" },
+            { name: "@asthew0rldturns", link: "https://x.com/asthew0rldturns", circleImage: "https://pbs.twimg.com/profile_images/1890460369665032192/A15KBHIR_400x400.jpg" },
+            { name: "@AlishaTems", link: "https://x.com/AlishaTems", circleImage: "https://pbs.twimg.com/profile_images/1863546022900695040/Fa07EuQh_400x400.jpg" },
+            { name: "@XKlucivv_Chidex", link: "https://x.com/XKlucivv_Chidex", circleImage: "https://pbs.twimg.com/profile_images/1892795027044044800/SKws_0_q_400x400.jpg" },
+            { name: "@Harkeems_001", link: "https://x.com/Harkeems_001", circleImage: "https://pbs.twimg.com/profile_images/1892576110665166848/fupu49sN_400x400.jpg" },
+            { name: "@BlueEyedCrypto", link: "https://x.com/BlueEyedCrypto", circleImage: "https://pbs.twimg.com/profile_images/1877155936562982913/dbBAhsUI_400x400.jpg" },
+            { name: "@harryugwu", link: "https://x.com/harryugwu", circleImage: "https://pbs.twimg.com/profile_images/1892480907539283968/guD1CPYX_400x400.jpg" },
+            { name: "@D56933Dr", link: "https://x.com/D56933Dr", circleImage: "https://pbs.twimg.com/profile_images/1894214143483260928/9K6UAfls_400x400.jpg" },
+            { name: "@Sam64744Samuel", link: "https://x.com/Sam64744Samuel", circleImage: "https://pbs.twimg.com/profile_images/1872732775180099584/tRcsA440_400x400.jpg" },
+            { name: "@OmosolaH45644", link: "https://x.com/OmosolaH45644", circleImage: "https://pbs.twimg.com/profile_images/1892597369037836288/sQe4li6R_400x400.jpg" }
+        ];
+        // Function to create Slug Community Cards (Circle Images)
+        function createCommunityCards(config, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Clear any existing content
+
+            config.forEach(item => {
+                const card = document.createElement('a');
+                card.href = item.link;
+                card.target = "_blank"; // Open in new tab
+                card.classList.add('community-card');
+
+                const circleImage = document.createElement('img');
+                circleImage.src = item.circleImage;
+                circleImage.alt = item.name;
+                circleImage.classList.add('circle-image-community');
+
+                card.appendChild(circleImage);
+                container.appendChild(card);
+            });
+        }
+
+        // Call the function to create Investor and Community Cards
+        createInvestorCards(investorConfig, 'investor-cards');
+        createCommunityCards(communityConfig, 'community-cards');
+
+
+
+        // Function to create Investor Cards
+        function createInvestorCards(config, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Clear any existing content
+
+            // Style the container with a golden border (hall of fame wall effect)
+            container.style.border = '10px solid #0e1c14';
+            container.style.padding = '20px';
+            container.style.borderRadius = '20px';
+            container.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.1)';
+
+            container.style.justifyContent = 'space-around';
+            container.style.gap = '20px'; // Ensure consistent spacing between all cards
+
+            config.forEach(item => {
+                const card = document.createElement('a');
+                card.href = item.link;
+                card.target = "_blank"; // Open in new tab
+                card.classList.add('w3-col', 'm3', 'l3', 'w3-margin-bottom', 'investor-card');
+
+                const cardContent = document.createElement('div');
+                cardContent.classList.add('card-content');
+
+                const mainImage = document.createElement('img');
+                mainImage.src = item.image;
+                mainImage.alt = item.name;
+                mainImage.classList.add('card-image-main');
+
+                const topCircleImage = document.createElement('img');
+                topCircleImage.src = item.circleImage;
+                topCircleImage.alt = item.name;
+                topCircleImage.classList.add('circle-image-top');
+
+                const nameElement = document.createElement('div');
+                nameElement.classList.add('card-name');
+                nameElement.textContent = item.name;
+
+                const bottomDescription = document.createElement('div');
+                bottomDescription.classList.add('card-description');
+                bottomDescription.textContent = item.description;
+
+                cardContent.appendChild(mainImage);
+                cardContent.appendChild(topCircleImage);
+                cardContent.appendChild(nameElement);
+                cardContent.appendChild(bottomDescription);
+                card.appendChild(cardContent);
+
+                container.appendChild(card);
+            });
+        }
+
+
+
+
+
+        // Team Configuration
+        const teamConfig = [
+            { name: "AV", link: "https://x.com/HBARSLUG", role: "Socials & Marketing", image: "https://pbs.twimg.com/profile_images/1892521477251231744/YP0ajGa3_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892521477251231744/YP0ajGa3_400x400.jpg", description: "Responsible for all socials and marketing" },
+            { name: "Annie", link: "https://x.com/AnnieB794083051", role: "Creative Mind", image: "https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg", description: "Creative visionary behind our projects" },
+            { name: "Sam", link: "https://x.com/Slug_Prodogy", role: "Tech Lead", image: "https://pbs.twimg.com/profile_images/1892483797943230464/P3sqgu7J_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892483797943230464/P3sqgu7J_400x400.jpg", description: "Tech lead overseeing the development" },
+
+        ];
+
+
+        // Create Investor and Team Cards
+        createInvestorCards(investorConfig, 'investor-cards');
+    </script>
+
+
+
+    <!-- Team Members Section -->
+    <div class="team-section">
+        <h2 class="team-title">Meet the Team</h2>
+        <div class="team-container">
+
+            <!-- Team Member 1 -->
+            <a href="https://x.com/HBARSLUG" class="team-card" target="_blank">
+                <img src="https://pbs.twimg.com/profile_images/1892521477251231744/YP0ajGa3_400x400.jpg" alt="AV"
+                    class="team-image">
+                <div class="team-info">
+                    <h3>AV</h3>
+                    <p>Marketing Specialist</p>
+                </div>
+            </a>
+
+            <!-- Team Member 2 -->
+            <a href="https://x.com/AnnieB794083051" class="team-card" target="_blank">
+                <img src="https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg" alt="Annie B"
+                    class="team-image">
+                <div class="team-info">
+                    <h3>Annie B</h3>
+                    <p>NFT Artist & Designer</p>
+                </div>
+            </a>
+
+            <!-- Team Member 3 -->
+            <a href="https://x.com/Slug_Prodogy" class="team-card" target="_blank">
+                <img src="https://pbs.twimg.com/profile_images/1892483797943230464/P3sqgu7J_400x400.jpg" alt="Sam"
+                    class="team-image">
+                <div class="team-info">
+                    <h3>Sam</h3>
+                    <p>Blockchain Developer and Analyst</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <br />
+
+    <!-- Professional Footer Section -->
+    <footer class="slug-footer">
+        <div class="footer-container">
+
+
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="https://www.youtube.com/@HbarSlug" target="_blank"><i class="fa-brands fa-youtube"></i>
+                    YouTube</a>
+                <a href="https://hbarslug.live" target="_blank"><i class="fa-solid fa-globe"></i> Website</a>
+                <a href="https://davincigraph.io/locks/tokens/0.0.7988483" target="_blank"><i
+                        class="fa-solid fa-palette"></i> DaVinci</a>
+                <a href="https://x.com/HBARSLUG" target="_blank"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+                <a href="http://t.me/slugofficial" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                <a href="http://t.me/SlugtheSlimyBot" target="_blank"><i class="fa-brands fa-telegram"></i>
+                    SlugtheSlimyBot</a>
+                <a href="https://www.instagram.com/hbarslug/?igsh=YTRlazFqdTA1YWw4#" target="_blank"><i
+                        class="fa-brands fa-instagram"></i> Instagram</a>
+
+            </div>
+
+            <!-- Copyright Notice -->
+            <div class="footer-bottom">
+                <p>© 2025 SLUG. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+
+
+    </div>
+
+    </style>
+
+
+</body>
+
+</html>

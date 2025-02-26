@@ -1,0 +1,111 @@
+<!-- Hall of Fame: Valuable Investors -->
+<div class="w3-content w3-text-grey w3-padding-32" id="Investors">
+    <h2 class="w3-text-light-grey">Hall of Fame: Key Investors</h2>
+    <hr style="width:250px" class="w3-opacity">     
+    <div class="w3-row-padding w3-center" id="investor-cards"></div>
+  </div>
+  
+  <!-- Team Slug -->
+  <div class="w3-content w3-text-grey w3-padding-32" id="Team">
+    <h2 class="w3-text-light-grey">Meet the Team</h2>
+    <hr style="width:200px" class="w3-opacity">     
+    <div class="w3-row-padding w3-center" id="team-cards"></div>
+  </div>
+  
+  <style>
+    .investor-card {
+      display: inline-block;
+      width: 200px;
+      margin: 15px;
+      padding: 15px;
+      background: #222;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+  
+    .investor-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.7);
+    }
+  
+    .card-content {
+      position: relative;
+      padding-top: 20px;
+    }
+  
+    .card-image-main {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid gold;
+    }
+  
+    .circle-image-top {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      border: 2px solid #fff;
+    }
+  
+    .card-name {
+      font-size: 18px;
+      color: gold;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  
+    .card-description {
+      font-size: 14px;
+      color: #ddd;
+      margin-top: 5px;
+    }
+  </style>
+  
+  <script>
+  // Function to create Investor Cards
+  function createInvestorCards(config, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+  
+      config.forEach(item => {
+          const card = document.createElement('a');
+          card.href = item.link;
+          card.target = "_blank";
+          card.classList.add('investor-card');
+  
+          const cardContent = document.createElement('div');
+          cardContent.classList.add('card-content');
+  
+          const mainImage = document.createElement('img');
+          mainImage.src = item.image;
+          mainImage.alt = item.name;
+          mainImage.classList.add('card-image-main');
+  
+          const topCircleImage = document.createElement('img');
+          topCircleImage.src = item.circleImage;
+          topCircleImage.alt = item.name;
+          topCircleImage.classList.add('circle-image-top');
+  
+          const nameElement = document.createElement('div');
+          nameElement.classList.add('card-name');
+          nameElement.textContent = item.name;
+  
+          const bottomDescription = document.createElement('div');
+          bottomDescription.classList.add('card-description');
+          bottomDescription.textContent = item.description;
+  
+          cardContent.appendChild(mainImage);
+          cardContent.appendChild(topCircleImage);
+          cardContent.appendChild(nameElement);
+          cardContent.appendChild(bottomDescription);
+          card.appendChild(cardContent);
+          container.appendChild(card);
+      });
+  }
+  </script>
+  
