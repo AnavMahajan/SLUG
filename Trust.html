@@ -233,7 +233,7 @@ function copyStaticURL(sectionId) {
 async function shareSectionOnX(sectionId) {
     try {
         // Capture and download the screenshot
-        await captureAndDownloadSection(sectionId);
+    //    await captureAndDownloadSection(sectionId);
 
         // Open Twitter with pre-filled text
         const text = encodeURIComponent("Check out this section about " + sectionId + "!");
@@ -248,7 +248,7 @@ async function shareSectionOnX(sectionId) {
 async function shareSectionOnFacebook(sectionId) {
     try {
         // Capture and download the screenshot
-        await captureAndDownloadSection(sectionId);
+   //     await captureAndDownloadSection(sectionId);
         const text = encodeURIComponent("Check out this section about " + sectionId + "!");
 
         // Open Facebook with the link
@@ -263,7 +263,7 @@ async function shareSectionOnFacebook(sectionId) {
 async function shareSectionOnInstagram(sectionId) {
     try {
         // Capture and download the screenshot
-        await captureAndDownloadSection(sectionId);
+    //    await captureAndDownloadSection(sectionId);
 
         // Instagram doesn't allow pre-filled text or direct image upload via web
         // So, we guide users to manually upload
