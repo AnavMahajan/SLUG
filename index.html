@@ -425,10 +425,18 @@
       <p>Slug Music</p>
     </a>
 
+    <a href="#Wall" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+      <i class="fa fa-users w3-xxlarge"></i>
+      <p>Slug Social Wall</p>
+    </a>
+
+
     <a href="#Investors" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
       <i class="fa fa-users w3-xxlarge"></i>
       <p>Slug Trust</p>
     </a>
+
+    
 
 
     <a href="#how-to-buy" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
@@ -508,26 +516,18 @@
   </header>
 
 
-
-
-  <!-- SLUG Project Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="slug">
     <h2 class="w3-text-light-grey">The SLUG Project</h2>
     <hr style="width:250px" class="w3-opacity">
     <p>The SLUG Project is an exciting open-source meme coin that leverages the power of the Hedera Hashgraph network.
       Hedera Hashgraph is a highly secure, decentralized, and fast blockchain alternative, built on the principle of a
-      public ledger maintained by a network of computers known as nodes. Unlike traditional blockchain systems, Hedera
-      Hashgraph uses a unique consensus algorithm called "Gossip about Gossip" and "Virtual Voting," enabling high
-      throughput, low latency, and security at scale.</p>
+      public ledger maintained by a network of computers known as nodes.</p>
 
     <p>But the SLUG Project isn't just about technology. It’s about community. Much like other successful meme coin
       projects, we thrive on the power of a vibrant and engaged community, brought together by the shared vision of
       turning SLUG into the most fun and inclusive meme coin on the Hedera network. The ethos of the SLUG Project is not
       just about transactions but about creating a space for fun, creativity, and innovation in the world of
       decentralized finance (DeFi).</p>
-
-    <p>Join us on this thrilling ride as we develop, expand, and grow the SLUG Project with Hedera’s groundbreaking
-      technology, all while having fun and building lasting connections in the process.</p>
 
     <p>Learn more about the SLUG Project and how our journey so far !</p>
     <br />
@@ -709,6 +709,28 @@
 
   </div>
 
+<!-- Slug Socail wall  -->
+<div class="w3-content w3-text-grey w3-padding-32" id="Wall">
+  <h2 class="w3-text-light-grey">Slug Trust</h2>
+  <hr style="width:200px" class="w3-opacity">     
+  <div class="w3-row-padding w3-center" id="investor-cards"></div>
+
+  <!-- Embedding a clickable iframe with overlay -->
+  <div class="w3-row-padding w3-center" style="position: relative;">
+    <!-- The iframe -->
+    <iframe src="SocailWall.html" 
+            width="100%" 
+            height="500px" 
+            style="border: none; border-radius: 8px;">
+    </iframe>
+
+    <!-- The clickable overlay -->
+    <a href="SocailWall.html" target="_blank" 
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; 
+              background: rgba(0, 0, 0, 0); cursor: pointer;">
+    </a>
+  </div>
+</div>
 
 <!-- Valuable Investors -->
 <div class="w3-content w3-text-grey w3-padding-32" id="Investors">
@@ -732,6 +754,9 @@
     </a>
   </div>
 </div>
+
+
+
 
 
     <!-- How to Buy Section -->
