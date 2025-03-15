@@ -30,7 +30,7 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
             overflow-x: hidden;
-            
+
         }
 
         .container {
@@ -88,26 +88,7 @@
     transform: rotate(45deg);
 }
 
-@media (max-width: 768px) {
-    .slug-logo {
-        position: relative;
-        margin: 0 auto;
-        display: block;
-        width: 60px;
-        margin-bottom: 20px;
-    }
-}
 
-@media (max-width: 480px) {
-    .slug-logo {
-        position: relative;
-        margin: 0 auto;
-        display: block;
-        width: 60px;
-        margin-bottom: 20px;
-    }
-
-}
 
 
         @keyframes logoGlow {
@@ -183,64 +164,68 @@
 
 
         @media (max-width: 768px) {
-            .slug-wall {
-                font-size: 3rem;
-                letter-spacing: 5px;
-            }
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+    }
 
-            .slug-description {
-                font-size: 1.2rem;
-                padding: 0 10px;
-            }
+    .left-section {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 20px;
+        padding-top: 20px;
+    }
 
-            iframe {
-                height: 700px;
-                width: 100%;
-                max-width: 100%
-            }
+    .right-section {
+        width: 100%;
+    }
 
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
+    iframe {
+        height: 700px;
+        width: 100%;
+        max-width: 100%;
+    }
 
-            .left-section {
-                margin-right: 0;
-                margin-bottom: 20px;
-                padding-top: 0;
-            }
+    .slug-logo {
+        width: 60px;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
+}
 
-            .slug-logo {
-                width: 60px;
-                margin-bottom: 20px;
-            }
-        }
+@media (max-width: 480px) {
+    .slug-wall {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
 
-        @media (max-width: 480px) {
-            .slug-wall {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
+    .slug-description {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 
-            .slug-description {
-                font-size: 1rem;
-                padding: 0 10px;
-            }
+    iframe {
+        height: 500px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .slug-logo {
+    position: initial;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 0.4);
+    animation: logoGlow 2s infinite alternate;
+    transform: rotate(45deg);
+}
 
-            iframe {
-                height: 500px;
-                width: 100%;
-                max-width: 100%
-            }
+}
 
-            .slug-logo {
-                width: 60px;
-                top: 10px;
-                left: 10px;
-            }
-
-
-        }
     </style>
 </head>
 <body>
@@ -249,7 +234,7 @@
            <a href="index.html"><img src="slug.jpeg" alt="SLUG Logo" class="slug-logo"></a>  <!-- Update with actual logo path -->
             <h1 class="slug-wall">SLUG Social wall</h1>
             <p class="slug-description">
-                No need to search around—All SLUG updates in one place! <br/><br/>Tag us <i><a href="https://twitter.com/HBARSLUG">@hbarslug</a></i>
+               SLUG updates in one place! <br/>Tag us <i><a href="https://twitter.com/HBARSLUG">@hbarslug</a></i>
             </p>
             <div class="social-icons">
                 <a href="https://x.com/HBARSLUG" target="_blank"><i class="fab fa-x-twitter"></i></a>
