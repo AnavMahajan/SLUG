@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slimy Slug Music Album</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* Style for the music card */
+        .music-card {
+            background-color: #333;
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            color: #fff;
+        }
+
+        .music-card:hover {
+            transform: scale(1.05);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 200px;
+            background-image: url('cover.png'); /* Replace with your album cover image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .song-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .song-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .song-artist {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        /* Style for the carousel container */
+        .carousel-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .carousel-card {
+            display: inline-block;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SLUG Music Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="slug-music">
+        <h2 class="w3-text-light-grey">Slimy Slug Music Album</h2>
+        <hr style="width:250px" class="w3-opacity">
+
+        <!-- Description of the Album -->
+        <div class="description">
+            <p>Welcome to the Slimy Slug Music Album! Here you will find the latest tracks from Slimy Slug, the Dream Chaser. Dive into the world of creativity, adventure, and music!</p>
+        </div>
+
+        <!-- Music Card -->
+        <div class="music-card" onclick="window.open('https://tune.fm/song/7df20c08-79e3-4db2-82c8-fdd20b3f11e8/', '_blank')">
+            <div class="album-cover"></div>
+            <div class="song-info">
+                <div class="song-title">Slimy Slug</div>
+                <i class="song-artist">Dream Chaser</i>
+            </div>
+        </div>
+
+        <!-- Additional Tracks Carousel -->
+        <div class="carousel-container">
+            <h3 class="w3-text-light-grey">Other Tracks</h3>
+
+            <!-- Carousel - Using W3.CSS -->
+            <div class="w3-carousel w3-padding-64">
+                <!-- Track 1 -->
+                <div class="w3-carousel-item carousel-card">
+                    <div class="music-card" onclick="window.open('https://tune.fm/song/7df20c08-79e3-4db2-82c8-fdd20b3f11e8/', '_blank')">
+                        <div class="album-cover"></div>
+                        <div class="song-info">
+                            <div class="song-title">Track 1: Slimy Slug</div>
+                            <i class="song-artist">Dream Chaser</i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2 -->
+                <div class="w3-carousel-item carousel-card">
+                    <div class="music-card" onclick="window.open('https://tune.fm/song/anothertrack', '_blank')">
+                        <div class="album-cover"></div>
+                        <div class="song-info">
+                            <div class="song-title">Track 2: Dream Chaser</div>
+                            <i class="song-artist">Dream Chaser</i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 3 -->
+                <div class="w3-carousel-item carousel-card">
+                    <div class="music-card" onclick="window.open('https://tune.fm/song/anothertrack3', '_blank')">
+                        <div class="album-cover"></div>
+                        <div class="song-info">
+                            <div class="song-title">Track 3: Adventure Awaits</div>
+                            <i class="song-artist">Dream Chaser</i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 4 -->
+                <div class="w3-carousel-item carousel-card">
+                    <div class="music-card" onclick="window.open('https://tune.fm/song/anothertrack4', '_blank')">
+                        <div class="album-cover"></div>
+                        <div class="song-info">
+                            <div class="song-title">Track 4: New Journey</div>
+                            <i class="song-artist">Dream Chaser</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Activate the W3 carousel (manual scrolling enabled by default)
+        document.querySelector('.w3-carousel').classList.add('w3-carousel-auto');
+    </script>
+
+</body>
+</html>
