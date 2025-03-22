@@ -298,7 +298,7 @@ async function shareSectionOnInstagram(sectionId) {
             const nextWednesday = new Date();
 
             // Set to next Wednesday
-            nextWednesday.setUTCDate(now.getUTCDate() + ((3 - now.getUTCDay() + 7) % 7));  // 3 represents Wednesday (0 = Sunday, 1 = Monday, etc.)
+            nextWednesday.setUTCDate(now.getUTCDate() + ((5.5 - now.getUTCDay() + 7) % 7));  // 3 represents Wednesday (0 = Sunday, 1 = Monday, etc.)
             nextWednesday.setUTCHours(0, 0, 0, 0);
 
             // If today is Wednesday and past midnight, move to the next Wednesday
@@ -346,45 +346,41 @@ async function shareSectionOnInstagram(sectionId) {
             { name: "Emmy", link: "https://x.com/Emmy90_ox", image: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", description: "Investor in the crypto world" },
             { name: "Farskie", link: "https://x.com/Farskie_United", image: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", description: "Passionate about decentralized finance" },
 
-            { name: "Will", link: "https://x.com/William44973280", image: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", description: "Experienced investor in blockchain" },
-            { name: "Hoker Hbar", link: "https://x.com/hokerhbar", image: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1881984730154868737/_T3E8A-F_400x400.jpg", description: "Slug Investor and strategist" },
-            { name: "Hash Hustlers", link: "https://x.com/ChrisConceicao3", image: "https://pbs.twimg.com/profile_images/1895171110380994560/n2d1bXIw_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1895171110380994560/n2d1bXIw_400x400.jpg", description: "Specializes in crypto asset management" },
-            { name: "Scruffy", link: "https://x.com/TheScrufftastic", image: "https://pbs.twimg.com/profile_images/1894781835529404416/dtLJ8vRn_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1894781835529404416/dtLJ8vRn_400x400.jpg", description: "Crypto and blockchain enthusiast" },
-            
-            { name: "Nintendo Hbar", link: "https://x.com/Nintendo_Hbar", image: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "Hoker Hbar", link: "https://x.com/hokerhbar", image: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", description: "Slug Investor and strategist" },
             { name: "Mat", link: "https://x.com/grumpy_matt00?s=21&t=nvwTphr3EAg8a0fMdzvjjg", image: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", description: "Blockchain developer and investor" },
             { name: "Captain Canoeman", link: "https://x.com/CCanoeman56506", image: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", description: "Innovator in blockchain gaming" },
             { name: "@BLACKBELT_LEE", link: "https://x.com/BLACKBELT_LEE", circleImage: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg", image: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg" },
+            
+            { name: "Nintendo Hbar", link: "https://x.com/Nintendo_Hbar", image: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "", link: "", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
+            { name: "", link: "", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
+            { name: "", link: "", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
 
         ];
 
         // Slug Community Configuration
-        // Slug Community Configuration
         const communityConfig = [
             { name: "@abelmi23", link: "https://x.com/abelmi23", circleImage: "https://pbs.twimg.com/profile_images/1881984730154868737/_T3E8A-F_400x400.jpg" },
+            { name: "@tobzyyweb3", link: "https://x.com/tobzyyweb3", circleImage: "https://pbs.twimg.com/profile_images/1880552445723475969/d_7TY945_400x400.jpg" },
+            { name: "Hash Hustlers", link: "https://x.com/ChrisConceicao3", image: "https://pbs.twimg.com/profile_images/1903167243132739584/Tun8fv-e_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1903167243132739584/Tun8fv-e_400x400.jpg", description: "Specializes in crypto asset management" },
             { name: "@fizok_web3", link: "https://x.com/fizok_web3", circleImage: "https://pbs.twimg.com/profile_images/1748357592877862912/UpIjU0sq_400x400.jpg" },
             { name: "@Deanlevy6", link: "https://x.com/Deanlevy6", circleImage: "https://pbs.twimg.com/profile_images/1896960862084018176/na6o6DhX_400x400.jpg" },
             { name: "@successnura", link: "https://x.com/successnura", circleImage: "https://pbs.twimg.com/profile_images/1790027325393838080/U1xVP57M_400x400.jpg" },
-            { name: "@pablocry_m", link: "https://x.com/pablocry_m", circleImage: "https://pbs.twimg.com/profile_images/1895019044480139264/u6wPPOv7_400x400.jpg" },
+            { name: "@pablocry_m", link: "https://x.com/pablocry_m", circleImage: "https://pbs.twimg.com/profile_images/1900628415062937601/m5oEf1OB_400x400.jpg" },
             { name: "@carlosmrevilla", link: "https://x.com/carlosmrevilla", circleImage: "https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg" },
+            
             { name: "@TiaraXaraiT", link: "https://x.com/TiaraXaraiT", circleImage: "https://pbs.twimg.com/profile_images/1859034773701681152/iPg5JsaH_400x400.jpg" },
             { name: "@jackdiamond271", link: "https://x.com/jackdiamond271", circleImage: "https://pbs.twimg.com/profile_images/1865255916163289088/FjTlYLSG_400x400.jpg" },
             { name: "@Horlu8", link: "https://x.com/Horlu8", circleImage: "https://pbs.twimg.com/profile_images/1895011387773964288/MFwlOPGZ_400x400.jpg" },
-            { name: "@Taiwojo57150371", link: "https://x.com/Taiwojo57150371", circleImage: "https://pbs.twimg.com/profile_images/1815419893979684867/vvrRV9_c_400x400.jpg" },
-            { name: "@_Jager_Man", link: "https://x.com/_Jager_Man", circleImage: "https://pbs.twimg.com/profile_images/1893544248676433920/Yh0oGhgC_400x400.jpg" },
             { name: "@KillerWhaleHbar", link: "https://x.com/KillerWhaleHbar", circleImage: "https://pbs.twimg.com/profile_images/1878557972311560192/BgHxUxBv_400x400.jpg" },
             { name: "@Dan_mustapha001", link: "https://x.com/Dan_mustapha001", circleImage: "https://pbs.twimg.com/profile_images/1896466979537514496/Bw-XprDe_400x400.jpg" },
-            { name: "@ahmadameer001", link: "https://x.com/ahmadameer001", circleImage: "https://pbs.twimg.com/profile_images/1895422783628210176/8VM3491X_400x400.jpg" },
-            { name: "@Robert_carvey", link: "https://x.com/Robert_carvey", circleImage: "https://pbs.twimg.com/profile_images/1857362775724433408/YqQWuQDP_400x400.jpg" },
-            { name: "@asthew0rldturns", link: "https://x.com/asthew0rldturns", circleImage: "https://pbs.twimg.com/profile_images/1895526036340662272/GZ7Tt5cq_400x400.jpg" },
-            { name: "@AlishaTems", link: "https://x.com/AlishaTems", circleImage: "https://pbs.twimg.com/profile_images/1863546022900695040/Fa07EuQh_400x400.jpg" },
-            { name: "@XKlucivv_Chidex", link: "https://x.com/XKlucivv_Chidex", circleImage: "https://pbs.twimg.com/profile_images/1892795027044044800/SKws_0_q_400x400.jpg" },
             { name: "@Harkeems_001", link: "https://x.com/Harkeems_001", circleImage: "https://pbs.twimg.com/profile_images/1892576110665166848/fupu49sN_400x400.jpg" },
-            { name: "@BlueEyedCrypto", link: "https://x.com/BlueEyedCrypto", circleImage: "https://pbs.twimg.com/profile_images/1877155936562982913/dbBAhsUI_400x400.jpg" },
+            { name: "@BlueEyedCrypto", link: "https://x.com/BlueEyedCrypto", circleImage: "https://pbs.twimg.com/profile_images/1897510816011960320/h0_XU2zv_400x400.jpg" },
             { name: "@harryugwu", link: "https://x.com/harryugwu", circleImage: "https://pbs.twimg.com/profile_images/1892480907539283968/guD1CPYX_400x400.jpg" },
-            { name: "@D56933Dr", link: "https://x.com/D56933Dr", circleImage: "https://pbs.twimg.com/profile_images/1894214143483260928/9K6UAfls_400x400.jpg" },
-            { name: "@Sam64744Samuel", link: "https://x.com/Sam64744Samuel", circleImage: "https://pbs.twimg.com/profile_images/1872732775180099584/tRcsA440_400x400.jpg" },
-            { name: "@OmosolaH45644", link: "https://x.com/OmosolaH45644", circleImage: "https://pbs.twimg.com/profile_images/1892597369037836288/sQe4li6R_400x400.jpg" }
+            { name: "Will", link: "https://x.com/William44973280", image: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1883136552030687232/HuuGfjso_400x400.jpg", description: "Experienced investor in blockchain" },
+            { name: "@Zee73340627893", link: "https://x.com/Zee73340627893", circleImage: "https://pbs.twimg.com/profile_images/1899244705332015104/uFq-kxxp_400x400.jpg" },
+
+
         ];
         // Function to create Slug Community Cards (Circle Images)
         function createCommunityCards(config, containerId) {
@@ -756,7 +752,7 @@ async function shareSectionOnInstagram(sectionId) {
         }
 
         #community-cards .community-card {
-            flex: 0 0 10%;
+            flex: 0 0 14%;
             /* Ensures 10 items per row */
             margin: 10px;
 
