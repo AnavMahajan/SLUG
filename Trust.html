@@ -65,23 +65,6 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <h3>Slug Community Members</h3>
-                <ul class="criteria-list">
-                    <li><span class="icon">📌</span> Follow Slug on X: &nbsp;<a href="https://x.com/HBARSLUG"
-                            target="_blank">Follow Us</a></li>
-                    <li><span class="icon">📌</span> Join our Telegram Community: &nbsp; <a
-                            href="https://t.me/slugofficial" target="_blank">Join Telegram</a></li>
-                    <li>
-                        <span class="icon">📌</span> Support Slug by:
-                        <ul class="sub-list">
-                            <li><span class="sub-icon">➡️</span> Sharing memes</li>
-                            <li><span class="sub-icon">➡️</span> Engaging with the community</li>
-                            <li><span class="sub-icon">➡️</span> Spreading the word</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <hr class="divider">
 
                 <h3>Trusted Allies</h3>
                 <ul class="criteria-list">
@@ -90,6 +73,8 @@
                     <li><span class="icon">📌</span> Join our Telegram Community: &nbsp; <a
                             href="https://t.me/slugofficial" target="_blank">Join Telegram</a></li>
                     <li><span class="icon">📌</span> Hold 5M+ SLUG Coin in your wallet</li>
+                    <li><span class="icon">📌</span> Hold SLUG Sliminions seires NFT'S</li>
+
                     <li>
                         <span class="icon">📌</span> Support the vision by:
                         <ul class="sub-list">
@@ -145,36 +130,7 @@
     </div>
 </div>
 
-<!-- Slug Community Section -->
-<div class="w3-content w3-text-grey w3-padding-32" id="SlugCommunity">
-    <h2 class="w3-text-light-grey" style="display: inline-block; margin-right: 10px;">
-        SLUG Community
-    </h2>
-    <div style="display: inline-block; margin: 20px">
-        <i class="fab fa-twitter" title="Share on X" onclick="shareSectionOnX('SlugCommunity')" style="margin-right: 15px; cursor: pointer; transition: color 0.3s;"></i>
-        <i class="fab fa-facebook" title="Share on Facebook" onclick="shareSectionOnFacebook('SlugCommunity')"style="margin-right: 15px; cursor: pointer; transition: color 0.3s;"></i>
-        <i class="fab fa-instagram" title="Share on Instagram" onclick="shareSectionOnInstagram('SlugCommunity')" style="margin-right: 15px; cursor: pointer; transition: color 0.3s;"></i>
-        <i class="fas fa-download" title="Download PNG" onclick="captureAndDownloadSection('SlugCommunity')" style="margin-right: 15px; cursor: pointer; transition: color 0.3s;"></i>
-        <i class="fas fa-link" title="Copy URL" onclick="copyStaticURL('SlugCommunity')"style="margin-right: 15px; cursor: pointer; transition: color 0.3s;"></i>
-    </div>
 
-    <hr style="width:200px" class="w3-opacity">
-    <blockquote class="w3-large w3-italic"
-        style="border-left: 5px solid #ccc; padding-left: 10px; margin-left: 10px; margin-top: 20px;">
-        The SLUG community is the heartbeat of our project. It's built on trust, passion, and a shared vision of
-        making memes the future of decentralized fun. Join us as we slime our way to new heights, creating a
-        movement that celebrates creativity and collaboration.
-        <p class="w3-large">
-            From the first slime to the future of the meme ecosystem, our community drives the growth and evolution
-            of SLUG. Everyone's voice matters, and together we will shape the future of decentralized meme culture.
-        </p>
-    </blockquote>
-
-    <!-- Community Cards Container -->
-    <div class="community-container">
-        <div class="w3-row-padding w3-center" id="community-cards"></div>
-    </div>
-</div>
 
 <script>
     // Function to capture a section as an image
@@ -341,20 +297,30 @@ async function shareSectionOnInstagram(sectionId) {
 
         // Investor Configuration
         const investorConfig = [
-            { name: "DreamChaser", link: "https://x.com/HbarVision", image: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", description: "Visionary investor with a focus on growth" },
             { name: "Gelui", link: "https://x.com/Gelui297615", image: "https://pbs.twimg.com/profile_images/1892486166764802048/rfCLKR2R_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892486166764802048/rfCLKR2R_400x400.jpg", description: "Entrepreneur and tech lover" },
+            { name: "DreamChaser", link: "https://x.com/HbarVision", image: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1858098899803643905/jQygwGSu_400x400.jpg", description: "Visionary investor with a focus on growth" },
             { name: "Emmy", link: "https://x.com/Emmy90_ox", image: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892987181834158080/YVH6bj0X_400x400.jpg", description: "Investor in the crypto world" },
             { name: "Farskie", link: "https://x.com/Farskie_United", image: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1764678586471165952/Jv_22Fvm_400x400.jpg", description: "Passionate about decentralized finance" },
 
             { name: "Hoker Hbar", link: "https://x.com/hokerhbar", image: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1881813604367745024/-YHdsf0q_400x400.jpg", description: "Slug Investor and strategist" },
             { name: "Mat", link: "https://x.com/grumpy_matt00?s=21&t=nvwTphr3EAg8a0fMdzvjjg", image: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1622804216212516864/T4RGwHPj_400x400.jpg", description: "Blockchain developer and investor" },
             { name: "Captain Canoeman", link: "https://x.com/CCanoeman56506", image: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892650473108471810/pO6zmG0O_400x400.jpg", description: "Innovator in blockchain gaming" },
-            { name: "@BLACKBELT_LEE", link: "https://x.com/BLACKBELT_LEE", circleImage: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg", image: "https://pbs.twimg.com/profile_images/1867292563939426304/sgmR683K_400x400.jpg" },
+            { name: "LeeŊo.ℏ (Ø,G)", link: "https://x.com/BLACKBELT_LEE", circleImage: "https://pbs.twimg.com/profile_images/1909042107777445888/wvJhQO4J_400x400.jpg", image: "https://pbs.twimg.com/profile_images/1909042107777445888/wvJhQO4J_400x400.jpg" },
             
             { name: "Nintendo Hbar", link: "https://x.com/Nintendo_Hbar", image: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1886639215544557569/zzJvE8ue_400x400.jpg", description: "Innovator in blockchain gaming" },
-            { name: "@carlosmrevilla", link: "https://x.com/carlosmrevilla",image:"https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg" },
-            { name: "", link: "", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
-            { name: "", link: "", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
+            { name: "Carlos Revilla", link: "https://x.com/carlosmrevilla",image:"https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1891653707944570880/cj3X4Lfr_400x400.jpg" },
+            { name: "@stephiemale", link: "", image: "https://pbs.twimg.com/profile_images/1836388867299037184/TlT1r2NG_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1836388867299037184/TlT1r2NG_400x400.jpg", description: "Slug Investor and strategist" },
+            { name: "@BackToTheFunky", link: "https://x.com/to_the_funky", image: "https://pbs.twimg.com/profile_images/1749718271941652480/gzhY_Ffg_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1749718271941652480/gzhY_Ffg_400x400.jpg", description: "Slug Investor and strategist" },
+
+            { name: "kuskulin", link: "https://x.com/kuskulin", image: "https://pbs.twimg.com/profile_images/1880660180959940608/7MvlZm1g_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1880660180959940608/7MvlZm1g_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "Gabo 🧙‍♂️/acc", link: "https://x.com/Gabomaster",image:"https://pbs.twimg.com/profile_images/1892318773543116800/Dqdfvii9_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892318773543116800/Dqdfvii9_400x400.jpg" },
+            { name: "MrAnonimo 🏕️\LMR/(✸,✸)", link: "https://x.com/MrAnonimo1768", image: "https://pbs.twimg.com/profile_images/1619365917674160128/zwOwrWDj_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1619365917674160128/zwOwrWDj_400x400.jpg", description: "Slug Investor and strategist" },
+            { name: "DBoss", link: "https://x.com/DiegoGallardoC4", image: "https://pbs.twimg.com/profile_images/1918432582007443456/s7WDkRqv_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1918432582007443456/s7WDkRqv_400x400.jpg", description: "Slug Investor and strategist" },
+
+            { name: "killerWħale.ĦBAR", link: "https://x.com/KillerWhaleHbar", image: "https://pbs.twimg.com/profile_images/1921117786270748672/K6wm5oqd_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1921117786270748672/K6wm5oqd_400x400.jpg", description: "Innovator in blockchain gaming" },
+            { name: "CryptoPhoenix", link: "https://x.com/baglessrugburn",image:"https://pbs.twimg.com/profile_images/1898182363043307520/e8Hu-mcG_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1898182363043307520/e8Hu-mcG_400x400.jpg" },
+            { name: "Agax.Jorge", link: "https://x.com/jorge_fdta", image: "https://pbs.twimg.com/profile_images/1911107684822081536/vExVxoXa_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1911107684822081536/vExVxoXa_400x400.jpg", description: "Slug Investor and strategist" },
+            { name: "Free Trust Slot", link: "https://x.com/DiegoGallardoC4", image: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", circleImage: "https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic.jpg", description: "Slug Investor and strategist" },
 
         ];
 
@@ -466,7 +432,7 @@ async function shareSectionOnInstagram(sectionId) {
         // Team Configuration
         const teamConfig = [
             { name: "AV", link: "https://x.com/HBARSLUG", role: "Socials & Marketing", image: "https://pbs.twimg.com/profile_images/1892521477251231744/YP0ajGa3_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892521477251231744/YP0ajGa3_400x400.jpg", description: "Responsible for all socials and marketing" },
-            { name: "Annie", link: "https://x.com/AnnieB794083051", role: "Creative Mind", image: "https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg", description: "Creative visionary behind our projects" },
+            { name: "Annie", link: "https://x.com/AnnieB794083051", role: "Creative Mind", image: "https://pbs.twimg.com/profile_images/1905779757368901632/-Wm9wCll_400x400.jpg",circleImage: "http://pbs.twimg.com/profile_images/1905779757368901632/-Wm9wCll_400x400.jpg", description: "Creative visionary behind our projects" },
             { name: "Sam", link: "https://x.com/Slug_Prodogy", role: "Tech Lead", image: "https://pbs.twimg.com/profile_images/1892483797943230464/P3sqgu7J_400x400.jpg", circleImage: "https://pbs.twimg.com/profile_images/1892483797943230464/P3sqgu7J_400x400.jpg", description: "Tech lead overseeing the development" },
 
         ];
@@ -495,7 +461,7 @@ async function shareSectionOnInstagram(sectionId) {
 
             <!-- Team Member 2 -->
             <a href="https://x.com/AnnieB794083051" class="team-card" target="_blank">
-                <img src="https://pbs.twimg.com/profile_images/1892478962720251904/ZY6D2AVJ_400x400.jpg" alt="Annie B"
+                <img src="http://pbs.twimg.com/profile_images/1905779757368901632/-Wm9wCll_400x400.jpg" alt="Annie B"
                     class="team-image">
                 <div class="team-info">
                     <h3>Annie B</h3>
