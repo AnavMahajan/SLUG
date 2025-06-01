@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEX NFT Series - Rewards Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-gem"></i>
+                <span>SLUG NEX REWARD</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#rewards" class="nav-link">Rewards</a>
+                <a href="#stats" class="nav-link">Top 5</a>
+                <a href="#search" class="nav-link">Claim</a>
+                <a href="#rewards-table" class="nav-link">Details</a>
+                <a href="#collection" class="nav-link">Collection</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">NEX NFT SERIES</span>
+                <br>Rewards Portal
+            </h1>
+            <p class="hero-description">
+                Discover your exclusive rewards from the mystical Sliminion NEX collection. 
+                Each NFT holds unique power and earns $SLUG tokens based on rarity.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">2,060,000</div>
+                    <div class="stat-label">Total $SLUG Rewards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">65</div>
+                    <div class="stat-label">NFTs in Collection</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Rarity Tiers</div>
+                </div>
+            </div>
+            <button class="cta-button" onclick="scrollToSection('rewards')">
+                <span>View Rewards</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+
+    <!-- Rarity Distribution Section -->
+    <section class="rewards-section" id="rewards">
+        <div class="container">
+            <h2 class="section-title">Rarity Distribution & Rewards</h2>
+            <div class="rarity-grid">
+                <div class="rarity-card legendary">
+                    <div class="rarity-header">
+                        <i class="fas fa-crown"></i>
+                        <h3>Legendary</h3>
+                    </div>
+                    <div class="rarity-stats">
+                        <div class="nft-count">6 NFTs</div>
+                        <div class="reward-amount">600,000 $SLUG</div>
+                        <div class="reward-per-nft">100,000 per NFT</div>
+                    </div>
+                    <div class="rarity-progress">
+                        <div class="progress-bar" style="width: 9.2%"></div>
+                    </div>
+                </div>
+                
+                <div class="rarity-card rare">
+                    <div class="rarity-header">
+                        <i class="fas fa-star"></i>
+                        <h3>Rare</h3>
+                    </div>
+                    <div class="rarity-stats">
+                        <div class="nft-count">15 NFTs</div>
+                        <div class="reward-amount">750,000 $SLUG</div>
+                        <div class="reward-per-nft">50,000 per NFT</div>
+                    </div>
+                    <div class="rarity-progress">
+                        <div class="progress-bar" style="width: 23.1%"></div>
+                    </div>
+                </div>
+                
+                <div class="rarity-card epic">
+                    <div class="rarity-header">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Epic</h3>
+                    </div>
+                    <div class="rarity-stats">
+                        <div class="nft-count">18 NFTs</div>
+                        <div class="reward-amount">450,000 $SLUG</div>
+                        <div class="reward-per-nft">25,000 per NFT</div>
+                    </div>
+                    <div class="rarity-progress">
+                        <div class="progress-bar" style="width: 27.7%"></div>
+                    </div>
+                </div>
+                
+                <div class="rarity-card uncommon">
+                    <div class="rarity-header">
+                        <i class="fas fa-diamond"></i>
+                        <h3>Uncommon</h3>
+                    </div>
+                    <div class="rarity-stats">
+                        <div class="nft-count">14 NFTs</div>
+                        <div class="reward-amount">140,000 $SLUG</div>
+                        <div class="reward-per-nft">10,000 per NFT</div>
+                    </div>
+                    <div class="rarity-progress">
+                        <div class="progress-bar" style="width: 21.5%"></div>
+                    </div>
+                </div>
+                
+                <div class="rarity-card common">
+                    <div class="rarity-header">
+                        <i class="fas fa-circle"></i>
+                        <h3>Common</h3>
+                    </div>
+                    <div class="rarity-stats">
+                        <div class="nft-count">12 NFTs</div>
+                        <div class="reward-amount">120,000 $SLUG</div>
+                        <div class="reward-per-nft">10,000 per NFT</div>
+                    </div>
+                    <div class="rarity-progress">
+                        <div class="progress-bar" style="width: 18.5%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Owners Section -->
+    <section class="owners-section" id="stats">
+        <div class="container">
+            <h2 class="section-title">Top Collectors</h2>
+            <div class="owners-grid">
+                <div class="owner-card rank-1">
+                    <div class="rank-badge">1</div>
+                    <div class="owner-info">
+                        <div class="owner-address">0.0.9143481</div>
+                        <div class="owner-stats">
+                            <span class="nft-count">10 NFTs</span>
+                            <span class="reward-total">330,000 $SLUG</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="owner-card rank-2">
+                    <div class="rank-badge">2</div>
+                    <div class="owner-info">
+                        <div class="owner-address">0.0.8499794</div>
+                        <div class="owner-stats">
+                            <span class="nft-count">8 NFTs</span>
+                            <span class="reward-total">305,000 $SLUG</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="owner-card rank-3">
+                    <div class="rank-badge">3</div>
+                    <div class="owner-info">
+                        <div class="owner-address">0.0.4607653</div>
+                        <div class="owner-stats">
+                            <span class="nft-count">3 NFTs</span>
+                            <span class="reward-total">175,000 $SLUG</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="owner-card">
+                    <div class="rank-badge">4</div>
+                    <div class="owner-info">
+                        <div class="owner-address">0.0.2167934</div>
+                        <div class="owner-stats">
+                            <span class="nft-count">3 NFTs</span>
+                            <span class="reward-total">175,000 $SLUG</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="owner-card">
+                    <div class="rank-badge">5</div>
+                    <div class="owner-info">
+                        <div class="owner-address">0.0.1453226</div>
+                        <div class="owner-stats">
+                            <span class="nft-count">3 NFTs</span>
+                            <span class="reward-total">135,000 $SLUG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Account Search Section -->
+<!-- Account Search Section -->
+<section class="search-section" id="search">
+    <div class="container">
+        <h2 class="section-title">Check & Claim Rewards</h2>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="accountSearch" placeholder="Enter your account ID (e.g., 0.0.9143481)" class="search-input">
+                <button onclick="searchAccount()" class="search-btn">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
+            </div>
+            <!-- Claim Button (inside container) -->
+            <div id="claimContainer" style="margin-top: 1rem; display: none;">
+                <button id="claimBtn" onclick="claimRewards()" class="claim-btn" disabled>
+                    <i class="fas fa-coins"></i>
+                    Claim Rewards
+                </button>
+            </div>
+            <br/>
+            <div id="searchResult" class="search-result"></div>
+
+
+
+            <!-- Success Message -->
+            <div id="claimSuccess" class="claim-success" style="margin-top: 1rem; color: green; display: none;">
+                🎉 Congratulations! Rewards successfully claimed.<br>
+                Check your wallet within the next hour for your $SLUG tokens.
+            </div>
+
+            <!-- Error Message -->
+            <div id="searchError" class="search-error" style="display: none; color: red; margin-top: 1rem;">
+                Please enter a valid Hedera account ID (e.g., 0.0.1234567).
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Detailed Rewards Table Section -->
+    <section class="table-section" id="rewards-table">
+        <div class="container">
+            <h2 class="section-title">Complete Rewards Breakdown</h2>
+            <div class="table-controls">
+                <div class="table-info">
+                    <span id="tableCount">65 accounts</span> • 
+                    <span>Total: 2,060,000 $SLUG</span>
+                </div>
+                <button onclick="downloadCSV()" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download CSV
+                </button>
+            </div>
+            <div class="table-container">
+                <table class="rewards-table" id="rewardsTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Rank <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(1)">Account ID <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(2)">NFTs Owned <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(3)">Total Rewards <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(4)">Breakdown <i class="fas fa-sort"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Table rows will be loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Collection Section -->
+    <section class="collection-section" id="collection">
+        <div class="container">
+            <h2 class="section-title">NFT Collection</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="legendary">Legendary</button>
+                <button class="filter-btn" data-filter="rare">Rare</button>
+                <button class="filter-btn" data-filter="epic">Epic</button>
+                <button class="filter-btn" data-filter="uncommon">Uncommon</button>
+                <button class="filter-btn" data-filter="common">Common</button>
+            </div>
+            <div class="nft-grid" id="nftGrid">
+                <!-- NFTs will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-gem"></i>
+                    <span>NEX Portal</span>
+                </div>
+                <p class="footer-text">
+                    Powered by Hedera Network | Token ID: 0.0.8800030
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
