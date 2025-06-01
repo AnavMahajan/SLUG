@@ -10,6 +10,44 @@
     background: linear-gradient(180deg, rgba(30, 20, 40, 1) 0%, rgba(20, 10, 30, 1) 100%);
 }
 
+.claim-success {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #2ec4b6, #247ba0);
+    color: #a0f0e0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    box-shadow:
+      0 0 3px #2ec4b6,
+      0 0 8px #247ba0,
+      inset 0 0 4px #2ec4b6;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    animation: pulseGlow 3s infinite alternate ease-in-out;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    user-select: none;
+  }
+  
+  @keyframes pulseGlow {
+    0% {
+      box-shadow:
+        0 0 3px #2ec4b6,
+        0 0 8px #247ba0,
+        inset 0 0 4px #2ec4b6;
+      color: #a0f0e0;
+    }
+    100% {
+      box-shadow:
+        0 0 5px #2ec4b6,
+        0 0 12px #247ba0,
+        inset 0 0 6px #2ec4b6;
+      color: #c0fff9;
+    }
+  }
+  
 .upload-container {
     max-width: 800px;
     margin: 0 auto;
