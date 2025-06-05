@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLUG Meme World - Share the Slime</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .meme-world-container {
+            padding: 0;
+            min-height: 100vh;
+            background: var(--bg-primary);
+        }
+
+        /* Enhanced Hero Section */
+        .meme-world-hero {
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meme-world-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(100, 255, 218, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 90%, rgba(255, 107, 157, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            z-index: 2;
+            position: relative;
+            padding: 4rem 2rem 2rem;
+            margin: 0 auto;
+            flex: 0 0 auto;
+        }
+
+        .hero-main-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding: 2rem 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .hero-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-right {
+            flex: 0 0 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .featured-meme-carousel {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--neon-glow-strong);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-meme-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .featured-meme-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-meme-content {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-meme-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .featured-meme-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .featured-meme-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .featured-stat i {
+            color: var(--accent-primary);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav-dot.active {
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .hero-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-info-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hero-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .hero-info-icon {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-info-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-info-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .slime-tagline {
+            font-size: 1.2rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .meme-world-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+            line-height: 1.1;
+            animation: glow-pulse 3s infinite;
+        }
+
+        .meme-world-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .upload-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            box-shadow: var(--neon-glow);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--accent-primary);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .upload-area:hover::before {
+            left: 100%;
+        }
+
+        .upload-area:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(100, 255, 218, 0.05);
+            transform: scale(1.02);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--accent-secondary);
+            background: rgba(100, 255, 218, 0.1);
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover .upload-icon {
+            transform: scale(1.1);
+            color: var(--accent-secondary);
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .upload-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: var(--neon-glow);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            box-shadow: var(--neon-glow);
+            transform: translateY(-3px);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .search-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .search-input {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: var(--neon-glow);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .media-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .media-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--neon-glow-strong);
+            border-color: var(--accent-primary);
+        }
+
+        .media-content {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .media-card:hover .media-overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .media-overlay {
+                opacity: 1;
+                background: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.8));
+                align-items: flex-end;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .media-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--neon-glow);
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        .action-btn.copy-btn {
+            background: var(--gradient-secondary);
+        }
+
+        .action-btn.share-btn {
+            background: var(--gradient-tertiary);
+        }
+
+        .action-btn.download-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .media-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .media-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .media-type {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .media-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat-item i {
+            color: var(--accent-primary);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--neon-glow-strong);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-glow);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        .modal-btn.secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-modal .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .preview-content {
+            margin-bottom: 1rem;
+        }
+
+        .preview-content img,
+        .preview-content video {
+            max-width: 100%;
+            max-height: 60vh;
+            border-radius: 12px;
+        }
+
+        .no-media-message {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .load-more-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .load-more-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-glow);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .load-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow-strong);
+            background: var(--gradient-secondary);
+        }
+
+        .load-more-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .loading-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .loading-indicator i {
+            font-size: 1.3rem;
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .load-more-container {
+                padding: 2rem 1rem;
+            }
+
+            .load-more-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .meme-world-title {
+                font-size: 3rem;
+            }
+
+            .hero-content {
+                padding: 4rem 1rem 1rem;
+            }
+
+            .hero-main-section {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .hero-right {
+                order: -1;
+                flex: none;
+                width: 100%;
+            }
+
+            .hero-left {
+                max-width: none;
+            }
+
+            .featured-meme-carousel {
+                max-width: 100%;
+                height: 350px;
+            }
+
+            .hero-info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-info-card {
+                padding: 1rem;
+            }
+
+            .upload-section {
+                margin: 0 1rem 2rem;
+                padding: 2rem;
+            }
+
+            .upload-area {
+                padding: 2rem 1rem;
+            }
+
+            .upload-icon {
+                font-size: 3rem;
+            }
+
+            .filter-section {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .action-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .media-actions {
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Grid Lines Background -->
+    <div class="grid-lines"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button" title="Back to Home">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="container meme-world-container">
+        <!-- Enhanced Hero Section -->
+        <div class="meme-world-hero">
+            <div class="hero-content">
+                <h1 class="meme-world-title">🐌 SLUG Meme Portal 🐌</h1>
+                <p class="meme-world-subtitle">
+                    The ultimate destination for SLUG community memes and videos! Upload, share, and discover the
+                    slimiest content from our amazing Sliminions worldwide.
+                </p>
+
+                <!-- Stats Section -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalUploads">0</div>
+                        <div class="stat-label">Total Memes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalViews">0</div>
+                        <div class="stat-label">Total Views</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalShares">0</div>
+                        <div class="stat-label">Total Shares</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Hero Section -->
+            <div class="hero-main-section">
+                <div class="hero-left">
+                    <div class="hero-info-grid">
+                        <div class="hero-info-card">
+                            <div class="hero-info-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="hero-info-title">Watch</div>
+                            <div class="hero-info-desc">Discover viral memes and trending content from our community
+                            </div>
+                        </div>
+                        <div class="hero-info-card">
+                            <div class="hero-info-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="hero-info-title">Share</div>
+                            <div class="hero-info-desc">Spread the slime on X and social media platforms</div>
+                        </div>
+                        <div class="hero-info-card">
+                            <div class="hero-info-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="hero-info-title">Download</div>
+                            <div class="hero-info-desc">Save your favorite memes and videos to your device</div>
+                        </div>
+                    </div>
+                    <div class="slime-tagline">
+
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="featured-meme-carousel" id="featuredCarousel">
+                        <div class="featured-meme-track" id="featuredTrack">
+                            <div class="featured-meme-slide">
+                                <img src="meme/meme1.jpeg" alt="Featured Meme 1" class="featured-meme-content">
+                                <div class="featured-meme-overlay">
+                                    <div class="featured-meme-title">Classic SLUG Power!</div>
+                                    <div class="featured-meme-stats">
+                                        <div class="featured-stat">
+                                            <i class="fas fa-eye"></i>
+                                            <span>1.2k</span>
+                                        </div>
+                                        <div class="featured-stat">
+                                            <i class="fas fa-share"></i>
+                                            <span>89</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-meme-slide">
+                                <img src="meme/meme2.jpeg" alt="Featured Meme 2" class="featured-meme-content">
+                                <div class="featured-meme-overlay">
+                                    <div class="featured-meme-title">Epic SLUG Moment!</div>
+                                    <div class="featured-meme-stats">
+                                        <div class="featured-stat">
+                                            <i class="fas fa-eye"></i>
+                                            <span>965</span>
+                                        </div>
+                                        <div class="featured-stat">
+                                            <i class="fas fa-share"></i>
+                                            <span>76</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="featured-meme-slide">
+                                <img src="meme/meme3.jpeg" alt="Featured Meme 3" class="featured-meme-content">
+                                <div class="featured-meme-overlay">
+                                    <div class="featured-meme-title">Slimy Adventures!</div>
+                                    <div class="featured-meme-stats">
+                                        <div class="featured-stat">
+                                            <i class="fas fa-eye"></i>
+                                            <span>743</span>
+                                        </div>
+                                        <div class="featured-stat">
+                                            <i class="fas fa-share"></i>
+                                            <span>52</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-nav" id="featuredCarouselNav">
+                            <div class="carousel-nav-dot active" onclick="goToFeaturedSlide(0)"></div>
+                            <div class="carousel-nav-dot" onclick="goToFeaturedSlide(1)"></div>
+                            <div class="carousel-nav-dot" onclick="goToFeaturedSlide(2)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="memes">Memes</button>
+            <button class="filter-btn" data-filter="videos">Videos</button>
+            <button class="filter-btn" data-filter="recent">Recent</button>
+            <button class="filter-btn" data-filter="popular">Popular</button>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input type="text" class="search-input" placeholder="Search memes and videos..." id="searchInput">
+        </div>
+
+        <!-- Media Grid -->
+        <div class="media-grid" id="mediaGrid">
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreMedia()">
+                <span class="load-more-text">Load More Memes</span>
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Loading more awesome content...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h3>🎉 Success!</h3>
+            <p id="successMessage">Action completed successfully!</p>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="closeModal('successModal')">Great!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <h3>🚀 Share on X</h3>
+            <p>Ready to share this awesome SLUG content on X? We'll open X with your message ready to go!</p>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="proceedToShare()">Share Now</button>
+                <button class="modal-btn secondary" onclick="closeModal('shareModal')">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal preview-modal">
+        <div class="modal-content">
+            <h3 id="previewTitle">Media Preview</h3>
+            <div class="preview-content" id="previewContent"></div>
+            <div class="modal-actions">
+                <button class="modal-btn" onclick="copyFromPreview()">Copy Image</button>
+                <button class="modal-btn" onclick="shareFromPreview()">Share on X</button>
+                <button class="modal-btn" onclick="downloadFromPreview()">Download</button>
+                <button class="modal-btn secondary" onclick="closeModal('previewModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let uploadedMedia = [];
+        let filteredData = [];
+        let currentShareItem = null;
+        let currentPreviewItem = null;
+        let currentFeaturedSlide = 0;
+        let featuredCarouselInterval;
+        let itemsPerPage = 6;
+        let currentPage = 0;
+        let isLoading = false;
+
+        // Simplified local counter system
+        const COUNTER_STORAGE_KEY = 'slug-meme-counters';
+
+        // Initialize counters with random starting values
+        function initializeCounters() {
+            const stored = localStorage.getItem(COUNTER_STORAGE_KEY);
+            if (!stored) {
+                const counters = {};
+                uploadedMedia.forEach(item => {
+                    counters[`${item.id}-views`] = Math.floor(Math.random() * 500) + 100;
+                    counters[`${item.id}-shares`] = Math.floor(Math.random() * 50) + 10;
+                });
+                localStorage.setItem(COUNTER_STORAGE_KEY, JSON.stringify(counters));
+                return counters;
+            }
+            return JSON.parse(stored);
+        }
+
+        // Get counter value
+        function getCounter(key) {
+            const counters = JSON.parse(localStorage.getItem(COUNTER_STORAGE_KEY) || '{}');
+            return counters[key] || 0;
+        }
+
+        // Increment counter
+        function incrementCounter(key) {
+            const counters = JSON.parse(localStorage.getItem(COUNTER_STORAGE_KEY) || '{}');
+            counters[key] = (counters[key] || 0) + 1;
+            localStorage.setItem(COUNTER_STORAGE_KEY, JSON.stringify(counters));
+            return counters[key];
+        }
+
+        // Load all counters
+        function loadAllCounters() {
+            const counters = JSON.parse(localStorage.getItem(COUNTER_STORAGE_KEY) || '{}');
+            uploadedMedia.forEach(item => {
+                item.views = counters[`${item.id}-views`] || 0;
+                item.shares = counters[`${item.id}-shares`] || 0;
+            });
+            updateStats();
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeExistingMedia(); // Load media first
+            initializeCounters(); // Initialize simple counters
+            loadAllCounters(); // Load counter values
+            filteredData = [...uploadedMedia]; // Initialize filtered data
+            setupEventListeners();
+            updateStats();
+            renderMediaGrid(filteredData, false); // This will show media immediately
+            initFeaturedCarousel(); // Initialize featured carousel
+        });
+
+        function initFeaturedCarousel() {
+            startFeaturedCarouselAutoPlay();
+        }
+
+        function startFeaturedCarouselAutoPlay() {
+            featuredCarouselInterval = setInterval(() => {
+                nextFeaturedSlide();
+            }, 4000);
+        }
+
+        function nextFeaturedSlide() {
+            const totalSlides = document.querySelectorAll('.featured-meme-slide').length;
+            currentFeaturedSlide = (currentFeaturedSlide + 1) % totalSlides;
+            updateFeaturedCarousel();
+        }
+
+        function goToFeaturedSlide(index) {
+            currentFeaturedSlide = index;
+            updateFeaturedCarousel();
+            clearInterval(featuredCarouselInterval);
+            startFeaturedCarouselAutoPlay();
+        }
+
+        function updateFeaturedCarousel() {
+            const track = document.getElementById('featuredTrack');
+            const dots = document.querySelectorAll('.carousel-nav-dot');
+
+            track.style.transform = `translateX(-${currentFeaturedSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentFeaturedSlide);
+            });
+        }
+
+        function setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    filterMedia(this.dataset.filter);
+                });
+            });
+
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    searchMedia(this.value);
+                });
+            }
+
+            // Close modal when clicking outside
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        closeModal(this.id);
+                    }
+                });
+            });
+        }
+
+
+
+        function updateStats() {
+            const totalUploads = uploadedMedia.length;
+            const totalViews = uploadedMedia.reduce((sum, item) => sum + item.views, 0);
+            const totalShares = uploadedMedia.reduce((sum, item) => sum + item.shares, 0);
+
+            document.getElementById('totalUploads').textContent = totalUploads;
+            document.getElementById('totalViews').textContent = totalViews;
+            document.getElementById('totalShares').textContent = totalShares;
+        }
+
+        function renderMediaGrid(data, append = false) {
+            const grid = document.getElementById('mediaGrid');
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+            if (data.length === 0 && !append) {
+                grid.innerHTML = '<div class="no-media-message">🐌 No memes found! Try adjusting your filters or search terms. 🐌</div>';
+                if (loadMoreContainer) loadMoreContainer.style.display = 'none';
+                return;
+            }
+
+            // Clear grid on new search/filter, append on load more
+            if (!append) {
+                grid.innerHTML = '';
+                currentPage = 0;
+            }
+
+            // Calculate items to show
+            const startIndex = currentPage * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const itemsToShow = data.slice(startIndex, endIndex);
+
+            // Render media cards
+            itemsToShow.forEach(item => {
+                const mediaCard = createMediaCard(item);
+                grid.appendChild(mediaCard);
+            });
+
+            // Show/hide load more button
+            if (loadMoreContainer) {
+                if (endIndex >= data.length) {
+                    loadMoreContainer.style.display = 'none';
+                } else {
+                    loadMoreContainer.style.display = 'flex';
+                }
+            }
+
+            // Update page counter
+            if (append) {
+                currentPage++;
+            }
+        }
+
+        function createMediaCard(item) {
+            const card = document.createElement('div');
+            card.className = 'media-card';
+
+            const mediaElement = item.type === 'video'
+                ? `<video class="media-content" muted loop>
+                     <source src="${item.data}" type="video/mp4">
+                   </video>`
+                : `<img class="media-content" src="${item.data}" alt="${item.title}">`;
+
+            card.innerHTML = `
+                ${mediaElement}
+                <div class="media-overlay">
+                    <div class="media-actions">
+                        <button class="action-btn copy-btn" onclick="copyMedia('${item.id}')" title="Copy Image">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <button class="action-btn share-btn" onclick="shareMedia('${item.id}')" title="Share on X">
+                            <i class="fab fa-x-twitter"></i>
+                        </button>
+                        <button class="action-btn download-btn" onclick="downloadMedia('${item.id}')" title="Download">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="action-btn" onclick="previewMedia('${item.id}')" title="Preview">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="media-info">
+                    <div class="media-title">${item.title}</div>
+                    <div class="media-type">${item.type}</div>
+                    <div class="media-stats" data-media-id="${item.id}">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span class="view-count">${item.views || 0}</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-share"></i>
+                            <span class="share-count">${item.shares || 0}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add hover effect for videos
+            if (item.type === 'video') {
+                const video = card.querySelector('video');
+                card.addEventListener('mouseenter', () => video.play().catch(() => { }));
+                card.addEventListener('mouseleave', () => video.pause());
+            }
+
+            // Add click to increment views (only for the image/video area, not buttons)
+            const mediaContent = card.querySelector('.media-content');
+            if (mediaContent) {
+                mediaContent.addEventListener('click', (e) => {
+                    // Prevent bubbling from action buttons
+                    if (!e.target.closest('.action-btn') && !e.target.closest('.media-overlay')) {
+                        incrementViews(item.id);
+                    }
+                });
+            }
+
+            return card;
+        }
+
+        function incrementViews(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (item) {
+                const newViews = incrementCounter(`${itemId}-views`);
+                item.views = newViews;
+                updateStats();
+                updateMediaCardStats(itemId);
+            }
+        }
+
+        // Note: Media loading is now handled by initializeExistingMedia() function
+        // which loads the media files directly from the project structure
+
+        function updateMediaCardStats(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (!item) return;
+
+            // Find the card and update its stats
+            const cards = document.querySelectorAll('.media-card');
+            cards.forEach(card => {
+                const cardActions = card.querySelector('.media-actions');
+                if (cardActions && cardActions.querySelector(`[onclick*="${itemId}"]`)) {
+                    const statsDiv = card.querySelector('.media-stats');
+                    if (statsDiv) {
+                        statsDiv.innerHTML = `
+                            <div class="stat-item">
+                                <i class="fas fa-eye"></i>
+                                <span>${item.views}</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-share"></i>
+                                <span>${item.shares}</span>
+                            </div>
+                        `;
+                    }
+                }
+            });
+        }
+
+        async function copyMedia(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (!item) return;
+
+            if (item.type === 'image') {
+                // Check if we're on mobile
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                    // Mobile-specific copy handling
+                    copyImageOnMobile(item, itemId);
+                } else {
+                    // Desktop copy handling
+                    copyImageOnDesktop(item, itemId);
+                }
+            } else {
+                showSuccessModal('Videos cannot be copied to clipboard. Use download or share instead.');
+            }
+        }
+
+        // Enhanced mobile copy function
+        async function copyImageOnMobile(item, itemId) {
+            try {
+                // First try the modern clipboard API
+                if (navigator.clipboard && navigator.clipboard.write) {
+                    const response = await fetch(item.data);
+                    const blob = await response.blob();
+                    const clipboardItem = new ClipboardItem({[blob.type]: blob});
+                    await navigator.clipboard.write([clipboardItem]);
+                    showSuccessModal('Image copied to clipboard!');
+                    incrementShares(itemId);
+                    return;
+                }
+            } catch (error) {
+                console.log('Modern clipboard API failed, trying alternative methods');
+            }
+
+            // Fallback: Create a modal with copy instructions
+            showMobileCopyModal(item, itemId);
+        }
+
+        // Desktop copy function
+        async function copyImageOnDesktop(item, itemId) {
+            try {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+
+                img.onload = async function () {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    canvas.toBlob(async (blob) => {
+                        try {
+                            const clipboardItem = new ClipboardItem({'image/png': blob});
+                            await navigator.clipboard.write([clipboardItem]);
+                            showSuccessModal('Image copied to clipboard!');
+                            incrementShares(itemId);
+                        } catch (err) {
+                            console.error('Clipboard write failed:', err);
+                            showMobileCopyModal(item, itemId);
+                        }
+                    }, 'image/png');
+                };
+
+                img.onerror = function () {
+                    showMobileCopyModal(item, itemId);
+                };
+
+                img.src = item.data;
+            } catch (err) {
+                console.error('Copy error:', err);
+                showMobileCopyModal(item, itemId);
+            }
+        }
+
+        // Show mobile-friendly copy modal
+        function showMobileCopyModal(item, itemId) {
+            const modal = document.createElement('div');
+            modal.className = 'mobile-copy-modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                backdrop-filter: blur(10px);
+            `;
+
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: var(--bg-card);
+                border-radius: 20px;
+                padding: 2rem;
+                max-width: 90%;
+                text-align: center;
+                border: 1px solid var(--border-color);
+            `;
+
+            content.innerHTML = `
+                <h3 style="color: var(--accent-primary); margin-bottom: 1rem; font-family: 'Orbitron', sans-serif;">Copy Image</h3>
+                <img src="${item.data}" style="max-width: 100%; max-height: 200px; border-radius: 10px; margin-bottom: 1rem;" />
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.5;">
+                    Tap and hold the image above, then select "Copy" or "Save Image" from the menu.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="downloadMedia('${itemId}'); this.closest('.mobile-copy-modal').remove();" 
+                            style="background: var(--gradient-primary); color: white; padding: 1rem 2rem; border: none; border-radius: 50px; cursor: pointer; font-weight: 600;">
+                        Download Instead
+                    </button>
+                    <button onclick="this.closest('.mobile-copy-modal').remove();" 
+                            style="background: var(--bg-tertiary); color: var(--text-primary); padding: 1rem 2rem; border: 1px solid var(--border-color); border-radius: 50px; cursor: pointer; font-weight: 600;">
+                        Close
+                    </button>
+                </div>
+            `;
+
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+
+            // Track the share action
+            incrementShares(itemId);
+
+            // Remove modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+
+            // Auto-remove after 10 seconds
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    modal.remove();
+                }
+            }, 10000);
+        }
+
+        function downloadMedia(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (!item) return;
+
+            const link = document.createElement('a');
+            link.href = item.data;
+            link.download = item.originalName || `${item.title}.${item.type === 'image' ? 'jpg' : 'mp4'}`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // showSuccessModal(`${item.title} downloaded successfully!`);
+            incrementShares(itemId);
+        }
+
+        function downloadFromPreview() {
+            if (currentPreviewItem) {
+                downloadMedia(currentPreviewItem.id);
+            }
+        }
+
+        function shareMedia(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (!item) return;
+
+            currentShareItem = item;
+            showModal('shareModal');
+        }
+
+        function previewMedia(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (!item) return;
+
+            currentPreviewItem = item;
+
+            const previewContent = document.getElementById('previewContent');
+            const previewTitle = document.getElementById('previewTitle');
+
+            previewTitle.textContent = item.title;
+
+            if (item.type === 'image') {
+                previewContent.innerHTML = `<img src="${item.data}" alt="${item.title}">`;
+            } else {
+                previewContent.innerHTML = `<video src="${item.data}" controls></video>`;
+            }
+
+            showModal('previewModal');
+            incrementViews(itemId);
+        }
+
+        function copyFromPreview() {
+            if (currentPreviewItem) {
+                copyMedia(currentPreviewItem.id);
+            }
+        }
+
+        function shareFromPreview() {
+            if (currentPreviewItem) {
+                currentShareItem = currentPreviewItem;
+                closeModal('previewModal');
+                showModal('shareModal');
+            }
+        }
+
+        async function proceedToShare() {
+            if (currentShareItem) {
+                try {
+                    // Get the full URL for the media file
+                    const baseUrl = window.location.origin;
+                    const mediaUrl = currentShareItem.data.startsWith('http') ?
+                        currentShareItem.data :
+                        `${baseUrl}/${currentShareItem.data}`;
+
+                    // Create share text with direct media link
+                    let shareText;
+                    if (currentShareItem.type === 'image') {
+                        shareText = `Check out this awesome SLUG meme: "${currentShareItem.title}"! 🐌💎 #SLUG #MemeWorld #HederaHashgraph\n\n${mediaUrl}\n\nJoin the SLUG revolution: ${baseUrl}`;
+                    } else {
+                        shareText = `Check out this awesome SLUG video: "${currentShareItem.title}"! 🐌💎 #SLUG #MemeWorld #HederaHashgraph\n\n${mediaUrl}\n\nJoin the SLUG revolution: ${baseUrl}`;
+                    }
+
+                    // Encode the text and open Twitter
+                    const encodedText = encodeURIComponent(shareText);
+                    window.open(`https://twitter.com/intent/tweet?text=${encodedText}`, '_blank');
+
+                    incrementShares(currentShareItem.id);
+                    closeModal('shareModal');
+                    currentShareItem = null;
+
+                } catch (err) {
+                    console.error('Error sharing media:', err);
+                    shareWithFallback();
+                }
+            }
+        }
+
+        function shareWithFallback() {
+            const baseUrl = window.location.origin;
+            const mediaUrl = currentShareItem.data.startsWith('http') ?
+                currentShareItem.data :
+                `${baseUrl}/${currentShareItem.data}`;
+
+            const text = encodeURIComponent(`Check out this awesome SLUG content: "${currentShareItem.title}"! 🐌💎 #SLUG #MemeWorld #HederaHashgraph\n\n${mediaUrl}\n\nJoin the SLUG revolution: ${baseUrl}`);
+            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+
+            incrementShares(currentShareItem.id);
+            closeModal('shareModal');
+            currentShareItem = null;
+        }
+
+        function incrementShares(itemId) {
+            const item = uploadedMedia.find(i => i.id == itemId);
+            if (item) {
+                const newShares = incrementCounter(`${itemId}-shares`);
+                item.shares = newShares;
+                updateStats();
+                updateMediaCardStats(itemId);
+            }
+        }
+
+        function filterMedia(filter) {
+            let baseData = [...uploadedMedia];
+
+            if (filter === 'all') {
+                filteredData = baseData;
+            } else if (filter === 'memes') {
+                filteredData = baseData.filter(item => item.type === 'image');
+            } else if (filter === 'videos') {
+                filteredData = baseData.filter(item => item.type === 'video');
+            } else if (filter === 'recent') {
+                filteredData = baseData.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+            } else if (filter === 'popular') {
+                filteredData = baseData.sort((a, b) => (b.views + b.shares) - (a.views + a.shares));
+            }
+
+            // Apply current search if any
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput && searchInput.value.trim() !== '') {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                filteredData = filteredData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
+                    (item.originalName && item.originalName.toLowerCase().includes(searchTerm))
+                );
+            }
+
+            // Reset pagination
+            currentPage = 0;
+            renderMediaGrid(filteredData, false);
+        }
+
+        function searchMedia(searchTerm) {
+            const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+            // Start with current filter results
+            let baseData = [...uploadedMedia];
+
+            if (currentFilter === 'memes') {
+                baseData = baseData.filter(item => item.type === 'image');
+            } else if (currentFilter === 'videos') {
+                baseData = baseData.filter(item => item.type === 'video');
+            } else if (currentFilter === 'recent') {
+                baseData = baseData.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+            } else if (currentFilter === 'popular') {
+                baseData = baseData.sort((a, b) => (b.views + b.shares) - (a.views + a.shares));
+            }
+
+            // Apply search filter
+            if (searchTerm.trim() === '') {
+                filteredData = baseData;
+            } else {
+                const searchLower = searchTerm.toLowerCase();
+                filteredData = baseData.filter(item =>
+                    item.title.toLowerCase().includes(searchLower) ||
+                    (item.originalName && item.originalName.toLowerCase().includes(searchLower))
+                );
+            }
+
+            // Reset pagination
+            currentPage = 0;
+            renderMediaGrid(filteredData, false);
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function showSuccessModal(message) {
+            document.getElementById('successMessage').textContent = message;
+            showModal('successModal');
+        }
+
+        // Theme toggle support
+        const themeToggle = document.createElement('button');
+        themeToggle.className = 'theme-toggle';
+        themeToggle.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        `;
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('light-theme')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+
+        document.body.appendChild(themeToggle);
+
+        // Escape key to close modals
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal.id);
+                    }
+                });
+            }
+        });
+
+        function loadMoreMedia() {
+            if (isLoading) return;
+
+            isLoading = true;
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+
+            // Show loading state
+            loadMoreBtn.style.display = 'none';
+            loadingIndicator.style.display = 'flex';
+
+            // Simulate loading delay for better UX
+            setTimeout(() => {
+                currentPage++;
+                renderMediaGrid(filteredData, true);
+
+                // Hide loading state
+                loadingIndicator.style.display = 'none';
+
+                // Check if there are more items to load
+                const totalShown = (currentPage + 1) * itemsPerPage;
+                if (totalShown < filteredData.length) {
+                    loadMoreBtn.style.display = 'flex';
+                }
+
+                isLoading = false;
+
+                // Smooth scroll to new content
+                const mediaGrid = document.getElementById('mediaGrid');
+                const lastCard = mediaGrid.lastElementChild;
+                if (lastCard) {
+                    setTimeout(() => {
+                        lastCard.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }, 100);
+                }
+            }, 800); // Simulate network delay
+        }
+
+        function initializeExistingMedia() {
+            // Load existing memes and videos from the repository
+            const existingMedia = [
+                {file: 'meme/meme1.jpeg', title: 'Classic SLUG Meme 1', type: 'image'},
+                {file: 'meme/meme2.jpeg', title: 'Epic SLUG Moment 2', type: 'image'},
+                {file: 'meme/meme3.jpeg', title: 'Slimy Adventures 3', type: 'image'},
+                {file: 'meme/meme4.jpeg', title: 'SLUG Power 4', type: 'image'},
+                {file: 'meme/meme5.jpeg', title: 'Community Favorite 5', type: 'image'},
+                {file: 'meme/meme6.jpeg', title: 'Legendary SLUG 6', type: 'image'},
+                {file: 'meme/meme7.jpeg', title: 'Meme Magic 7', type: 'image'},
+                {file: 'meme/meme8.jpeg', title: 'Slime Time 8', type: 'image'},
+                {file: 'meme/meme9.jpeg', title: 'SLUG Revolution 9', type: 'image'},
+                {file: 'slugintro.mp4', title: 'SLUG Intro Video', type: 'video'},
+                {file: 'Slimy.mp4', title: 'Slimy Character Showcase', type: 'video'}
+            ];
+
+            existingMedia.forEach((media, index) => {
+                uploadedMedia.push({
+                    id: `existing_${index}`,
+                    type: media.type,
+                    title: media.title,
+                    data: media.file,
+                    uploadDate: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
+                    views: 0,
+                    shares: 0,
+                    originalName: media.file.split('/').pop(),
+                    isExisting: true
+                });
+            });
+
+            filteredData = [...uploadedMedia];
+        }
+    </script>
+</body>
+
+</html>

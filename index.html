@@ -1,1358 +1,1274 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>SLUG Project</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    .music-card {
-        background-color: #333;
-        width: 420px;
-        border: 1px solid rgb(214, 211, 206);
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        margin: 0 auto;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLUG - The Ultimate Meme Coin on Hedera</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    .music-card:hover {
-        transform: scale(1.05);
-    }
-
-    .album-cover {
-        width: 100%;
-        height: 400px;
-        background-image: url('cover.png'); /* Replace with your album cover image */
-        background-size: cover;
-        background-position: center;
-    }
-
-    .song-info {
-        padding: 15px;
-        color: #fff;
-        text-align: center;
-    }
-
-    .song-title {
-        font-size: 22px;
-        font-weight: bold;
-    }
-
-    .song-artist {
-        font-size: 12px;
-        color: #aaa;
-    }
-</style>
-
-  <!-- CSS -->
-<style>
-  .investor-card, .team-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .investor-card:hover, .team-card:hover {
-    transform: scale(1.05);
-  }
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-  }
-
-  .card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-  }
-
-  .card-text p {
-    margin: 8px 0;
-    text-align: center;
-  }
-
-  .card-text span {
-    font-size: 1.2em;
-  }
-
-  .team-card .card-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .investor-card .card-image {
-    width: 80px;
-    height: 80px;
-  }
-</style>
-
-  <style>
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 ,p{
-      font-family: "Montserrat", sans-serif;
-      margin: 10px;
-    }
-
-    .w3-row-padding img {
-      margin-bottom: 12px
-    }
-
-    /* Set the width of the sidebar to 120px */
-    .w3-sidebar {
-      width: 120px;
-      background: #222;
-    }
-
-    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-    #main {
-      margin-left: 120px
-    }
-
-    /* Remove margins from "page content" on small screens */
-    @media only screen and (max-width: 600px) {
-      #main {
-        margin-left: 0
-      }
-    }
-
-    /* Basic styling for the section */
-    .whitepaper-section {
-      text-align: center;
-      margin-top: 30px;
-      color: white;
-    }
-
-    .whitepaper-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .whitepaper-section .docx-list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .whitepaper-section .docx-list li {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    .whitepaper-section .docx-list a {
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .whitepaper-section .docx-list a:hover {
-      text-decoration: underline;
-    }
-
-    button {
-      border: 2px solid #555;
-      /* Slightly lighter border */
-      color: white;
-      background-color: #333;
-      /* Dark background matching theme */
-    }
-
-    button i {
-      color: #e0e0e0;
-      /* Light gray icon color for contrast */
-    }
-
-    button:hover {
-      background-color: #444;
-      /* Slightly lighter dark color on hover */
-      border-color: #666;
-      /* Subtle border highlight */
-    }
-
-    button.w3-dark {
-      background-color: #020202;
-      /* Darker gray background */
-      border-color: #444;
-      /* Matching border */
-    }
-
-    button.w3-dark:hover {
-      background-color: #3a3a3a;
-      /* Darker gray hover */
-      border-color: #555;
-      /* Darker border on hover */
-    }
-  </style>
-
-  <!-- Additional Styles for Hover Effect -->
-  <style>
-    .card-hover:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .w3-row-padding {
-      gap: 24px;
-      /* Adds space between cards */
-    }
-
-    /* Calligraphic Font and Token ID Styling */
-    .slug-token-id {
-      font-size: 2rem;
-      color: white;
-      background-color: #333;
-      padding: 10px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    .copy-icon {
-      cursor: pointer;
-      color: white;
-      font-size: 24px;
-      margin-left: 10px;
-    }
-
-    .copy-icon:hover {
-      color: #ccc;
-    }
-
-    /* Style for the Token ID section */
-    .token-section {
-      text-align: center;
-      margin-top: 30px;
-    }
-  </style>
-
-
-  <style>
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .w3-row-padding {
-        flex-direction: column;
-      }
-
-      .w3-card-4 {
-        height: auto;
-        margin-bottom: 16px;
-      }
-
-      .w3-card-4 img {
-        width: 140px;
-        height: 140px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 20px;
-      }
-
-      .w3-card-4 {
-        height: auto;
-        margin-bottom: 12px;
-      }
-
-      .w3-card-4 img {
-        width: 120px;
-        height: 120px;
-      }
-    }
-
-
-
-    .carousel-container {
-      max-width: 992px;
-      margin: auto;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 50px;
-      /* Ensures no overlap */
-    }
-
-    .carousel-slide {
-      display: none;
-      text-align: center;
-    }
-
-    .carousel-prev,
-    .carousel-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 24px;
-    }
-
-    .carousel-prev {
-      left: 0;
-    }
-
-    .carousel-next {
-      right: 0;
-    }
-
-    .carousel img,
-    .carousel video {
-      width: 100%;
-      height: auto;
-    }
-
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .video-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 58vw;
-      /* Adjusted for better mobile scaling */
-      height: 90vh;
-      margin: auto;
-      background-color: black;
-      /* Fallback background */
-      overflow: hidden;
-    }
-
-    /* Ensure proper scaling on all screens */
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Maintain aspect ratio while covering the container */
-    }
-
-    /* Mobile Optimization */
-    @media (max-width: 768px) {
-      .video-container {
-        width: 100vw;
-        /* Use full width for smaller screens */
-        height: 80vh;
-        /* Slightly smaller height to avoid overflow */
-      }
-    }
-  </style>
-  <script>  // Copy to clipboard function
-    function copyToClipboard() {
-      var tokenId = document.getElementById("slugTokenId");
-      var range = document.createRange();
-      range.selectNode(tokenId);
-      window.getSelection().removeAllRanges();  // Clear any current selections
-      window.getSelection().addRange(range);    // Select the Token ID text
-      document.execCommand('copy');              // Copy the selected text
-
-      // Alert user that the text has been copied
-    }
-    var slideIndex = 0;
-
-    function showSlides() {
-      var slides = document.querySelectorAll(".carousel-slide");
-      if (slideIndex >= slides.length) slideIndex = 0;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
-
-      slides.forEach(slide => slide.style.display = "none");
-      slides[slideIndex].style.display = "block";
-    }
-
-    function moveSlide(step) {
-      slideIndex += step;
-      showSlides();
-    }
-
-    // Initialize carousel
-    showSlides();
-
-  </script>
 </head>
 
-<body class="w3-black">
-  <!-- Icon Bar (Sidebar - hidden on small screens) -->
-  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" id="mySidebar">
-    <img src="slug.jpeg" style="width:100%">
+<body class="dark-theme">
+    <!-- Grid Lines Background -->
+    <div class="grid-lines"></div>
 
-    <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
-      <i class="fa fa-home w3-xxlarge"></i>
-      <p>Home</p>
-    </a>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="slug.jpeg" alt="SLUG" class="logo-img">
+                <span class="logo-text">SLUG</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#features" class="nav-link">Highlights</a>
+                <a href="#community" class="nav-link">Community</a>
+                <a href="#social-wall" class="nav-link">Social Wall</a>
+                <a href="#trust" class="nav-link">Trust</a>
+                <a href="#chronicles" class="nav-link">Chronicles</a>
+                <a href="#nft" class="nav-link">NFTs</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <a href="#slug" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-building w3-xxlarge"></i>
-      <p>SLUG Project</p>
-    </a>
-
-    <a href="#slug-facts" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-info-circle w3-xxlarge"></i>
-      <p>Facts</p>
-    </a>
-
-    <a href="#slug-community" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-users w3-xxlarge"></i>
-      <p>Join Community</p>
-    </a>
-
-    <a href="#slug-music" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-users w3-xxlarge"></i>
-      <p>Slug Music</p>
-    </a>
-
-    <a href="#Wall" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-users w3-xxlarge"></i>
-      <p>Slug Social Wall</p>
-    </a>
-
-
-    <a href="#Investors" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-users w3-xxlarge"></i>
-      <p>Slug Trust</p>
-    </a>
-
-    
-
-
-    <a href="#how-to-buy" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-shopping-cart w3-xxlarge"></i>
-      <p>Buy & Hold Slug</p>
-    </a>
-
-    <a href="#slug-chronicles" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa fa-laugh w3-xxlarge"></i>
-      <p>Slug Chronicles</p>
-    </a>
-
-    <a href="#slug-nft" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-user w3-xxlarge"></i> <!-- Person icon for NFT -->
-      <p>NFT</p>
-    </a>
-
-
-    <a href="#slug-reports" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-file w3-xxlarge"></i>
-      <p>Performance Reports</p>
-    </a>
-
-    <a href="#whitepapers" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-file w3-xxlarge"></i>
-      <p>Whitepapers & Roadmap</p>
-    </a>
-
-
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-      <i class="fa fa-envelope w3-xxlarge"></i>
-      <p>Contact</p>
-    </a>
-  </nav>
-
-
-  <div class="w3-padding-large" id="main"></div>
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo">Slug</h1>
-    <p>The Ultimate Meme Coin on Hedera Hashgraph</p>
-
-    <div class="carousel-container">
-      <!-- Image Slide -->
-      <div class="carousel-slide">
-        <img src="slimy.png" alt="SLUG Image" style="width: 100%; height: auto;">
-      </div>
-
-
-    </div>
-
-    <script>    function showSlides() {
-        var slides = document.querySelectorAll(".carousel-slide");
-        if (slideIndex >= slides.length) slideIndex = 0;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-
-        slides.forEach(slide => slide.style.display = "none");
-        slides[slideIndex].style.display = "block";
-      }
-
-      function moveSlide(step) {
-        slideIndex += step;
-        showSlides();
-      }
-
-      // Initialize carousel
-      showSlides();
-
-    </script>
-
-    <!-- Slug Token ID Section -->
-    <div class="token-section">
-      <h2 style="color: white;"> <span id="slugTokenId" class="slug-token-id">0.0.7988483</span>
-        <i class="fa fa-copy copy-icon" onclick="copyToClipboard()"></i>
-      </h2>
-    </div>
-  </header>
-
-
-  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="slug">
-    <h2 class="w3-text-light-grey">The SLUG Project</h2>
-    <hr style="width:250px" class="w3-opacity">
-    <p>The SLUG Project is an exciting open-source meme coin that leverages the power of the Hedera Hashgraph network.
-      Hedera Hashgraph is a highly secure, decentralized, and fast blockchain alternative, built on the principle of a
-      public ledger maintained by a network of computers known as nodes.</p>
-
-    <p>But the SLUG Project isn't just about technology. It’s about community. Much like other successful meme coin
-      projects, we thrive on the power of a vibrant and engaged community, brought together by the shared vision of
-      turning SLUG into the most fun and inclusive meme coin on the Hedera network. The ethos of the SLUG Project is not
-      just about transactions but about creating a space for fun, creativity, and innovation in the world of
-      decentralized finance (DeFi).</p>
-
-    <p>Learn more about the SLUG Project and how our journey so far !</p>
-    <br />
-
-    <div class="video-container">
-      <video autoplay muted loop playsinline>
-        <source src="slugintro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-
-
-
-    <!-- SLUG Facts Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="slug-facts">
-      <h2 class="w3-text-light-grey">Slug Facts</h2>
-      <hr style="width:250px" class="w3-opacity">
-      <p class="w3-wide">Token Locked 21.45% and Growing</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:25%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">~31k MC</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:20%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">NFT Series 8/20 Characters</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:40%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">Music Album on Tune.Fm</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">450+ Loyal Holders</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:60%"></div>
-      </div>
-      <br />
-
-      <p class="w3-wide">~500 X Followers</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:70%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">Personlised SlimyTheSlugBot</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">Dev Support</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:100%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">Community Support</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:100%"></div>
-      </div>
-      <br />
-      <p class="w3-wide">Airdrops and Meme Competitions</p>
-      <div class="w3-white">
-        <div class="w3-dark-grey" style="height:28px;width:50%"></div>
-      </div>
-
-    </div>
-
-
-    <!-- SLUG community Section -->
-
-
-    <div class="w3-content w3-justify  w3-padding-32" id="slug-community">
-      <h2 class="w3-text-light-grey">Join the Slug Community</h2>
-      <hr style="width:400px" class="w3-opacity">
-      <p>Be part of the SLUG community – let's grow together and slime to the suture !</p>
-      <div class="w3-row-padding w3-center" style="display: flex; justify-content: center; gap: 48px;">
-        <!-- X Logo -->
-        <div class="card-hover">
-          <a href="https://x.com/HbarSlug" target="_blank">
-            <img src="https://freepnglogo.com/images/all_img/1691832708new-twitter-x-logo-white.png" alt="X Logo"
-              style="width: 30px; height: 30px;">
-          </a>
-          <p>Follow us on X</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
         </div>
 
-        <!-- Telegram Logo -->
-        <div class="card-hover">
-          <a href="http://t.me/slugofficial" target="_blank">
-            <i class="fab fa-telegram fa-3x" style="color: #0088cc;"></i>
-
-
-          </a>
-          <p>Join us on Telegram</p>
+        <!-- Main Mascot Background -->
+        <div class="hero-mascot">
+            <img src="slimy.png" alt="Slimy Mascot" class="mascot-background">
         </div>
 
-        <!-- Youtube Logo -->
-        <div>
-          <a href="https://www.youtube.com/@HbarSlug" target="_blank">
-            <i class="fab fa-youtube fa-3x" style="color: #f50707;"></i>
-          </a>
-          <p>Follow us on Youtube</p>
-
+        <!-- Character Showcase -->
+        <div class="character-showcase">
+            <div class="character-circle" onclick="openCharacterModal('slimy')" title="Slimy - The Leader">
+                <img src="slimy.png" alt="Slimy">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('bolt')" title="Bolt - The Speedster">
+                <img src="bolt.jpg" alt="Bolt">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('glitch')" title="Glitch - The Hacker">
+                <img src="glitch.jpeg" alt="Glitch">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('sage')" title="Sage - The Keeper">
+                <img src="sage.jpg" alt="Sage">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('nova')" title="Nova - The Navigator">
+                <img src="nova.jpeg" alt="Nova">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('liora')" title="Liora - The Mystic">
+                <img src="liora.jpg" alt="Liora">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('nex')" title="Nex - The Warrior">
+                <img src="nex.jpg" alt="Nex">
+            </div>
+            <div class="character-circle" onclick="openCharacterModal('cyris')" title="Cyris - The Inventor">
+                <img src="cyris.jpg" alt="Cyris">
+            </div>
         </div>
 
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Welcome to <span class="gradient-text" data-text="SLUG">SLUG</span>
+                </h1>
+                <p class="hero-description">
+                    The Ultimate Meme Coin on Hedera Hashgraph - Join the slimiest revolution in DeFi with cutting-edge
+                    blockchain technology
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" data-value="450+">450+</div>
+                        <div class="stat-label">Holders</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-value="18%">18%</div>
+                        <div class="stat-label">Token Locked</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-value="26k">26k</div>
+                        <div class="stat-label">Market Cap</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-value="980+">980+</div>
+                        <div class="stat-label">X Followers</div>
+                    </div>
+                </div>
+                <div class="hero-token-id">
+                    <span class="token-label">Token ID:</span>
+                    <span class="token-id" id="tokenId">0.0.7988483</span>
+                    <button class="copy-btn" onclick="copyTokenId()">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="hero-cta">
+                    <a href="https://memejob.fun/token/0.0.7988483" target="_blank" class="cta-button primary">
+                        <i class="fas fa-rocket"></i>
+                        Buy SLUG Now
+                    </a>
+                    <a href="#about" class="cta-button secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                    <a href="https://x.com/HbarSlug" target="_blank" class="cta-button secondary">
+                        <i class="fa-brands fa-x-twitter"></i>
 
-        <!-- insta Logo -->
-        <div class="card-hover">
-          <a href="https://www.instagram.com/hbarslug/?igsh=YTRlazFqdTA1YWw4#" target="_blank">
-            <i class="fab fa-instagram fa-3x" style="color: #e61785;"></i>
-
-
-          </a>
-          <p>Join us on Instagram</p>
+                        Follow on X
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Telegram Logo -->
-        <div class="card-hover">
-          <a href="http://t.me/SlugtheSlimyBot" target="_blank">
-            <i class="fa fa-user fa-3x" style="color: #0088cc;"></i>
-          </a>
-          <p>SlugTheSlimy Bot</p>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About SLUG Project</h2>
+                <p class="section-subtitle">The future of meme coins on Hedera Hashgraph with revolutionary blockchain
+                    technology</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="story-header">
+
+                    </div>
+
+                    <div class="story-content">
+                        <!-- Horizontal Timeline -->
+                        <div class="slug-journey-timeline">
+                            <div class="timeline-horizontal">
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Born as Fun</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Tech Release</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Sliminions Army</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Build Community</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-music"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Music Launch</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">SLUG Trust</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h completed">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-share-alt"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Social Wall</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h in-progress">
+                                    <div class="timeline-marker-h blinking">
+                                        <i class="fas fa-images"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">NFTs</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h future">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">DEX Listing</span>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item-h future">
+                                    <div class="timeline-marker-h">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="timeline-content-h">
+                                        <span class="timeline-label">Utility Tokenized</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="origin-story">
+                            <p class="story-intro">SLUG started as a <span class="highlight-text">meme coin made for
+                                    fun</span>—but with a growing, loyal community, it's becoming something <span
+                                    class="gradient-highlight">way more powerful</span>.</p>
+
+                            <p>Built on <strong>Hedera Hashgraph</strong>, SLUG blends blazing speed, security, and
+                                sustainability with the chaotic genius of memes, music, and NFTs.</p>
+                        </div>
+
+                        <div class="journey-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <strong>Since November 2024</strong> - Deep in the grind, crafting memes, building
+                                    tech, and creating our universe of <span class="sliminions-text">Sliminions</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    Iconic NFT characters with unique stories and vibes - they're the <span
+                                        class="beating-heart">beating heart</span> of the SLUG ecosystem
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    From anthem tracks like <em>"Slug Love"</em> to battle cries like <em>"Slug Gang
+                                        Rise Up"</em> - our culture runs deep
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="proof-section">
+                            <div class="doubters-quote">
+                                <p>People said SLUG was just another pump and dump.</p>
+                                <div class="but-guess-what">
+                                    <span class="big-text">But guess what?</span>
+                                    <span class="slug-stays">SLUG is HERE to stay.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-statement">
+                            <p class="long-haul">This is a <strong>long-haul mission</strong>. We're sliming our way
+                                into the future—</p>
+                            <div class="future-slogan">
+                                <span class="slime-future">Slime to the Future</span>
+                                <span class="hedera-speed">with Hedera Speed</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="about-video">
+                    <div class="video-container">
+                        <video autoplay muted loop playsinline>
+                            <source src="slugintro.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SLUG Highlights</h2>
+                <p class="section-subtitle">Discover the revolutionary features that make SLUG the future of meme coins
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Token Locked</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <p>18% and Growing - Ensuring long-term stability and trust</p>
+                </div>
 
-        <!-- Memejob Fun Logo -->
-        <div class="card-hover">
-          <a href="https://memejob.fun/token/0.0.7988483" target="_blank">
-            <i class="fa fa-rocket fa-3x" style="color: #FF6A00;"></i>
-          </a>
-          <p>Buy SLUG Token</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Cap</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                    <p>~26k MC - Massive growth potential ahead</p>
+                </div>
+
+                <div class="feature-card" onclick="window.location.href='#nft'">
+                    <div class="feature-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>NFT Series</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                    <p>8/20 Characters - Unique digital collectibles</p>
+                </div>
+
+                <div class="feature-card" onclick="window.location.href='#music-section'">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music Album</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <p>Available on Tune.Fm - Revenue-generating utility</p>
+                </div>
+
+                <div class="feature-card" onclick="window.location.href='#trust'">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Slug Trust</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p>Meet our trusted allies and community supporters</p>
+                </div>
+
+                <div class="feature-card" onclick="window.open('https://t.me/SlugtheSlimyBot', '_blank')">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>SlimyTheSlugBot</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <p>Slug-Powered Bot - Personalized user experiences in telegram</p>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join the SLUG Community</h2>
+                <p class="section-subtitle">Connect with the most innovative and engaged crypto community</p>
+            </div>
+            <div class="community-grid">
+                <a href="https://x.com/HbarSlug" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                    <h3>Follow on X</h3>
+                    <p>Latest news, updates, and community highlights</p>
+                </a>
 
-        <!-- Tune Fm Logo -->
-        <div class="card-hover">
-          <a href="https://tune.fm/@Slug/album/NewAlbum4210" target="_blank">
-            <i class="fa fa-music fa-3x" style="color: #FF0057;"></i>
-          </a>
-          <p>Tune.Fm</p>
+                <a href="http://t.me/slugofficial" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3>Join Telegram</h3>
+                    <p>Real-time discussions and exclusive content</p>
+                </a>
+
+                <a href="https://www.youtube.com/@HbarSlug" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube Channel</h3>
+                    <p>Educational content and behind-the-scenes</p>
+                </a>
+
+                <a href="https://www.instagram.com/hbarslug/" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Visual storytelling and community moments</p>
+                </a>
+
+                <a href="https://t.me/SlugtheSlimyBot" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>SlugTheSlimy Bot</h3>
+                    <p>Interactive AI companion and utilities</p>
+                </a>
+
+                <a href="https://tune.fm/@Slug/album/NewAlbum4210" target="_blank" class="community-card">
+                    <div class="community-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Tune.Fm</h3>
+                    <p>Stream music and support the ecosystem</p>
+                </a>
+            </div>
         </div>
+    </section>
 
+    <!-- Music Section -->
+    <section class="music-section" id="music-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SLUG Music Utility</h2>
+                <p class="section-subtitle">Revolutionary music streaming that powers our token economy</p>
+            </div>
+            <div class="music-content">
+                <div class="music-info">
+                    <h3>SlimySlug Album</h3>
+                    <p>Experience the future of music streaming with <a href="https://tune.fm/@Slug/album/NewAlbum4210"
+                            target="_blank">tune.fm</a>. Every stream generates revenue that directly supports the SLUG
+                        ecosystem, creating a sustainable economy powered by our community's engagement.</p>
+                    <p>This revolutionary approach combines entertainment with utility, making every listen count
+                        towards the growth of our token and community.</p>
+                    <div class="music-buttons">
+                        <a href="https://tune.fm/song/7df20c08-79e3-4db2-82c8-fdd20b3f11e8" target="_blank"
+                            class="music-btn">
+                            <i class="fas fa-music"></i>
+                            Slug Love
+                        </a>
+                        <a href="https://tune.fm/song/a1e440b7-2aa8-4d6e-8c40-b4f53aae060e" target="_blank"
+                            class="music-btn">
+                            <i class="fas fa-fist-raised"></i>
+                            Slug Gang Rise Up
+                        </a>
 
-
-        <!-- Token Lock -->
-        <div class="card-hover">
-          <a href="https://davincigraph.io/locks/tokens/0.0.7988483" target="_blank">
-            <i class="fa fa-lock fa-3x" style="color: #0088cc;"></i>
-          </a>
-          <p>Lock Slug Token</p>
+                    </div>
+                </div>
+                <div class="music-card" onclick="window.open('https://tune.fm/@Slug/album/NewAlbum4210', '_blank')">
+                    <div class="album-cover">
+                        <img src="cover.png" alt="Slimy Slug Album" onerror="this.style.display='none'">
+                    </div>
+                    <div class="song-info">
+                        <div class="song-title">Slimy Slug</div>
+                        <div class="song-artist">Dream Chaser</div>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
+    <!-- Slug Social Wall Section -->
+    <section class="social-wall-section" id="social-wall">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SLUG Social Wall</h2>
+                <p class="section-subtitle">Latest updates and community highlights from across the web</p>
+            </div>
+            <div class="social-wall-content">
+                <div class="iframe-container">
+                    <iframe src="Wall.html" width="100%" height="500px"
+                        style="border: none; border-radius: 24px; background: var(--bg-card); backdrop-filter: blur(20px);">
+                    </iframe>
+                    <a href="Wall.html" target="_blank" class="iframe-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Full Social Wall</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Slug Trust Section -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SLUG Trust</h2>
+                <p class="section-subtitle">Meet our trusted allies and community supporters</p>
+            </div>
+            <div class="trust-content">
+                <div class="iframe-container">
+                    <iframe src="Trust.html" width="100%" height="600px"
+                        style="border: none; border-radius: 24px; background: var(--bg-card); backdrop-filter: blur(20px);">
+                    </iframe>
+                    <a href="Trust.html" target="_blank" class="iframe-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Full Trust Page</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    <!-- SLUG Music Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="slug-music">
-      <h2 class="w3-text-light-grey">Slug Music Utility</h2>
-      <hr style="width:250px" class="w3-opacity">
-
-      <!-- Description of the Album -->
-      <div class="description">
-          <p>Streaming SlugLove on <a href="https://tune.fm/@Slug/album/NewAlbum4210" >tune.fm</a> isn’t just about the vibes—it’s fueling the SLUG meme coin with revenue</p>
-      </div>
-      <br/>
-
-      <!-- Music Card -->
-      <div class="music-card" onclick="window.open('https://tune.fm/@Slug/album/NewAlbum4210', '_blank')">
-          <div class="album-cover"></div>
-          <div class="song-info">
-              <div class="song-title">Slimy Slug</div>
-              <i class="song-artist">Dream Chaser</i>
-          </div>
-      </div>
-
-  </div>
-
-<!-- Slug Socail wall  -->
-<div class="w3-content w3-text-grey w3-padding-32" id="Wall">
-  <h2 class="w3-text-light-grey">Slug Social Wall</h2>
-  <hr style="width:200px" class="w3-opacity">     
-  <div class="w3-row-padding w3-center" id="investor-cards"></div>
-
-  <!-- Embedding a clickable iframe with overlay -->
-  <div class="w3-row-padding w3-center" style="position: relative;">
-    <!-- The iframe -->
-    <iframe src="Wall.html" 
-            width="100%" 
-            height="410px" 
-            style="border: none; border-radius: 8px;">
-    </iframe>
-
-    <!-- The clickable overlay -->
-    <a href="Wall.html" target="_blank" 
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; 
-              background: rgba(0, 0, 0, 0); cursor: pointer;">
-    </a>
-  </div>
-</div>
-
-<!-- Valuable Investors -->
-<div class="w3-content w3-text-grey w3-padding-32" id="Investors">
-  <h2 class="w3-text-light-grey">Slug Trust</h2>
-  <hr style="width:200px" class="w3-opacity">     
-  <div class="w3-row-padding w3-center" id="investor-cards"></div>
-
-  <!-- Embedding a clickable iframe with overlay -->
-  <div class="w3-row-padding w3-center" style="position: relative;">
-    <!-- The iframe -->
-    <iframe src="Trust.html" 
-            width="100%" 
-            height="500px" 
-            style="border: none; border-radius: 8px;">
-    </iframe>
-
-    <!-- The clickable overlay -->
-    <a href="Trust.html" target="_blank" 
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; 
-              background: rgba(0, 0, 0, 0); cursor: pointer;">
-    </a>
-  </div>
-</div>
-
-
-
-
+    <!-- SLUG Chronicles Section -->
+    <section class="chronicles-section" id="chronicles">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SLUG Chronicles <span class="volume-tag">#Vol1</span></h2>
+                <p class="section-subtitle">Where fun meets mischief! Discover the legendary memes from the SLUG
+                    universe</p>
+            </div>
+            <div class="chronicles-content">
+                <div class="meme-carousel">
+                    <div class="carousel-track" id="memeCarouselTrack">
+                        <div class="meme-slide active">
+                            <img src="meme/meme1.jpeg" alt="SLUG Meme 1" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme2.jpeg" alt="SLUG Meme 2" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme3.jpeg" alt="SLUG Meme 3" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme4.jpeg" alt="SLUG Meme 4" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme5.jpeg" alt="SLUG Meme 5" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme6.jpeg" alt="SLUG Meme 6" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme7.jpeg" alt="SLUG Meme 7" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme8.jpeg" alt="SLUG Meme 8" class="meme-img">
+                        </div>
+                        <div class="meme-slide">
+                            <img src="meme/meme9.jpeg" alt="SLUG Meme 9" class="meme-img">
+                        </div>
+                    </div>
+                    <button class="carousel-btn carousel-prev" onclick="moveMemeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-next" onclick="moveMemeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- How to Buy Section -->
-    <div class="w3-content w3-justify w3-text-grey" id="how-to-buy">
-      <h2 class="w3-text-light-grey">How to Buy SLUG Coin</h2>
-      <hr style="width:350px" class="w3-opacity">
-
-      <p>Ready to be part of the meme coin revolution? Buy and hold your SLUG today</p>
-
-
-      <div class="w3-row-padding " style="gap: 24px; display: flex; flex-wrap: wrap;">
-        <!-- Step 1 Card -->
-        <a href="https://www.hashpack.app/" target="_blank"
-          style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
-          <div class="w3-card-4 w3-dark-grey card-hover"
-            style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
-            <!-- Step Banner -->
-            <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
-              <i class="fa fa-wallet" style="margin-right: 10px;"></i> Create a Wallet
+    <section class="buy-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How to Buy SLUG</h2>
+                <p class="section-subtitle">Join the revolution in three simple steps</p>
             </div>
-            <!-- Card Image -->
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-              <img src="wallet.png" alt="Step 1"
-                style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; max-width: 180px; max-height: 180px;">
+            <div class="buy-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Create Wallet</h3>
+                    <p>Set up a secure crypto wallet that supports Hedera. We recommend HashPack for the best experience
+                        with our ecosystem.</p>
+                    <a href="https://www.hashpack.app/" target="_blank" class="step-btn">Get HashPack</a>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Buy HBAR</h3>
+                    <p>Purchase Hedera's native token HBAR from a trusted exchange. Major platforms include Binance,
+                        KuCoin, and Bitfinex.</p>
+                    <a href="https://www.binance.com/" target="_blank" class="step-btn">Buy HBAR</a>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <img src="slug.jpeg" alt="SLUG" class="slug-icon">
+                    </div>
+                    <h3>Get SLUG</h3>
+                    <p>Use the Memejob Fun platform to purchase SLUG tokens and become part of the future of meme coins!
+                    </p>
+                    <a href="https://memejob.fun/token/0.0.7988483" target="_blank" class="step-btn primary">Buy
+                        SLUG</a>
+                </div>
             </div>
-            <hr class="w3-opacity">
-
-            <div class="w3-container">
-              <p>Set up a crypto wallet that supports Hedera. Popular choices include HashPack and FireFly.</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Step 2 Card -->
-        <a href="https://www.binance.com/" target="_blank"
-          style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
-          <div class="w3-card-4 w3-dark-grey card-hover"
-            style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
-            <!-- Step Banner -->
-            <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
-              <i class="fa fa-coins" style="margin-right: 10px;"></i> Buy HBAR
-            </div>
-
-            <!-- Card Image -->
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-              <img src="hedera-hbar-logo.png" alt="Step 2"
-                style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; max-width: 160px; max-height: 160px;">
-            </div>
-
-            <hr class="w3-opacity">
-
-            <div class="w3-container">
-              <p>Purchase Hedera’s native token HBAR from an exchange like Binance, KuCoin, or Bitfinex.</p>
-            </div>
-          </div>
-        </a>
-
-        <!-- Step 3 Card -->
-        <a href="https://www.memejob.fun/" target="_blank"
-          style="text-decoration: none; flex: 1 1 calc(33.333% - 24px);">
-          <div class="w3-card-4 w3-dark-grey card-hover"
-            style="height: 450px; display: flex; flex-direction: column; margin-bottom: 24px;">
-            <!-- Step Banner -->
-            <div style="background-color: #2f2e2e; color: white; padding: 10px; text-align: center; font-size: 18px;">
-              <i class="fa fa-slug" style="margin-right: 10px;"></i> Buy SLUG Coin
-            </div>
-            <!-- Card Image -->
-            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-              <img src="slug.jpeg" alt="Step 3"
-                style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; max-width: 160px; max-height: 160px;">
-            </div>
-            <hr class="w3-opacity">
-
-            <div class="w3-container">
-              <p>Use the Memejob Fun platform to purchase SLUG coin and join the community!</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-
-    <!-- Slug  chronicles Section -->
-
-    <div class="w3-content w3-justify w3-padding-32" id="slug-chronicles">
-      <h2 class="w3-text-light-grey">Slug Chronicles<sub>#Vol1</sub></h2>
-      <hr style="width:400px" class="w3-opacity">
-      <p>Check out the SLUG Chronicles, where fun meets mischie !</p>
-      <div class="slug-carousel-container">
-        <!-- Meme Slide 1 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme1.jpeg" alt="SLUG Meme 1" class="slug-carousel-img">
         </div>
-        <!-- Meme Slide 2 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme2.jpeg" alt="SLUG Meme 2" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 3 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme3.jpeg" alt="SLUG Meme 3" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 4 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme4.jpeg" alt="SLUG Meme 4" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 5 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme5.jpeg" alt="SLUG Meme 5" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 6 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme6.jpeg" alt="SLUG Meme 6" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 9 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme9.jpeg" alt="SLUG Meme 9" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 7 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme7.jpeg" alt="SLUG Meme 7" class="slug-carousel-img">
-        </div>
-        <!-- Meme Slide 8 -->
-        <div class="slug-carousel-slide">
-          <img src="meme/meme8.jpeg" alt="SLUG Meme 8" class="slug-carousel-img">
-        </div>
-
-
-        <button class="slug-carousel-prev" onclick="moveSlidememe(-1)">&#10094;</button>
-        <button class="slug-carousel-next" onclick="moveSlidememe(1)">&#10095;</button>
-      </div>
-    </div>
-
-
-    <!-- Responsive Styling for Carousel -->
-    <style>
-      .slug-carousel-container {
-        max-width: 100%;
-        /* Make it flexible across screen sizes */
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 10px;
-      }
-
-      .slug-carousel-slide {
-        display: none;
-        text-align: center;
-      }
-
-      .slug-carousel-prev,
-      .slug-carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 24px;
-      }
-
-      .slug-carousel-prev {
-        left: 0;
-      }
-
-      .slug-carousel-next {
-        right: 0;
-      }
-
-      .slug-carousel-img {
-        width: 100%;
-        /* Make image width responsive */
-        height: auto;
-        /* Make image height responsive */
-        object-fit: contain;
-        /* Ensure the entire image fits within the container */
-        max-height: 400px;
-        /* Set a max height for consistency */
-      }
-
-      /* Media Queries for responsive design */
-      @media (max-width: 768px) {
-
-        .slug-carousel-prev,
-        .slug-carousel-next {
-          font-size: 18px;
-          /* Adjust button size on smaller screens */
-          padding: 8px;
-        }
-      }
-
-      @media (max-width: 480px) {
-
-        .slug-carousel-prev,
-        .slug-carousel-next {
-          font-size: 16px;
-          /* Further reduce button size on very small screens */
-          padding: 6px;
-        }
-      }
-    </style>
-
-    <!-- JavaScript for continuous looping carousel -->
-    <script>
-      var slideIndex = 0;
-
-      function showSlidesMeme() {
-        var slides = document.querySelectorAll(".slug-carousel-slide");
-
-        // Reset the slideIndex if it reaches the end
-        if (slideIndex >= slides.length) slideIndex = 0;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-
-        slides.forEach(slide => slide.style.display = "none");
-        slides[slideIndex].style.display = "block";
-      }
-
-      function moveSlidememe(step) {
-        slideIndex += step;
-        showSlidesMeme();
-      }
-
-      // Show the first slide immediately
-      showSlidesMeme();
-
-      // Start automatic slide change after 6 seconds
-      setTimeout(() => {
-        setInterval(function () {
-          slideIndex++;
-          showSlidesMeme();
-        }, 8000);
-      }, 0);
-    </script>
-
-
+    </section>
 
     <!-- NFT Section -->
+    <section class="nft-section" id="nft">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sliminions NFT Collections</h2>
+                <p class="section-subtitle">Explore our three unique NFT series, each with its own style and story</p>
+            </div>
 
-    <div class="w3-content w3-justify w3-padding-32" id="slug-nft">
-      <h2 class="w3-text-light-grey">Our Sliminions NFT Characters</h2>
-      <hr style="width:430px" class="w3-opacity">
-      <p>Discover our unique SLUG NFTs and be part of an exclusive digital art collection</p>
-      <div class="w3-row-padding  w3-text-white" style="gap: 24px; display: flex; flex-wrap: wrap;">
-        <!-- Slimy -->
-        <div class="w3-card-4 card-hover "
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="slimy.png" alt="Slimy" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Slimy - The Brave Leader</h4>
-            <p>Slimy is the fearless leader of the SLUG crew, always leading by example and ensuring the success of the
-              mission. With unmatched courage and determination, Slimy takes the reins and guides the team through every
-              challenge.</p>
-            <a href="https://altlantis.market/explore/1@0.0.8014277" class="w3-button w3-round w3-dark" target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <button class="w3-button w3-round w3-bar-block" disabled>
-              <i class="fa fa-shopping-cart"></i> Sold Out
-            </button>
-          </div>
+            <!-- NFT Tabs -->
+            <div class="nft-tabs">
+                <button class="nft-tab-btn active" onclick="openNftTab(event, 'original-guardians')">
+                    <i class="fas fa-shield-alt"></i>
+                    Original Guardians
+                </button>
+                <button class="nft-tab-btn" onclick="openNftTab(event, 'sliminion-series')">
+                    <i class="fas fa-rocket"></i>
+                    Sliminion Series
+                </button>
+                <button class="nft-tab-btn" onclick="openNftTab(event, 'ghibli-style')">
+                    <i class="fas fa-palette"></i>
+                    Ghibli Style
+                </button>
+            </div>
+
+            <!-- Original Guardians Tab -->
+            <div id="original-guardians" class="nft-tab-content active">
+                <div class="nft-collection-header">
+                    <h3>Sliminions: Guardians of the Hedera Nexus</h3>
+                    <p>The original collection featuring the legendary guardians who protect the Hedera blockchain. Each
+                        NFT represents a unique character with special powers and abilities in the SLUG universe.</p>
+                    <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus" target="_blank"
+                        class="collection-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Full Collection on SentX
+                    </a>
+                </div>
+                <div class="nft-grid">
+                    <div class="nft-card featured">
+                        <div class="nft-image">
+                            <img src="slimy.png" alt="Slimy">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Slimy - The Brave Leader</h3>
+                            <p>The fearless leader of the SLUG crew, always leading by example and ensuring the success
+                                of the mission. With unmatched courage and determination, Slimy takes the reins and
+                                guides the team through every challenge.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">View NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('slimy')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="bolt.jpg" alt="Bolt">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Bolt - The Speedster</h3>
+                            <p>With unmatched speed and agility, Bolt is always ahead of the curve. A true force of
+                                nature, combining swift action with sharp instincts to outpace any adversary.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('bolt')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="glitch.jpeg" alt="Glitch">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Glitch - The Hacker</h3>
+                            <p>The mastermind behind all things tech. With the ability to hack into any system, Glitch
+                                keeps the SLUG team secure while gathering critical data.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('glitch')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="sage.jpg" alt="Sage">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Sage - The Keeper</h3>
+                            <p>Guardian of the Codex of Dimensions, a powerful tome containing secrets of travel and
+                                ancient knowledge.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('sage')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="nova.jpeg" alt="Nova">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Nova - The Navigator</h3>
+                            <p>The guiding star of the SLUG team. With the ability to chart a course through the stars,
+                                Nova ensures the team stays on track.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nova')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="liora.jpg" alt="Liora">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Liora - The Strategist</h3>
+                            <p>With glowing barriers and sharp tactics, Liora counters darkness and protects her allies
+                                with unprecedented strategic prowess.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('liora')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="nex.jpg" alt="Nexon">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Nexon - The Warrior</h3>
+                            <p>Channels the Nexus's radiant power, leading the Luminal Sliminions with unparalleled
+                                strength and resolve.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nex')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="cyris.jpg" alt="Cyris">
+                            <div class="nft-badge available">Available</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Cyris - The Inventor</h3>
+                            <p>A master of manipulation and innovation, Cyris wields unmatched power to reshape the
+                                Sliminions' nexus and create new possibilities.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/sliminions-guardians-of-the-hedera-nexus"
+                                    target="_blank" class="nft-btn">Buy NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('cyris')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sliminion Series Tab -->
+            <div id="sliminion-series" class="nft-tab-content">
+                <div class="nft-collection-header">
+                    <h3>SLUG - The Sliminion Series</h3>
+                    <p>The latest evolution of our NFT collection, featuring enhanced artwork and new characters joining
+                        the SLUG universe. This Ongoing series expands the lore and introduces fresh adventures with
+                        Unique 300 NFTs divided amongst the sliminions </p>
+                    <a href="https://sentx.io/nft-marketplace/slug-the-sliminion-series" target="_blank"
+                        class="collection-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Full Collection on SentX
+                    </a>
+                </div>
+                <div class="nft-grid">
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="nova.jpeg" alt="Nova">
+                            <div class="nft-badge sold-out">Sold Out (50 items)</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Nova - The Navigator</h3>
+                            <p>The guiding star of the SLUG team. With the ability to chart a course through the stars,
+                                Nova ensures the team stays on track.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/slug-the-sliminion-series" target="_blank"
+                                    class="nft-btn">View NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nova')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="liora.jpg" alt="Liora">
+                            <div class="nft-badge sold-out">Sold Out (50 items)</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Liora - The Strategist</h3>
+                            <p>With glowing barriers and sharp tactics, Liora counters darkness and protects her allies
+                                with unprecedented strategic prowess.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/slug-the-sliminion-series" target="_blank"
+                                    class="nft-btn">View NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('liora')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="nex.jpg" alt="Nexon">
+                            <div class="nft-badge sold-out">Sold Out (65 items)</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Nexon - The Warrior</h3>
+                            <p>Channels the Nexus's radiant power, leading the Luminal Sliminions with unparalleled
+                                strength and resolve.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/slug-the-sliminion-series" target="_blank"
+                                    class="nft-btn">View NFT</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nex')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="comingsoon.png" alt="Glitch Coming Soon">
+                            <div class="nft-badge coming-soon">Coming Soon</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Glitch - The Hacker</h3>
+                            <p>The mastermind behind all things tech is evolving. Stay tuned for the enhanced Glitch
+                                version in the Sliminion Series.</p>
+                            <div class="nft-actions">
+                                <button class="nft-btn disabled">Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ghibli Style Tab -->
+            <div id="ghibli-style" class="nft-tab-content">
+                <div class="nft-collection-header">
+                    <h3>Ghibli Style SLUG Sliminions</h3>
+                    <p>A unique artistic interpretation of our beloved characters in the enchanting Ghibli animation
+                        style. These NFTs blend the whimsical world of Studio Ghibli with the SLUG universe.</p>
+                    <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                        class="collection-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Full Collection on SentX
+                    </a>
+                </div>
+                <div class="nft-grid">
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-slimy.JPG" alt="Ghibli Slimy">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Slimy - The Gentle Leader</h3>
+                            <p>Reimagined in the beautiful Ghibli style, Slimy takes on a more whimsical and gentle
+                                appearance while maintaining leadership qualities.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('slimy')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-bolt.JPG" alt="Ghibli Bolt">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Bolt - The Swift Wanderer</h3>
+                            <p>Transformed into a magical forest spirit, Bolt embodies the essence of speed and nature
+                                in perfect Ghibli harmony.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('bolt')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-glitch.JPG" alt="Ghibli Glitch">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Glitch - The Tech Mystic</h3>
+                            <p>The hacker reimagined as a mystical being who bridges the gap between technology and
+                                magic
+                                in the Ghibli world.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('glitch')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-nova.JPG" alt="Ghibli Nova">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Nova - The Star Guardian</h3>
+                            <p>Nova becomes a celestial guardian in the Ghibli style, watching over the magical realm
+                                with cosmic powers.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nova')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-sage.JPG" alt="Ghibli Sage">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Sage - The Wise Keeper</h3>
+                            <p>Sage transforms into an ancient forest keeper, protecting the sacred knowledge of both
+                                worlds in Ghibli style.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('sage')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-nex.JPG" alt="Ghibli Nex">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Nex - The Noble Warrior</h3>
+                            <p>Nexon becomes a noble warrior spirit in the Ghibli universe, combining strength with
+                                the gentle wisdom of nature.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('nex')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-liora.JPG" alt="Ghibli Liora">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Liora - The Light Weaver</h3>
+                            <p>Liora manifests as a mystical light weaver, creating protective barriers of pure energy
+                                in the enchanted Ghibli realm.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary" onclick="openCharacterModal('liora')">Learn
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nft-card">
+                        <div class="nft-image">
+                            <img src="ghibli-jinx.JPG" alt="Ghibli Jinx">
+                            <div class="nft-badge sold-out">Sold Out</div>
+                        </div>
+                        <div class="nft-info">
+                            <h3>Ghibli Jinx - The Mischief Spirit</h3>
+                            <p>A playful forest spirit with a hint of mischief, Jinx brings whimsical chaos to the
+                                peaceful Ghibli world.</p>
+                            <div class="nft-actions">
+                                <a href="https://sentx.io/nft-marketplace/ghibli-style-slug-sliminions" target="_blank"
+                                    class="nft-btn">View Collection</a>
+                                <button class="nft-btn secondary disabled">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Bolt -->
-        <div class="w3-card-4 card-hover "
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="bolt.jpg" alt="Bolt" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Bolt - The Speedster</h4>
-            <p>With unmatched speed and agility, Bolt is always ahead of the curve. Bolt is the one who keeps the SLUG
-              team on the move, ensuring they never miss an opportunity. A true force of nature, Bolt combines swift
-              action with sharp instincts to outpace any adversary.</p>
-            <a href="https://altlantis.market/explore/8@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/8@0.0.8023831" class="w3-button w3-round w3-dark" target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Roadmap & Reports</h2>
+                <p class="section-subtitle">Our strategic vision and transparent progress tracking</p>
+            </div>
+            <div class="roadmap-content">
+                <div class="document-grid">
+                    <div class="document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Whitepaper & Roadmap</h3>
+                        <p>Comprehensive documentation of our vision, technology, and strategic roadmap for the future.
+                        </p>
+                        <a href="https://docs.google.com/document/d/1OzPz4CrBKHdEfBEUsJEhvNEIECjkeECVEGu4c8tDacI/edit?usp=sharing"
+                            target="_blank" class="doc-btn">View Document</a>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Performance Report</h3>
+                        <p>Real-time analytics, performance metrics, and transparent community reporting.</p>
+                        <a href="https://drive.google.com/file/d/1nKi1hmX7UGpx2tgYAXeJKRSP9voQt5m4/view" target="_blank"
+                            class="doc-btn">View Report</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Glitch -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="glitch.jpeg" alt="Glitch" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Glitch - The Hacker</h4>
-            <p>Glitch is the mastermind behind all things tech. With the ability to hack into any system, Glitch keeps
-              the SLUG team secure while also making sure they can break into any system to gather critical data. A true
-              virtuoso in the world of technology, Glitch never misses a beat.</p>
-            <a href="https://altlantis.market/explore/11@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/11@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Connect with our team and join the conversation</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Melbourne, Australia</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>slug6252@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="https://x.com/HbarSlug" target="_blank" class="contact-social-link">
+                            <div class="contact-icon">
+                                <i class="fab fa-x-twitter"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Follow on X</h4>
+                                <p>@HbarSlug</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <a href="http://t.me/slugofficial" target="_blank" class="contact-social-link">
+                            <div class="contact-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Join Telegram</h4>
+                                <p>Official Community</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" action="mailto:slug6252@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" value="slug6252@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
         </div>
-      </div>
-
-      <div class="w3-row-padding  w3-text-white" style="gap: 24px; display: flex; flex-wrap: wrap;">
-        <!-- Nova -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="nova.jpeg" alt="Nova" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Nova - The Navigator</h4>
-            <p>Nova is the guiding star of the SLUG team. With the ability to chart a course through the stars, Nova
-              ensures the team stays on track.</p>
-            <a href="https://altlantis.market/explore/12@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/12@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
         </div>
-        <!-- Sage -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="sage.jpg" alt="Sage" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Sage - The Keeper of the Codex</h4>
-            <p>Sage is the guardian of the Codex of Dimensions, a powerful tome containing secrets of travel and ancient
-              knowledge.</p>
-            <a href="https://altlantis.market/explore/17@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/17@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
         </div>
-
-        <!-- Nexon -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="nex.jpg" alt="Nexon" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Nexon - The Radiant Leader</h4>
-            <p>Nexon channels the Nexus’s radiant power, leading the Luminal Sliminions with unparalleled strength and
-              resolve.</p>
-            <a href="https://altlantis.market/explore/14@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/14@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
         </div>
-      </div>
-      <div class="w3-row-padding  w3-text-white" style="gap: 24px; display: flex; flex-wrap: wrap;">
+        </footer>
 
-        <!-- Liora -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="liora.jpg" alt="Liora" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Liora - The Strategist</h4>
-            <p>With glowing barriers and sharp tactics, Liora counters darkness and protects her allies.</p>
-            <a href="https://altlantis.market/explore/15@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/15@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
-        </div>
-
-        <!-- Cyris -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="cyris.jpg" alt="Cyris" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Cyris - The Manipulator</h4>
-            <p>A master of manipulation, Cyris wields unmatched power to reshape the Sliminions' nexus.</p>
-            <a href="https://altlantis.market/explore/16@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-info-circle"></i> Learn More
-            </a>
-            <a href="https://altlantis.market/explore/16@0.0.8023831" class="w3-button w3-round w3-dark"
-              target="_blank">
-              <i class="fa fa-shopping-cart"></i> Buy NFT
-            </a>
-          </div>
-        </div>
-
-
-        <!-- Coming Soon -->
-        <div class="w3-card-4 card-hover"
-          style="flex: 1 1 calc(33.333% - 24px); border: 2px solid #555; margin-bottom: 24px; background: #616161!important">
-          <img src="comingsoon.png" alt="Coming Soon" style="width:100%;height: auto; border-bottom: 2px solid #555;">
-          <div class="w3-container">
-            <h4 class="w3-text-light-grey">Coming Soon</h4>
-            <p>Stay tuned for more characters joining Sliminions! New adventures and new personalities are on the way.
-            </p>
-          </div>
-        </div>
-
-
-      </div>
-
-
-
-
-      <!-- Slug Reports  Section -->
-      <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="slug-reports">
-        <h2 class="w3-text-light-grey">Slug Performance Report</h2>
-        <hr style="width:250px" class="w3-opacity">
-
-        <p>Preview and download our latest Reports to get detailed insights into the Slug Performance.</p>
-        <!-- List of DOCX files -->
-        <ul class="docx-list">
-          <li>
-            <a href="https://drive.google.com/file/d/1nKi1hmX7UGpx2tgYAXeJKRSP9voQt5m4/view" download target="_blank">
-              <i class="fa fa-file-word" style="font-size: 24px; margin-right: 10px;"></i>
-              Slug Performance Report 09/01/2025
-            </a>
-          </li>
-        </ul>
-        <!-- Google Docs Preview -->
-        <div style="width: 100%; max-width: 100%; height: 80vh; overflow: hidden;">
-          <iframe src="https://drive.google.com/file/d/1nKi1hmX7UGpx2tgYAXeJKRSP9voQt5m4/preview"
-            style="width:100%; height:100%;" frameborder="0"></iframe>
-        </div>
-      </div>
-
-
-    <!-- Slug Whitepapers and Roadmap Section -->
-    <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="whitepapers">
-      <h2 class="w3-text-light-grey">Slug Whitepapers and Roadmap</h2>
-      <hr style="width:250px" class="w3-opacity">
-
-      <p>Preview and download our latest documents to get detailed insights into the Slug Project, Whitepapers, and
-        Roadmap.</p>
-      <!-- List of DOCX files -->
-      <ul class="docx-list">
-        <li>
-          <a href="https://docs.google.com/document/d/1OzPz4CrBKHdEfBEUsJEhvNEIECjkeECVEGu4c8tDacI/edit?usp=sharing"
-            download>
-            <i class="fa fa-file-word" style="font-size: 24px; margin-right: 10px;"></i>
-            Slug Whitepaper & Roadmap
-          </a>
-        </li>
-      </ul> <br />
-      <!-- Google Docs Preview -->
-      <div style="width: 100%; max-width: 100%; height: 80vh; overflow: hidden;">
-        <iframe src="https://docs.google.com/document/d/1OzPz4CrBKHdEfBEUsJEhvNEIECjkeECVEGu4c8tDacI/preview"
-          style="width:100%; height:100%;" frameborder="0"></iframe>
-      </div>
-
-
-    </div>
-
-
-<!-- CSS -->
-<style>
-
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    text-align: center;
-    position: relative;
-  }
-
-  .card-image-main {
-    width: 150px;
-    height: 150px;
-    border-radius: 15px;
-  }
-
-  .circle-image-top {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    border: 2px solid #fff;
-  }
-
-  .card-description {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
-  }
-
-  .card-text p {
-    margin: 4px 0;
-  }
-
-  
-</style>
-
-
-      <!-- Contact Section -->
-      <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-        <h2 class="w3-text-light-grey">Contact Us</h2>
-        <hr style="width:200px" class="w3-opacity">
-        <div class="w3-section">
-          <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Melbourne, Australia</p>
-          <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: <a
-              href="mailto:slug6252@gmail.com">slug6252@gmail.com</a></p>
-        </div><br>
-        <p>Have any questions? Reach out to us:</p>
-        <form action="mailto:slug6252@gmail.com" method="post" enctype="text/plain">
-          <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
-          <p><input class="w3-input w3-padding-16" type="email" placeholder="Email" required name="email"></p>
-          <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="subject"></p>
-          <p><textarea class="w3-input w3-padding-16" placeholder="Message" required name="message"></textarea></p>
-          <p>
-            <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-              <i class="fa fa-paper-plane"></i> SEND MESSAGE
-            </button>
-          </p>
-        </form>
-      </div>
-
-
-
-
-
-
-
-      <!-- Footer -->
-      <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-        <div class="w3-row-padding w3-center" style="display: flex; justify-content: center; gap: 48px;">
-          <!-- X Logo -->
-          <div>
-            <a href="https://x.com/HbarSlug" target="_blank">
-              <img src="https://freepnglogo.com/images/all_img/1691832708new-twitter-x-logo-white.png" alt="X Logo"
-                class="icon-footer">
-            </a>
-          </div>
-
-          <!-- insta Fun Logo -->
-          <div>
-            <a href="https://www.instagram.com/hbarslug/?igsh=YTRlazFqdTA1YWw4" target="_blank">
-              <i class="fab fa-instagram fa-3x" style="color: #e61785;"></i>
-            </a>
-          </div>
-
-
-          <!-- Telegram Logo -->
-          <div>
-            <a href="http://t.me/slugofficial" target="_blank">
-              <i class="fab fa-telegram fa-3x" style="color: #0088cc;"></i>
-            </a>
-          </div>
-
-          <!-- Youtube Logo -->
-          <div>
-            <a href="https://www.youtube.com/@HbarSlug" target="_blank">
-              <i class="fab fa-youtube fa-3x" style="color: #f50707;"></i>
-            </a>
-          </div>
-
-          <!-- Memejob Fun Logo -->
-          <div>
-            <a href="https://memejob.fun/token/0.0.7988483" target="_blank">
-              <i class="fa fa-rocket fa-3x" style="color: #FF6A00;"></i>
-            </a>
-          </div>
+        <!-- Character Modal -->
+        <div id="characterModal" class="character-modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeCharacterModal()">&times;</span>
+                <div class="modal-header">
+                    <img id="modalCharacterImage" src="" alt="" class="modal-character-image">
+                    <div class="modal-character-info">
+                        <h2 id="modalCharacterName"></h2>
+                        <h3 id="modalCharacterTitle"></h3>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="modalCharacterDescription"></p>
+                    <div class="modal-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Power Level:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="modalPowerLevel"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Intelligence:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="modalIntelligence"></div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Agility:</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" id="modalAgility"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-abilities">
+                        <h4>Special Abilities:</h4>
+                        <ul id="modalAbilities"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
 
+        <!-- Floating Follow Button -->
+        <div class="floating-follow" id="floatingFollow">
+            <div class="follow-tooltip">Follow us!</div>
+            <a href="https://x.com/HbarSlug" target="_blank" class="follow-btn follow-x">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
 
-        <p class="w3-medium" style="text-align: center;">Powered by <a href="https://hedera.com/" target="_blank"
-            class="w3-hover-text-green">Hedera</a></p>
-      </footer>
+        <!-- Floating Trading Chart Button -->
+        <div class="floating-chart" id="floatingChart">
+            <div class="chart-tooltip">Live Trading Chart</div>
+            <a href="https://www.tradingview.com/x/vFK345Ko/" target="_blank" class="chart-btn">
+                <i class="fas fa-chart-line"></i>
+            </a>
+        </div>
 
-      <style>
-        .icon-footer {
-          width: 50px;
-          height: 50px;
-          transition: transform 0.3s ease, color 0.3s ease;
-        }
+        <!-- Floating Meme World Button -->
+        <div class="floating-meme-world" id="floatingMemeWorld">
+            <div class="meme-world-tooltip">Meme World</div>
+            <a href="MemeWorld.html" class="meme-world-btn">
+                <i class="fas fa-images"></i>
+            </a>
+        </div>
 
-        .icon-footer:hover {
-          transform: scale(1.2);
-          color: #ff6a00;
-        }
-      </style>
-
-
-    </div>
-
+        <script src="script.js"></script>
 </body>
 
 </html>
