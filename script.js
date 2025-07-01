@@ -1275,3 +1275,4 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAndDisplayMedia('images.json', 'imageGrid', 'images');
     fetchAndDisplayMedia('videos.json', 'videoGrid', 'videos');
 });
+

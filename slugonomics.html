@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 The Glitch Sheet - SLUGONOMICS v1.67</title>
+    <link href="slugonomics.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Futuristic Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">🧠</span>
+                <span class="nav-title">SLUGONOMICS</span>
+                <span class="nav-version">v1.67</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Market Overview</a>
+                <a href="#charts" class="nav-link">Performance Charts</a>
+                <a href="#data" class="nav-link">Complete Data</a>
+                <a href="#calculator" class="nav-link">Calculator</a>
+                <a href="#analysis" class="nav-link">Analysis</a>
+                <a href="#verdict" class="nav-link slug-highlight">🚀 Buy SLUG</a>
+            </div>
+            <div class="nav-mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Disclaimer Modal -->
+    <div id="disclaimerModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📋 Important Disclaimer</h2>
+            </div>
+            <div class="modal-body">
+                <div class="disclaimer-section">
+                    <h3>🔍 Information Purpose Only</h3>
+                    <p>This analysis is provided for <strong>informational and educational purposes only</strong>. All data and statistics presented are based on publicly available information and should not be considered as financial advice, investment recommendations, or endorsements.</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <h3>📅 Data Period</h3>
+                    <p>All statistics and performance data presented cover the period from <strong>January 1, 2025 to June 30, 2025</strong>. Past performance does not guarantee future results.</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <h3>⚖️ No Intent to Defame</h3>
+                    <p>This analysis contains no intent to defame, disparage, or negatively characterize any token, project, or entity. All data is presented objectively based on market performance metrics.</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <h3>⚠️ Investment Risks</h3>
+                    <p>Cryptocurrency investments carry significant risks including complete loss of capital. Always conduct your own research and consult with qualified financial advisors before making investment decisions.</p>
+                </div>
+                
+                <div class="disclaimer-section">
+                    <h3>🎭 Entertainment Value</h3>
+                    <p>This presentation includes entertainment elements and should be viewed as an analytical exercise rather than professional financial guidance.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="acceptDisclaimer" class="accept-btn">
+                    I Understand - Continue to Analysis
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Vertical Navigation -->
+    <div class="floating-nav">
+        <a href="https://hbarslug.live/" class="float-nav-item" target="_blank" title="Main Website">
+            <span class="nav-icon">⌂</span>
+        </a>
+        <a href="https://hbarslug.live/#about" class="float-nav-item" target="_blank" title="About">
+            <span class="nav-icon">◉</span>
+        </a>
+        <a href="https://x.com/HbarSlug" class="float-nav-item" target="_blank" title="Twitter/X">
+            <span class="nav-icon">✕</span>
+        </a>
+        <a href="https://hbarslug.live/#nft" class="float-nav-item" target="_blank" title="NFTs">
+            <span class="nav-icon">◈</span>
+        </a>
+        <a href="https://hbarslug.live/Trust.html" class="float-nav-item" target="_blank" title="Slug Trust">
+            <span class="nav-icon">◆</span>
+        </a>
+        <a href="https://hbarslug.live/Wall.html" class="float-nav-item" target="_blank" title="Social Wall">
+            <span class="nav-icon">◎</span>
+        </a>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg-mascot">
+            <img src="glitch.jpeg" alt="Glitch Mascot Background" class="massive-glitch-bg">
+        </div>
+        <div class="hedera-branding">
+            <div class="hedera-logo">ℏ</div>
+            <div class="hedera-text">HEDERA</div>
+        </div>
+        <div class="hedera-secondary">
+            <div class="hedera-logo">ℏ</div>
+            <div class="hedera-text">MEME</div>
+        </div>
+
+        <div class="container">
+            <div class="glitch-avatar">
+                <img src="glitch.jpeg" alt="Glitch the Tech Slug" class="glitch-mascot">
+                <div class="tech-overlay">
+                    <div class="code-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <h1 class="glitch-title">
+                <span class="glitch-text" data-text="The Glitch Sheet">The Glitch Sheet</span>
+                <span class="version">SLUGONOMICS v1.67</span>
+            </h1>
+            <p class="hero-subtitle">
+                Glitch ran the numbers. The results are in.<br>
+                The meme war wasn't kind to most — but <span class="slug-highlight">SLUG</span> came out swinging.
+            </p>
+            <div class="hero-cta-banner">
+                <div class="hero-cta-text">
+                    🚀 <span class="slug-highlight">SLUG</span> is STILL CLIMBING! +167.78% GAINS
+                </div>
+                <div class="hero-cta-price">
+                    Don't miss out • Current Price: $0.0001538
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="16">0</span>
+                    <span class="stat-label">Tokens Analyzed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="81">0</span>
+                    <span class="stat-label">% in Loss</span>
+                </div>
+                <div class="stat-item highlight slug-performance">
+                    <span class="stat-number slug-highlight" data-target="167.78">0</span>
+                    <span class="stat-label">🚀 SLUG Performance %</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Stats Section -->
+    <section class="stats-overview" id="overview">
+        <div class="container">
+            <h2 class="section-title">📉 The Meme Market Downturn of 2025</h2>
+            <div class="massacre-hero">
+                <div class="massacre-visual">
+                    <div class="massacre-stats">
+                        <div class="massacre-stat declining">
+                            <div class="massacre-number">13</div>
+                            <div class="massacre-label">Tokens Declining</div>
+                        </div>
+                        <div class="massacre-stat survivor slug-highlight">
+                            <div class="massacre-number">1</div>
+                            <div class="massacre-label">🏆 SLUG Victorious</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="massacre-story">
+                    <h3>The Market Reality Check</h3>
+                    <p>In the challenging meme markets of 2025, market forces separated strong projects from weaker ones. While 13 tokens experienced significant declines averaging -58.3%, <span class="slug-highlight">SLUG demonstrated exceptional resilience with +167.78%</span> gains. This performance reflects <span class="slug-highlight">SLUG's solid fundamentals</span> and market positioning.</p>
+                    <div class="survival-rate">
+                        <div class="survival-bar">
+                            <div class="survival-fill" style="width: 18.75%"></div>
+                        </div>
+                        <span class="survival-text">Only 18.75% Survival Rate - <span class="slug-highlight">SLUG Led the Survivors</span></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card loss">
+                    <div class="stat-icon">📉</div>
+                    <div class="stat-value">13</div>
+                    <div class="stat-description">Tokens Massacred</div>
+                    <div class="stat-detail">Average Loss: -58.3%</div>
+                </div>
+                <div class="stat-card massive-loss">
+                    <div class="stat-icon">💀</div>
+                    <div class="stat-value">9</div>
+                    <div class="stat-description">Down >50%</div>
+                    <div class="stat-detail">Complete Annihilation</div>
+                </div>
+                <div class="stat-card extreme-loss">
+                    <div class="stat-icon">💥</div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-description">Down >75%</div>
+                    <div class="stat-detail">Near Extinction</div>
+                </div>
+                <div class="stat-card profit slug-performance">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-value">SLUG</div>
+                    <div class="stat-description slug-highlight">Market Dominator</div>
+                    <div class="stat-detail">+167.78% Gains 👑</div>
+                </div>
+                <div class="stat-card neutral">
+                    <div class="stat-icon">⚖️</div>
+                    <div class="stat-value">1</div>
+                    <div class="stat-description">Barely Alive</div>
+                    <div class="stat-detail">-0.67% Loss</div>
+                </div>
+                <div class="stat-card worst">
+                    <div class="stat-icon">⚰️</div>
+                    <div class="stat-value">-97.96%</div>
+                    <div class="stat-description">Worst Casualty</div>
+                    <div class="stat-detail">Nearly Extinct</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Chart Section -->
+    <section class="chart-section" id="charts">
+        <div class="container">
+            <h2 class="section-title">📊 <span class="slug-highlight">SLUG</span> vs Market Performers</h2>
+            <div class="chart-controls">
+                <button class="chart-btn active" data-chart="bar">Bar Chart</button>
+                <button class="chart-btn" data-chart="scatter">Scatter Plot</button>
+                <button class="chart-btn" data-chart="distribution">Distribution</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="chart-legend">
+                <div class="legend-item profit">
+                    <span class="legend-color"></span>
+                    <span>🚀 SLUG Winner (>0%)</span>
+                </div>
+                <div class="legend-item slight-loss">
+                    <span class="legend-color"></span>
+                    <span>Slight Loss (0% to -25%)</span>
+                </div>
+                <div class="legend-item medium-loss">
+                    <span class="legend-color"></span>
+                    <span>Medium Loss (-25% to -50%)</span>
+                </div>
+                <div class="legend-item heavy-loss">
+                    <span class="legend-color"></span>
+                    <span>Heavy Loss (-50% to -75%)</span>
+                </div>
+                <div class="legend-item massive-loss">
+                    <span class="legend-color"></span>
+                    <span>Massive Loss (>-75%)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">🧮 <span class="slug-highlight">SLUG</span> Gains Calculator</h2>
+            <div class="calculator-card">
+                <div class="calculator-intro">
+                    <h3>Calculate Your Potential <span class="slug-highlight">SLUG</span> Returns</h3>
+                    <p>See how much you could have gained (or could gain) with <span class="slug-highlight">SLUG's proven performance</span></p>
+                </div>
+                <div class="calculator-form">
+                    <div class="input-group">
+                        <label for="oldPrice">Old Price ($)</label>
+                        <input type="number" id="oldPrice" placeholder="0.00005743" step="0.00000001">
+                    </div>
+                    <div class="input-group">
+                        <label for="newPrice">New Price ($)</label>
+                        <input type="number" id="newPrice" placeholder="0.0001538" step="0.00000001">
+                    </div>
+                    <div class="input-group">
+                        <label for="investment">Investment Amount ($)</label>
+                        <input type="number" id="investment" placeholder="1000" step="0.01">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateGains()">
+                        <span>Calculate <span class="slug-highlight">SLUG</span> Gains</span>
+                    </button>
+                </div>
+                <div class="calculator-results" id="calculatorResults">
+                    <div class="result-item">
+                        <span class="result-label">Percentage Change:</span>
+                        <span class="result-value" id="percentageChange">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total Gain/Loss:</span>
+                        <span class="result-value" id="totalGain">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Final Value:</span>
+                        <span class="result-value" id="finalValue">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Table Section -->
+    <section class="data-table-section" id="data">
+        <div class="container">
+            <h2 class="section-title">📋 Complete Battle Results - <span class="slug-highlight">SLUG</span> Dominance</h2>
+            <div class="table-controls">
+                <div class="filter-group">
+                    <label for="statusFilter">Filter by Status:</label>
+                    <select id="statusFilter">
+                        <option value="all">All Tokens</option>
+                        <option value="profit">Winners Only (SLUG)</option>
+                        <option value="loss">Casualties Only</option>
+                        <option value="heavy">Heavy Casualties (>50%)</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="searchInput" placeholder="Search tokens...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table id="dataTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="token">Token</th>
+                            <th data-sort="jan-price">Jan 1 Price</th>
+                            <th data-sort="current-price">Current Price</th>
+                            <th data-sort="change">% Change</th>
+                            <th data-sort="status">Battle Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Table data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analysis">
+        <div class="container">
+            <h2 class="section-title">🔍 Why <span class="slug-highlight">SLUG</span> Succeeded Where Others Failed</h2>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h3>💀 Why Most Tokens Fell</h3>
+                    <ul>
+                        <li>Oversupply with no real utility</li>
+                        <li>Pure speculation without fundamentals</li>
+                        <li>Weak community engagement</li>
+                        <li>Poor tokenomics design</li>
+                        <li>No sustainable growth strategy</li>
+                    </ul>
+                </div>
+                <div class="analysis-card highlight slug-performance">
+                    <h3>🚀 <span class="slug-highlight">SLUG's</span> Winning Formula</h3>
+                    <ul>
+                        <li><span class="slug-highlight">Daily active community</span> engagement</li>
+                        <li><span class="slug-highlight">Consistent on-chain activity</span></li>
+                        <li><span class="slug-highlight">Strong builder ecosystem</span></li>
+                        <li><span class="slug-highlight">Proven utility and use cases</span></li>
+                        <li><span class="slug-highlight">Sustainable tokenomics</span></li>
+                    </ul>
+                </div>
+            </div>
+            <blockquote class="glitch-quote">
+                <p>"While others hyped empty promises,<br><span class="slug-highlight">SLUG built real value</span>."</p>
+                <cite>— Glitch, The Tech Slug</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Market Insights -->
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">🎯 Market Intelligence: <span class="slug-highlight">SLUG's</span> Dominance</h2>
+            
+            <!-- Key Metrics -->
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-metric">-58.3%</div>
+                    <div class="insight-label">Average Failure</div>
+                    <div class="insight-description">Across all losing tokens</div>
+                </div>
+                <div class="insight-card highlight slug-performance">
+                    <div class="insight-metric slug-highlight">+167.78%</div>
+                    <div class="insight-label">🚀 SLUG's Victory</div>
+                    <div class="insight-description">Absolute market domination</div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-metric">81.25%</div>
+                    <div class="insight-label">Market Failure Rate</div>
+                    <div class="insight-description">13 of 16 tokens failed</div>
+                </div>
+                <div class="insight-card highlight">
+                    <div class="insight-metric">3.85x</div>
+                    <div class="insight-label">SLUG Outperformance</div>
+                    <div class="insight-description">vs next best token</div>
+                </div>
+                <div class="insight-card danger">
+                    <div class="insight-metric">-97.96%</div>
+                    <div class="insight-label">Worst Decline</div>
+                    <div class="insight-description">Complete devastation</div>
+                </div>
+                <div class="insight-card highlight slug-performance">
+                    <div class="insight-metric">$0.0001538</div>
+                    <div class="insight-label">SLUG Current Price</div>
+                    <div class="insight-description slug-highlight">Still climbing 📈</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Verdict Section -->
+    <section class="verdict-section" id="verdict">
+        <div class="container">
+            <div class="verdict-hero">
+                <h2 class="verdict-title">⚖️ The Final Verdict</h2>
+                <div class="verdict-slug-showcase">
+                    <div class="slug-crown">👑</div>
+                    <h3 class="slug-highlight">SLUG: The Undisputed Champion</h3>
+                </div>
+            </div>
+            
+            <div class="verdict-content">
+                <div class="verdict-stats">
+                    <div class="verdict-stat">
+                        <div class="verdict-number slug-highlight">+167.78%</div>
+                        <div class="verdict-label">Proven Performance</div>
+                    </div>
+                    <div class="verdict-stat">
+                        <div class="verdict-number">13/16</div>
+                        <div class="verdict-label">Competitors Defeated</div>
+                    </div>
+                    <div class="verdict-stat">
+                        <div class="verdict-number slug-highlight">2.68x</div>
+                        <div class="verdict-label">Price Multiplier</div>
+                    </div>
+                </div>
+                
+                <div class="verdict-argument">
+                    <h4>🎯 Why <span class="slug-highlight">SLUG</span> is Your Best Investment Right Now:</h4>
+                    <div class="argument-points">
+                        <div class="argument-point">
+                            <span class="point-icon">📈</span>
+                            <div class="point-content">
+                                <h5>Proven Track Record</h5>
+                                <p><span class="slug-highlight">SLUG</span> delivered +167.78% gains while 81% of the market crashed</p>
+                            </div>
+                        </div>
+                        <div class="argument-point">
+                            <span class="point-icon">🏗️</span>
+                            <div class="point-content">
+                                <h5>Real Utility & Development</h5>
+                                <p>Active builder ecosystem and genuine use cases, not just hype</p>
+                            </div>
+                        </div>
+                        <div class="argument-point">
+                            <span class="point-icon">🔥</span>
+                            <div class="point-content">
+                                <h5>Market Momentum</h5>
+                                <p>While others fell, <span class="slug-highlight">SLUG</span> showed consistent growth and resilience</p>
+                            </div>
+                        </div>
+                        <div class="argument-point">
+                            <span class="point-icon">💎</span>
+                            <div class="point-content">
+                                <h5>Early Adoption Opportunity</h5>
+                                <p>Still undervalued compared to performance - get in before the masses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-container">
+                    <p class="cta-text">
+                        Don't wait for the next market cycle.<br>
+                        <span class="slug-highlight">SLUG</span> has proven itself when it mattered most.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="cta-button primary slug-highlight" onclick="window.open('https://memejob.fun/token/0.0.7988483', '_blank')">
+                            <span>🚀 Buy SLUG Now</span>
+                            <div class="button-glow"></div>
+                        </button>
+                        <button class="cta-button secondary" onclick="showComingSoonModal()">
+                            <span>📊 Trade on SaucerSwap</span>
+                        </button>
+                    </div>
+                    <div class="urgency-note">
+                        <span class="pulse-dot"></span>
+                        <span>Limited time: <span class="slug-highlight">SLUG</span> is still climbing. Current price: $0.0001538</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="hedera-footer-bg">
+            <div class="hedera-logo-footer">ℏ</div>
+            <div class="hedera-text-footer">HEDERA</div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-title">The Glitch Sheet</span>
+                    <span class="footer-version">v1.67</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4>🚀 SLUG Links</h4>
+                        <a href="https://hbarslug.live/" target="_blank">Main Website</a>
+                        <a href="https://hbarslug.live/#about" target="_blank">About SLUG</a>
+                        <a href="https://hbarslug.live/#nft" target="_blank">SLUG NFTs</a>
+                        <a href="https://memejob.fun/token/0.0.7988483" target="_blank">Buy SLUG</a>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>🌐 Community</h4>
+                        <a href="https://x.com/HbarSlug" target="_blank">Twitter/X</a>
+                        <a href="https://hbarslug.live/Trust.html" target="_blank">SLUG Trust</a>
+                        <a href="https://hbarslug.live/Wall.html" target="_blank">Social Wall</a>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>⚡ Hedera Ecosystem</h4>
+                        <span class="hedera-meme-text">Built on <span class="slug-highlight">Hedera Network</span></span>
+                        <span class="hedera-meme-text">Powering <span class="slug-highlight">Hedera Meme Coins</span></span>
+                    </div>
+                </div>
+                <div class="footer-disclaimer">
+                    <div class="disclaimer-text">
+                        <p><strong>📋 Disclaimer:</strong> This analysis is for informational purposes only and contains no intent to defame any projects. All statistics cover January 1 - June 30, 2025. Data is based on publicly available market information. This is not financial advice - cryptocurrency investments carry significant risks including complete loss of capital. Always conduct your own research and consult qualified financial advisors before making investment decisions. Past performance does not guarantee future results.</p>
+                        <p class="footer-note"><span class="slug-highlight">SLUG</span> analysis by Glitch | v2.0 coming with real-time tracking...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🚀 Coming Soon!</h2>
+            </div>
+            <div class="modal-body">
+                <div class="coming-soon-content">
+                    <img src="glitch.jpeg" alt="Glitch" class="coming-soon-glitch">
+                    <h3>SaucerSwap Integration</h3>
+                    <p>Glitch is working hard to bring you seamless trading on SaucerSwap!</p>
+                    <p>In the meantime, you can buy <span class="slug-highlight">SLUG</span> directly using the link above.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeComingSoon" class="accept-btn">
+                    Got it! 🐌
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="slugonomics.js"></script>
+</body>
+</html>
