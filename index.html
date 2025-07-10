@@ -108,7 +108,7 @@
                         <div class="stat-label">Holders</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value" data-value="20k">20K</div>
+                        <div class="stat-value" data-value="21k">21K</div>
                         <div class="stat-label">Token Value Locked</div>
                     </div>
 
@@ -166,27 +166,49 @@
     
     
     
-        <!-- Slug DEX Wall Section -->
-        <section class="dex-wall-section" id="dex-wall">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">SLUG DEX Screen</h2>
-                    <p class="section-subtitle">Track all stats, trades, and trends directly</p>
-                </div>
-                <div class="dex-wall-content">
-                    <div class="iframe-container-Dex">
-                        <style>#dexscreener-embed{position:relative;width:100%;padding-bottom:125%;}@media(min-width:1400px){#dexscreener-embed{padding-bottom:65%;}}#dexscreener-embed iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:0;}</style><div id="dexscreener-embed"><iframe src="https://dexscreener.com/hedera/0x3DFBae4a33AbDC6bB1D99e6B87FeA89153a6DB76?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartTimeframesToolbar=0&loadChartSettings=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe></div><!--
-                        <a href="https://dexscreener.com/hedera/0x3dfbae4a33abdc6bb1d99e6b87fea89153a6db76" target="_blank" >
-                            <div class="overlay-content">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span>View Full SLUG DEX Screen</span>
-                            </div>
-                        </a>-->
-                    </div>
-                </div>
-            </div>
-        </section>
-    
+<!-- Slug DEX Wall Section with Tabs -->
+<section class="dex-wall-section" id="dex-wall">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">SLUG DEX Screen</h2>
+        <p class="section-subtitle">Track all stats, trades, and trends directly</p>
+      </div>
+  
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-button active" data-tab="tab1">SLUG/HBAR</button>
+        <button class="tab-button" data-tab="tab2">SLUG/BTC.h</button>
+        <button class="tab-button" data-tab="tab3">SLUG/SAUCE</button>
+        <button class="tab-button" data-tab="tab4">SLUG/CLAYBAR</button>
+        <button class="tab-button" data-tab="tab5">SLUG/HOKER</button>
+      </div>
+  
+      <!-- Tab Contents -->
+    <div class="dex-wall-content">
+        <div class="iframe-container-Dex tab-content active" id="tab1">
+          <iframe src="https://dexscreener.com/hedera/0x3DFBae4a33AbDC6bB1D99e6B87FeA89153a6DB76?embed=1&chartTheme=dark&theme=dark" loading="lazy"></iframe>
+        </div>
+
+        <div class="iframe-container-Dex tab-content" id="tab2">
+          <iframe src="https://dexscreener.com/hedera/0xE6Ab7F3D3423928753f167D8411d439b8a91e897?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15" loading="lazy"></iframe>
+        </div>
+
+        <div class="iframe-container-Dex tab-content" id="tab3">
+          <iframe src="https://dexscreener.com/hedera/0x24a2A9942d6A8264E0D652bE364C6F61955193C8?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15" loading="lazy"></iframe>
+        </div>
+
+        <div class="iframe-container-Dex tab-content" id="tab4">
+            <iframe src="https://dexscreener.com/hedera/0x69FE8Fd7FE5fFafe715020939F571ee9Bf4B928d?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15" loading="lazy"></iframe>
+        </div>
+
+        <div class="iframe-container-Dex tab-content" id="tab5">
+            <iframe src="https://dexscreener.com/hedera/0xB6d8E47AA8FfD40A7BfF23dC4da444557580262c?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15" loading="lazy"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
     
     
     <!-- About Section -->

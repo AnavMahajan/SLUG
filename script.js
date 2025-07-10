@@ -1270,6 +1270,23 @@ async function fetchAndDisplayMedia(url, gridId, mediaType) {
     }
 }
 
+
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active state
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      // Add active state to current
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+
 // Call the functions to load images and videos
 document.addEventListener('DOMContentLoaded', () => {
     fetchAndDisplayMedia('images.json', 'imageGrid', 'images');
